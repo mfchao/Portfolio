@@ -9,7 +9,7 @@ import * as THREE from "three";
 export const Background = () => {
   return <>
   <Environment preset="sunset"/>
-  <Sphere scale={[100, 100, 100]} rotation-y={Math.PI / 2}>
+  <Sphere scale={[10, 10, 10]} rotation-y={Math.PI / 2}>
     <LayerMaterial
     lighting="physical"
     transmission={1}
