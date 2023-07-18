@@ -6,6 +6,9 @@ import React, { useLayoutEffect, useRef } from 'react';
 import { useGLTF, useScroll } from '@react-three/drei';
 import { useFrame } from "@react-three/fiber";
 import gsap from "gsap";
+import { LayerMaterial, Depth } from 'lamina'
+
+
 
 
 export const DISPLAY_HEIGHT = 3;
@@ -56,29 +59,34 @@ export function Cubes(props) {
 
       <group position={[-0.541, 1.389, -1.874]}>
       <group ref={bangkokRef}>
-      <mesh geometry={nodes.Cube005.geometry} material={materials['Material.002']} rotation={[0, -Math.PI / 4, 0]} scale={1.206} />
+      <mesh geometry={nodes.Cube005.geometry}  material={materials['Material.002']} rotation={[0, -Math.PI / 4, 0]} scale={1.206} castShadow receiveShadow>
+      </mesh>
       </group>
       </group>
       
       <group position={[-2.35, 0.752, -0.072]}>
       <group ref={coloradoRef}>
-      <mesh geometry={nodes.Cube006.geometry} material={materials['Material.002']} rotation={[-Math.PI, Math.PI / 4, -Math.PI]} scale={[-1.206, -0.144, -1.206]} />
+      <mesh geometry={nodes.Cube006.geometry} material={materials['Material.002']} rotation={[-Math.PI, Math.PI / 4, -Math.PI]} scale={[-1.206, -0.144, -1.206]} castShadow receiveShadow>
+        </mesh>
       </group>
       </group>
 
       <group position={[1.281, 1.378, -0.061]}>
       <group ref={bostonRef}>
-      <mesh geometry={nodes.Cube007.geometry} material={materials['Material.002']} rotation={[0, -Math.PI / 4, 0]} scale={1.206} />
+      <mesh geometry={nodes.Cube007.geometry} material={materials['Material.002']} rotation={[0, -Math.PI / 4, 0]} scale={1.206} castShadow receiveShadow>
+      </mesh>
       </group>
       </group>
 
       <group position={[-0.547, 1.38, 1.724]}>
       <group ref={londonRef}>
-      <mesh geometry={nodes.Cube008.geometry} material={materials['Material.002']} rotation={[0, -Math.PI / 4, 0]} scale={1.206} />
+      <mesh geometry={nodes.Cube008.geometry} material={materials['Material.002']} rotation={[0, -Math.PI / 4, 0]} scale={1.206} castShadow receiveShadow>
+      
+        </mesh>
       </group>
       </group>
 
-      <mesh geometry={nodes.Cube004.geometry} material={materials['Material.003']} position={[-0.802, 0.006, -0.48]} rotation={[0, -Math.PI / 4, 0]} scale={[3.211, 0.234, 3.055]} />
+      <mesh geometry={nodes.Cube004.geometry} material={materials['Material.003']} position={[-0.802, 0.006, -0.48]} rotation={[0, -Math.PI / 4, 0]} scale={[3.211, 0.234, 3.055]} envMapIntensity={2} castShadow receiveShadow/>
     </group>
   )
 }
