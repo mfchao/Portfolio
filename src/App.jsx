@@ -1,12 +1,17 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Experience } from "./components/Experience";
-import { OrbitControls, ScrollControls, useScroll, ContactShadows, SoftShadows } from "@react-three/drei";
+import { OrbitControls, ScrollControls, useScroll, ContactShadows, SoftShadows, Scroll } from "@react-three/drei";
 import { Background } from "./components/Background";
 import { Cubes } from "./components/Cubes";
 import { getProject, val } from "@theatre/core";
 import { SheetProvider, PerspectiveCamera, useCurrentSheet } from "@theatre/r3f";
 import { EffectComposer, Noise } from "@react-three/postprocessing";
-
+import { Interface } from "./components/Interface";
+import { useEffect, useState } from "react";
+import { ScrollManager } from "./components/ScrollManager";
+import { Menu } from "./components/Menu";
+import { animate, motion, useMotionValue } from "framer-motion";
+import { Cursor } from "./components/Cursor";
 
 import flyThroughState from "./fly.json";
 
@@ -14,36 +19,70 @@ function App() {
   // const sheet = getProject("Fly Through").sheet("Scene")
   const sheet = getProject("Fly Through", {state: flyThroughState}).sheet("Scene");
 
+  const [section, setSection] = useState(0);
+  const [menuOpened, setMenuOpened] = useState(false);
+
+  //close menu after clicked option
+  useEffect(() => {
+    setMenuOpened(false);
+  }, [section])
 
   return (
+    <>
     <Canvas shadows gl={{ preserveDrawingBuffer: true }}>
       <SoftShadows size={25} focus={0} samples={10}/>
       
-      <ScrollControls pages={8} damping={1} maxSpeed={0.8}>
+      <ScrollControls pages={9} damping={1} maxSpeed={0.8}>
+        <ScrollManager section={section} onSectionChange={setSection}/>
       <Experience />
         <SheetProvider sheet={sheet}>
-          <Scene/>
+          <Scene menuOpened={menuOpened}/>
         </SheetProvider>
+
+        {/* text content */}
+        <Scroll html>
+          <Interface/>
+        </Scroll>
+
       </ScrollControls>
 
       <EffectComposer>
         <Noise opacity={0.2}/>
       </EffectComposer>
-
     </Canvas>
+
+    <Menu onSectionChange={setSection} menuOpened={menuOpened} setMenuOpened={setMenuOpened}/>
+    <Cursor/>
+    </>
   );
 }
 
 export default App;
 
 
-function Scene() {
+function Scene(props) {
   const sheet = useCurrentSheet();
   const scroll = useScroll();
+  const { menuOpened } = props;
 
   useFrame(() => {
     const sequenceLength = val(sheet.sequence.pointer.length);
     sheet.sequence.position = scroll.offset * sequenceLength;
+  })
+
+  //camera move for menu
+
+  const cameraPositionX = useMotionValue();
+  const cameraLookAtX = useMotionValue();
+
+  useEffect(() => {
+    animate(cameraPositionX, menuOpened ? -5 : 0);
+    animate(cameraLookAtX, menuOpened ? 5 : 0);
+  }, [menuOpened])
+
+  useFrame((state) => {
+    state.camera.position.x = cameraPositionX.get();
+    state.camera.lookAt(cameraLookAtX.get(), 0 , 0);
   })
 
   return (
