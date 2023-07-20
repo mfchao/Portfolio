@@ -33,17 +33,17 @@ export function Cubes(props) {
       timeline.current = gsap.timeline();
   
       //Animation
-      timeline.current.to(coloradoRef.current.position, {duration: 2, y: DISPLAY_HEIGHT})
-                      .to(coloradoRef.current.position, {duration: 2, y: 0});
+      timeline.current.to(coloradoRef.current.position, {duration: 0.5, y: DISPLAY_HEIGHT})
+                      .to(coloradoRef.current.position, {duration: 0.5, y: 0});
 
-      timeline.current.to(bangkokRef.current.position, {duration: 2, y: DISPLAY_HEIGHT})
-                      .to(bangkokRef.current.position, {duration: 2, y: 0});
+      timeline.current.to(bangkokRef.current.position, {duration: 1, y: DISPLAY_HEIGHT}, 1)
+                      .to(bangkokRef.current.position, {duration: 1, y: 0});
 
-      timeline.current.to(londonRef.current.position, {duration: 2, y: DISPLAY_HEIGHT})
-                      .to(londonRef.current.position, {duration: 2, y: 0});
+      timeline.current.to(londonRef.current.position, {duration: 1, y: DISPLAY_HEIGHT}, 2)
+                      .to(londonRef.current.position, {duration: 1, y: 0});
       
-      timeline.current.to(bostonRef.current.position, {duration: 2, y: DISPLAY_HEIGHT})
-                      .to(bostonRef.current.position, {duration: 2, y: 0});
+      timeline.current.to(bostonRef.current.position, {duration: 1, y: DISPLAY_HEIGHT}, 3)
+                      .to(bostonRef.current.position, {duration: 1, y: 0});
       
 
       
