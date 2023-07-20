@@ -11,7 +11,6 @@ import { useEffect, useState } from "react";
 import { ScrollManager } from "./components/ScrollManager";
 import { Menu } from "./components/Menu";
 import { animate, motion, useMotionValue } from "framer-motion";
-import { Cursor } from "./components/Cursor";
 
 import flyThroughState from "./fly.json";
 
@@ -36,7 +35,7 @@ function App() {
         <ScrollManager section={section} onSectionChange={setSection}/>
       <Experience />
         <SheetProvider sheet={sheet}>
-          <Scene menuOpened={menuOpened}/>
+          <Scene/>
         </SheetProvider>
 
         {/* text content */}
@@ -52,7 +51,6 @@ function App() {
     </Canvas>
 
     <Menu onSectionChange={setSection} menuOpened={menuOpened} setMenuOpened={setMenuOpened}/>
-    <Cursor/>
     </>
   );
 }
@@ -60,10 +58,10 @@ function App() {
 export default App;
 
 
-function Scene(props) {
+function Scene() {
   const sheet = useCurrentSheet();
   const scroll = useScroll();
-  const { menuOpened } = props;
+ 
 
   useFrame(() => {
     const sequenceLength = val(sheet.sequence.pointer.length);
@@ -72,18 +70,18 @@ function Scene(props) {
 
   //camera move for menu
 
-  const cameraPositionX = useMotionValue();
-  const cameraLookAtX = useMotionValue();
+  // const cameraPositionX = useMotionValue();
+  // const cameraLookAtX = useMotionValue();
 
-  useEffect(() => {
-    animate(cameraPositionX, menuOpened ? -5 : 0);
-    animate(cameraLookAtX, menuOpened ? 5 : 0);
-  }, [menuOpened])
+  // useEffect(() => {
+  //   animate(cameraPositionX, menuOpened ? -5 : 0);
+  //   animate(cameraLookAtX, menuOpened ? 5 : 0);
+  // }, [menuOpened])
 
-  useFrame((state) => {
-    state.camera.position.x = cameraPositionX.get();
-    state.camera.lookAt(cameraLookAtX.get(), 0 , 0);
-  })
+  // useFrame((state) => {
+  //   state.camera.position.x = cameraPositionX.get();
+  //   state.camera.lookAt(cameraLookAtX.get(), 0 , 0);
+  // })
 
   return (
     <>

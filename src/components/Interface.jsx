@@ -1,13 +1,12 @@
 
 import { motion } from "framer-motion";
 
-
 const Section = (props) => {
     const {children} = props;
 
     return (<motion.section className={`
     h-screen w-screen p-20 max-w-screen-2xl mx-auto
-    flex flex-col justify-start items-center 
+    flex flex-col justify-center 
     `}
         initial={{
             opacity: 0,
@@ -28,7 +27,9 @@ const Section = (props) => {
 
 export const Interface = () => {
     return (
-    <div className="flex flex-col items-center w-screen ">
+
+    <div className="flex flex-col w-screen ">
+
     <HomeSection/>
     <ColoradoSection/>
     <BangkokSection/>
@@ -45,31 +46,16 @@ export const Interface = () => {
 const HomeSection = () => {
     return (
     <Section>
-        <h1 className="text-3xl font-extrabold leading-snug">
-            Hi, I'm <br/>
-            <span className="bg-white px-1 italic">Maggie Chao</span>
+        <div className="flex justify-center items-center flex-col">
+        <h1 className="text-xl SF-Compact-Medium drop-shadow-sm tracking-wider leading-snug ">
+            HI I'M <span className="text-rose-600">MAGGIE CHAO</span>, 
+            A <span className="text-rose-600"> CREATIVE DEVELOPER</span> OF IMPACTFUL SOLUTIONS.  
         </h1>
-        <motion.p className="text-lg text-gray-600 mt-4"
-            initial={{
-                opacity:0,
-                y: 25,
-            }}
-            whileInView={{
-                opacity: 1,
-                y: 0,
-            }}
-            transition={{
-                duration: 1,
-                delay: 1.5,
-            }}
-        >
-            I am a designer that 
-            <br/>
-            creates impactful solutions.
-        </motion.p>
+        
         {/* <button className="bg-indigo-600 text-white py-3 px-8 rounded-lg font-bold text-lg mt-16">
             Contact Me
         </button> */}
+        </div>
 
     </Section>
     );
@@ -78,11 +64,12 @@ const HomeSection = () => {
 const ColoradoSection = () => {
     return (
     <Section>
-        <h2 className="text-3xl font-extrabold leading-snug">
-            I was born in Colorado <br/>
-            with parents from Taiwan.
-        </h2>
-        <motion.p className="text-lg text-gray-600 mt-4"
+        <div className="flex justify-center items-center flex-col">
+        <h1 className="text-xl SF-Compact-Medium drop-shadow-sm tracking-wider leading-snug">
+            I WAS BORN IN <span className="text-rose-600">COLORADO</span>, 
+            WITH PARENTS FROM <span className="text-rose-600">TAIWAN</span>.  
+        </h1>
+        <motion.p className="text-base SF-Compact-Thin drop-shadow-sm mt-3 "
         initial={{
             opacity:0,
             y: 25,
@@ -95,10 +82,10 @@ const ColoradoSection = () => {
             duration: 1,
             delay: 1.5,
         }}>
-            Even since a young age, I've been 
-            <br/>
+            Ever since a young age, I've been 
             passionate about human computer interaction.
         </motion.p>
+        </div>
     </Section>
     );
 }
@@ -106,11 +93,12 @@ const ColoradoSection = () => {
 const BangkokSection = () => {
     return (
     <Section>
-        <h2 className="text-3xl font-extrabold leading-snug">
-            I moved to Thailand <br/>
-            when I was 16.
-        </h2>
-        <motion.p className="text-lg text-gray-600 mt-4"
+        <div className="flex justify-center items-center flex-col">
+        <h1 className="text-xl SF-Compact-Medium drop-shadow-sm tracking-wider leading-snug">
+            I MOVED TO <span className="text-rose-600">BANGKOK, THAILAND </span> 
+            WHEN I WAS 16.  
+        </h1>
+        <motion.p className="text-base SF-Compact-Thin drop-shadow-sm mt-3 "
         initial={{
             opacity:0,
             y: 25,
@@ -123,10 +111,9 @@ const BangkokSection = () => {
             duration: 1,
             delay: 1.5,
         }}>
-            Since then, I've picked up skills in  
-            <br/>
-            creative development and UX.
+            Since then, I've picked up skills in creative development and UX.
         </motion.p>
+        </div>
     </Section>
     );
 }
@@ -134,10 +121,11 @@ const BangkokSection = () => {
 const EchoSection = () => {
     return (
     <Section>
-        <h2 className="text-3xl font-extrabold leading-snug">
-            Introducing Echo <br/>
-        </h2>
-        <motion.p className="text-lg text-gray-600 mt-4"
+        <div className="flex items-start flex-col mx-60 ">
+        <h1 className="text-6xl SF-Compact-Thin drop-shadow-sm tracking-wider leading-snug ">
+            01.
+        </h1>
+        <motion.h1 className="text-xl SF-Compact-Medium drop-shadow-sm tracking-wider mt-4 "
         initial={{
             opacity:0,
             y: 25,
@@ -150,10 +138,11 @@ const EchoSection = () => {
             duration: 1,
             delay: 1.5,
         }}>
-            I moved to London to attend Univeristy College London, 
-            <br/>
-            where I created AR memory palace.
-        </motion.p>
+            WHEN I WENT TO <span className="text-rose-600">LONDON </span> 
+            TO ATTEND <span className="text-rose-600">UCL</span>
+            , I CREATED AN AUGMENTED REALITY MEMORY PALACE CALLED <span className="text-rose-600 underline underline-offset-4">INTRODUCING ECHO</span>.
+        </motion.h1>
+        </div>
     </Section>
     );
 }
@@ -161,10 +150,11 @@ const EchoSection = () => {
 const NosaSection = () => {
     return (
     <Section>
-        <h2 className="text-3xl font-extrabold leading-snug">
-            Nosakhari <br/>
-        </h2>
-        <motion.p className="text-lg text-gray-600 mt-4" 
+        <div className="flex items-start flex-col mx-60 ">
+        <h1 className="justify-start text-6xl SF-Compact-Thin drop-shadow-sm tracking-wider leading-snug ">
+            02.
+        </h1>
+        <motion.h1 className=" justify-start text-xl SF-Compact-Medium drop-shadow-sm tracking-wider mt-4"
         initial={{
             opacity:0,
             y: 25,
@@ -177,10 +167,10 @@ const NosaSection = () => {
             duration: 1,
             delay: 1.5,
         }}>
-            Creating elegant UX solutions 
-            <br/>
-            for a high fashion brand in London.
-        </motion.p>
+            IN LONDON, I CREATED EXPRESSIVE DESIGNS FOR HIGH FASHION BRAND,   
+             <span className="text-rose-600 underline underline-offset-4">NOSAKHARI</span>.
+        </motion.h1>
+        </div>
     </Section>
     );
 }
@@ -188,10 +178,11 @@ const NosaSection = () => {
 const DFSection = () => {
     return (
     <Section>
-        <h2 className="text-3xl font-extrabold leading-snug">
-            DeepFacade <br/>
-        </h2>
-        <motion.p className="text-lg text-gray-600 mt-4"
+        <div className="flex items-start flex-col mx-60 ">
+        <h1 className="justify-start text-6xl SF-Compact-Thin drop-shadow-sm tracking-wider leading-snug ">
+            03.
+        </h1>
+        <motion.h1 className=" justify-start text-xl SF-Compact-Medium drop-shadow-sm tracking-wider mt-4"
         initial={{
             opacity:0,
             y: 25,
@@ -204,10 +195,11 @@ const DFSection = () => {
             duration: 1,
             delay: 1.5,
         }}>
-            I moved to Boston to attend Harvard GSD, 
-            <br/>
-            where I created a text-to-facade AI. 
-        </motion.p>
+            WHEN I MOVED TO <span className="text-rose-600">BOSTON</span>
+            , I CREATED A TEXT TO FACADE AI CALLED <span className="text-rose-600 underline underline-offset-4">DEEPFACADE</span> 
+             FOR A PROJECT AT <span className="text-rose-600">MIT</span>.
+        </motion.h1>
+        </div>
     </Section>
     );
 }
@@ -215,11 +207,11 @@ const DFSection = () => {
 const TemplesSection = () => {
     return (
     <Section>
-        <h2 className="text-3xl font-extrabold leading-snug">
-            Temples of <br/>
-            Consumerism
-        </h2>
-        <motion.p className="text-lg text-gray-600 mt-4"
+        <div className="flex items-start flex-col mx-60 ">
+        <h1 className="justify-start text-6xl SF-Compact-Thin drop-shadow-sm tracking-wider leading-snug ">
+            04.
+        </h1>
+        <motion.h1 className=" justify-start text-xl SF-Compact-Medium drop-shadow-sm tracking-wider mt-4"
         initial={{
             opacity:0,
             y: 25,
@@ -232,10 +224,10 @@ const TemplesSection = () => {
             duration: 1,
             delay: 1.5,
         }}>
-            An innovative UX solution gamifying  
-            <br/>
-            shopping using AR.
-        </motion.p>
+            AT <span className="text-rose-600">HARVARD</span> I GAMIFIED SHOPPING USING AUGMENTED REALITY IN THE PROJECT 
+             <span className="text-rose-600 underline underline-offset-4">TEMPLES OF CONSUMERISM</span>.
+        </motion.h1>
+        </div>
     </Section>
     );
 }
@@ -243,11 +235,11 @@ const TemplesSection = () => {
 const ResearchSection = () => {
     return (
     <Section>
-        <h2 className="text-3xl font-extrabold leading-snug">
-            Machine Learning <br/>
-            Research
-        </h2>
-        <motion.p className="text-lg text-gray-600 mt-4"
+        <div className="flex items-start flex-col mx-60 ">
+        <h1 className="justify-start text-6xl SF-Compact-Thin drop-shadow-sm tracking-wider leading-snug ">
+            05.
+        </h1>
+        <motion.h1 className=" justify-start text-xl SF-Compact-Medium drop-shadow-sm tracking-wider mt-4"
         initial={{
             opacity:0,
             y: 25,
@@ -260,10 +252,10 @@ const ResearchSection = () => {
             duration: 1,
             delay: 1.5,
         }}>
-            An ongoing research into predicting
-            <br/>
-            tile trends in the Miiddle Eastern markets.
-        </motion.p>
+            IN COLLABORATION WITH THE <span className="text-rose-600">MAPS LAB</span>, I BUILT AN TREND PREDICTING AI MODEL THROUGH 
+             <span className="text-rose-600 underline underline-offset-4">MACHINE LEARNING RESEARCH</span>.
+        </motion.h1>
+        </div>
     </Section>
     );
 }
@@ -271,26 +263,16 @@ const ResearchSection = () => {
 const ArchiveSection = () => {
     return (
     <Section>
-        <h2 className="text-3xl font-extrabold leading-snug">
-            Explore more <br/>
-        </h2>
-        <motion.p className="text-lg text-gray-600 mt-4"
-        initial={{
-            opacity:0,
-            y: 25,
-        }}
-        whileInView={{
-            opacity: 1,
-            y: 0,
-        }}
-        transition={{
-            duration: 1,
-            delay: 1.5,
-        }}>
-            Explore the rest of my projcts 
-            <br/>
-            about computation, UX/UI, or fabrication. 
-        </motion.p>
+        <div className="flex justify-center items-center flex-col">
+        <h1 className="text-xl SF-Compact-Medium drop-shadow-sm tracking-wider leading-snug">
+            EXPLORE MORE OF MY OTHER PROJECTS ON <span className="text-rose-600">COMPUTATION</span>,  
+            <span className="text-rose-600">UX/UI</span>, OR <span className="text-rose-600">FABRICATION</span> HERE.
+        </h1>
+        
+        {/* <button className="bg-indigo-600 text-white py-3 px-8 rounded-lg font-bold text-lg mt-16">
+            ARCHIVE
+        </button> */}
+        </div>
     </Section>
     );
 }

@@ -13,3 +13,68 @@ body {
   margin: 0;
   overflow: hidden;
 }
+
+/* @font-face {
+  font-family: "SF-Compact-Bold";
+  src: local("SF-Compact-Bold"),
+   url("./src/fonts/SFCompact/SF-Compact-Text-Bold.ttf") format("truetype");
+ }
+
+ @font-face {
+  font-family: "SF-Compact-BoldItalic";
+  src: local("SF-Compact-BoldItalic"),
+   url("./src/fonts/SFCompact/SF-Compact-Text-BoldItalic.ttf") format("truetype");
+ }
+
+ @font-face {
+  font-family: "SF-Compact-Light";
+  src: local("SF-Compact-Light"),
+   url("./src/fonts/SFCompact/SF-Compact-Text-Light.ttf") format("truetype");
+ }
+
+ @font-face {
+  font-family: "SF-Compact-LightItalic";
+  src: local("SF-Compact-LightItalic"),
+   url("./src/fonts/SFCompact/SF-Compact-Text-LightItalic.ttf") format("truetype");
+ } */
+
+ @font-face {
+  font-family: "SF-Compact-Medium";
+  src: local("SF-Compact-Medium"),
+   url("./src/fonts/SFCompact/SF-Compact-Text-Medium.ttf") format("truetype");
+ }
+
+ @font-face {
+  font-family: "SF-Compact-Semibold";
+  src: local("SF-Compact-Semibold"),
+   url("./src/fonts/SFCompact/SF-Compact-Text-Semibold.ttf") format("truetype");
+ }
+
+ @font-face {
+  font-family: "SF-Compact-Light";
+  src: local("SF-Compact-Light"),
+   url("./src/fonts/SFCompact/SF-Compact-Text-Light.ttf") format("truetype");
+ }
+
+ @font-face {
+  font-family: "SF-Compact-Thin";
+  src: local("SF-Compact-Thin"),
+   url("./src/fonts/SFCompact/SF-Compact-Text-Thin.ttf") format("truetype");
+ }
+
+
+.SF-Compact-Medium {
+  font-family: "SF-Compact-Medium";
+}
+
+.SF-Compact-Semibold {
+  font-family: "SF-Compact-Semibold";
+}
+
+.SF-Compact-Light {
+  font-family: "SF-Compact-Light";
+}
+
+.SF-Compact-Thin {
+  font-family: "SF-Compact-Thin";
+}

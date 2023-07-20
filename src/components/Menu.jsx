@@ -1,25 +1,31 @@
+import logo from "./logo.svg";
 
 export const Menu = (props) => {
     const { onSectionChange, menuOpened, setMenuOpened } = props;
 
     return (
     <>
+        <img
+        src={logo}
+        className="fixed z-20 bottom-12 right-12 scale-[0.7]"
+        />
+
         <button
         onClick={() => setMenuOpened(!menuOpened)}
-        className="z-20 fixed top-12 right-12 p-3 bg-black w-11 h-11 rounded-md"
+        className="z-20 fixed top-12 right-12 p-3 w-11 h-11 rounded-md"
         >
             <div
-            className={`bg-white h-0.5 rounded-md w-full transition-all ${
+            className={`bg-black h-0.5 rounded-md w-full transition-all ${
                 menuOpened ? "rotate-45 translate-y-0.5" : ""
             }`}
             />
             <div
-            className={`bg-white h-0.5 rounded-md w-full my-1 ${
+            className={`bg-black h-0.5 rounded-md w-full my-1 ${
                 menuOpened ? "hidden" : ""
             }`}
             />
             <div
-            className={`bg-white h-0.5 rounded-md w-full transition-all ${
+            className={`bg-black h-0.5 rounded-md w-full transition-all ${
                 menuOpened ? "-rotate-45" : ""
             }`}
             />

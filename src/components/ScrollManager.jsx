@@ -45,6 +45,8 @@ export const ScrollManager = (props) => {
         ) {
             onSectionChange(0);
         }
+        
+        
         lastScroll.current = data.scroll.current;
     })
     return null;
