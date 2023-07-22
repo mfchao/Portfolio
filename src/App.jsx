@@ -4,19 +4,25 @@ import { OrbitControls, ScrollControls, useScroll, ContactShadows, SoftShadows, 
 import { Background } from "./components/Background";
 import { Cubes } from "./components/Cubes";
 import { getProject, val } from "@theatre/core";
-import { SheetProvider, PerspectiveCamera, useCurrentSheet } from "@theatre/r3f";
+import { editable as e, SheetProvider, PerspectiveCamera, useCurrentSheet } from "@theatre/r3f";
 import { EffectComposer, Noise } from "@react-three/postprocessing";
 import { Interface } from "./components/Interface";
 import { useEffect, useState } from "react";
 import { ScrollManager } from "./components/ScrollManager";
 import { Menu } from "./components/Menu";
 import { animate, motion, useMotionValue } from "framer-motion";
+import { Colorado } from "./components/Colorado";
+import { Bangkok } from "./components/Bangkok";
+import { Boston } from "./components/Boston";
+import { London } from "./components/London";
+import { Base } from "./components/Base";
 
-import flyThroughState from "./fly.json";
+
+import flyThroughState from "./fly2.json";
 
 function App() {
-  // const sheet = getProject("Fly Through").sheet("Scene")
-  const sheet = getProject("Fly Through", {state: flyThroughState}).sheet("Scene");
+  // const sheet = getProject("Fly Through 2").sheet("Scene")
+  const sheet = getProject("Fly Through 2", {state: flyThroughState}).sheet("Scene");
 
   const [section, setSection] = useState(0);
   const [menuOpened, setMenuOpened] = useState(false);
@@ -87,7 +93,31 @@ function Scene() {
     <>
     <color attach="background" args={["#f0f0f0"]} />
     
-    <Cubes
+    <e.mesh theatreKey='Colorado'>
+      <Colorado
+        scale={[0.8, 0.8, 0.8]}
+        position-x={0.4}
+      />
+    </e.mesh>
+    <e.mesh theatreKey='Bangkok'>
+      <Bangkok
+        scale={[0.8, 0.8, 0.8]}
+        position-x={0.4}
+      />
+    </e.mesh>
+    <e.mesh theatreKey='Boston'>
+      <Boston
+        scale={[0.8, 0.8, 0.8]}
+        position-x={0.4}
+      />
+    </e.mesh>
+    <e.mesh theatreKey='London'>
+      <London
+        scale={[0.8, 0.8, 0.8]}
+        position-x={0.4}
+      />
+    </e.mesh>
+    <Base
       scale={[0.8, 0.8, 0.8]}
       position-x={0.4}
     />
@@ -101,6 +131,7 @@ function Scene() {
       far={70}
       
     />
+    
     {/* floor */}
     <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.5, 0]} receiveShadow>
           <planeGeometry args={[100, 100]} />

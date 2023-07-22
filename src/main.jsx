@@ -14,6 +14,7 @@ import './fonts/SFCompact/SF-Compact-Text-Medium.ttf';
 import './fonts/SFCompact/SF-Compact-Text-Semibold.ttf';
 // import './src/fonts/SFCompact/SF-Compact-Text-SemiboldItalic.ttf';
 import './fonts/SFCompact/SF-Compact-Text-Thin.ttf';
+
 // import './src/fonts/SFCompact/SF-Compact-Text-ThinItalic.ttf';
 // import './src/fonts/SFCompact/SF-Compact-Text-Ultralight.ttf';
 // import './src/fonts/SFCompact/SF-Compact-Text-UltralightItalic.ttf';
