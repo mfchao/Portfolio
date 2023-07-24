@@ -21,8 +21,6 @@ import { Base } from "./components/Base";
 import flyThroughState from "./fly2.json";
 
 function App() {
-  // const sheet = getProject("Fly Through 2").sheet("Scene")
-  const sheet = getProject("Fly Through 2", {state: flyThroughState}).sheet("Scene");
 
   const [section, setSection] = useState(0);
   const [menuOpened, setMenuOpened] = useState(false);
@@ -31,6 +29,9 @@ function App() {
   useEffect(() => {
     setMenuOpened(false);
   }, [section])
+
+  // const sheet = getProject("Fly Through 2").sheet("Scene")
+  const sheet = getProject("Fly Through 2", {state: flyThroughState}).sheet("Scene");
 
   return (
     <>
@@ -142,3 +143,8 @@ function Scene() {
     </>
   )
 }
+
+
+
+
+
