@@ -16,9 +16,10 @@ import { Bangkok } from "./components/Bangkok";
 import { Boston } from "./components/Boston";
 import { London } from "./components/London";
 import { Base } from "./components/Base";
-
+import { GlassDiv } from "./components/glass";
 
 import flyThroughState from "./fly2.json";
+
 
 function App() {
 
@@ -40,6 +41,9 @@ function App() {
       
       <ScrollControls pages={9} damping={1} maxSpeed={0.8}>
         <ScrollManager section={section} onSectionChange={setSection}/>
+
+        
+
       <Experience />
         <SheetProvider sheet={sheet}>
           <Scene/>
@@ -48,6 +52,7 @@ function App() {
         {/* text content */}
         <Scroll html>
           <Interface/>
+          
         </Scroll>
 
       </ScrollControls>
@@ -55,8 +60,9 @@ function App() {
       <EffectComposer>
         <Noise opacity={0.2}/>
       </EffectComposer>
+      
     </Canvas>
-
+    <GlassDiv/>
     <Menu onSectionChange={setSection} menuOpened={menuOpened} setMenuOpened={setMenuOpened}/>
     </>
   );

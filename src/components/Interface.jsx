@@ -4,6 +4,7 @@ import { useGLTF, MeshTransmissionMaterial, ContactShadows, Environment } from '
 import { easing } from 'maath'
 import { useStore } from './preview'
 import { motion } from "framer-motion";
+
 // import Selector from './Selector';
 
 // import { usePreview } from './Preview'
@@ -32,10 +33,12 @@ const Section = (props) => {
 }
 
 
+
 export const Interface = () => {
     return (
 
     <div className="flex flex-col w-screen ">
+        
 
     <HomeSection/>
 
@@ -72,7 +75,7 @@ const HomeSection = () => {
         }}
         transition={{
             duration: 1,
-            delay: 3.5,
+            delay: 2.0,
         }}>
             HI I'M <span className="text-rose-600">MAGGIE CHAO</span>, 
             A <span className="text-rose-600"> CREATIVE DEVELOPER</span> OF IMPACTFUL SOLUTIONS.  
@@ -102,7 +105,7 @@ const ColoradoSection = () => {
         }}
         transition={{
             duration: 1,
-            delay: 3.5,
+            delay: 2.0,
         }}>
             I WAS BORN IN <span className="text-rose-600">COLORADO</span>, 
             WITH PARENTS FROM <span className="text-rose-600">TAIWAN</span>.  
@@ -118,7 +121,7 @@ const ColoradoSection = () => {
         }}
         transition={{
             duration: 1,
-            delay: 3.5,
+            delay: 2.0,
         }}>
             Ever since a young age, I've been 
             passionate about human computer interaction.
@@ -143,7 +146,7 @@ const BangkokSection = () => {
         }}
         transition={{
             duration: 1,
-            delay: 3.5,
+            delay: 2.0,
         }}>
             I MOVED TO <span className="text-rose-600">BANGKOK, THAILAND </span> 
             WHEN I WAS 16.  
@@ -159,7 +162,7 @@ const BangkokSection = () => {
         }}
         transition={{
             duration: 1,
-            delay: 3.5,
+            delay: 2.0,
         }}>
             Since then, I've picked up skills in creative development and UX.
         </motion.p>
@@ -183,7 +186,7 @@ const EchoSection = () => {
         }}
         transition={{
             duration: 1,
-            delay: 3.5,
+            delay: 2.0,
         }}>
             01.
         </motion.h1>
@@ -198,7 +201,7 @@ const EchoSection = () => {
         }}
         transition={{
             duration: 1,
-            delay: 3.5,
+            delay: 2.0,
         }}>
             WHEN I WENT TO <span className="text-rose-600">LONDON </span> 
             TO ATTEND <span className="text-rose-600">UCL</span>
@@ -224,7 +227,7 @@ const NosaSection = () => {
         }}
         transition={{
             duration: 1,
-            delay: 3.5,
+            delay: 2.0,
         }}>
             02.
         </motion.h1>
@@ -239,7 +242,7 @@ const NosaSection = () => {
         }}
         transition={{
             duration: 1,
-            delay: 3.5,
+            delay: 2.0,
         }}>
             IN LONDON, I CREATED EXPRESSIVE DESIGNS FOR HIGH FASHION BRAND,   
              <span className="text-rose-600 underline underline-offset-4">NOSAKHARI</span>.
@@ -264,7 +267,7 @@ const DFSection = () => {
         }}
         transition={{
             duration: 1,
-            delay: 3.5,
+            delay: 2.0,
         }}>
             03.
         </motion.h1>
@@ -279,7 +282,7 @@ const DFSection = () => {
         }}
         transition={{
             duration: 1,
-            delay: 3.5,
+            delay: 2.0,
         }}>
             WHEN I MOVED TO <span className="text-rose-600">BOSTON</span>
             , I CREATED A TEXT TO FACADE AI CALLED <span className="text-rose-600 underline underline-offset-4">DEEPFACADE</span> 
@@ -305,7 +308,7 @@ const TemplesSection = () => {
         }}
         transition={{
             duration: 1,
-            delay: 3.5,
+            delay: 2.0,
         }}>
             04.
         </motion.h1>
@@ -320,7 +323,7 @@ const TemplesSection = () => {
         }}
         transition={{
             duration: 1,
-            delay: 3.5,
+            delay: 2.0,
         }}>
             AT <span className="text-rose-600">HARVARD</span> I GAMIFIED SHOPPING USING AUGMENTED REALITY IN THE PROJECT 
              <span className="text-rose-600 underline underline-offset-4">TEMPLES OF CONSUMERISM</span>.
@@ -345,7 +348,7 @@ const ResearchSection = () => {
         }}
         transition={{
             duration: 1,
-            delay: 3.5,
+            delay: 2.0,
         }}>
             05.
         </motion.h1>
@@ -360,7 +363,7 @@ const ResearchSection = () => {
         }}
         transition={{
             duration: 1,
-            delay: 3.5,
+            delay: 2.0,
         }}>
             IN COLLABORATION WITH THE <span className="text-rose-600">MAPS LAB</span>, I BUILT AN TREND PREDICTING AI MODEL THROUGH 
              <span className="text-rose-600 underline underline-offset-4">MACHINE LEARNING RESEARCH</span>.
@@ -385,7 +388,7 @@ const ArchiveSection = () => {
         }}
         transition={{
             duration: 1,
-            delay: 3.5,
+            delay: 2.0,
         }}>
             EXPLORE MORE OF MY OTHER PROJECTS ON <span className="text-rose-600">COMPUTATION</span>,  
             <span className="text-rose-600">UX/UI</span>, OR <span className="text-rose-600">FABRICATION</span> HERE.
