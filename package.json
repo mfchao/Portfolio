@@ -33,7 +33,6 @@
     "react-scroll-motion": "^0.3.2",
     "react-threejs": "^0.0.4",
     "stats.js": "*",
-    "styled-components": "^6.0.5",
     "three": "^0.154.0",
     "troika-3d-text": "^0.47.2",
     "valtio": "^1.11.0",

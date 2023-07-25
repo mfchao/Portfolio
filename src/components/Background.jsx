@@ -2,56 +2,47 @@ import { Environment, Sphere } from "@react-three/drei";
 import { Gradient, LayerMaterial } from "lamina";
 import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
+import { Color, BackSide } from "three";
+import React from "react";
 
-
-import * as THREE from "three";
-
+const start = 0.2;
+const end = -0.5;
+const halfPi = Math.PI / 2;
 
 export const Background = ({ backgroundColors }) => {
-    const start = 0.2;
-    const end = -0.5;
   
     const gradientRef = useRef();
     const gradientEnvRef = useRef();
   
     useFrame(() => {
-      gradientRef.current.colorA = new THREE.Color(
-        backgroundColors.current.colorA
-      );
-      gradientRef.current.colorB = new THREE.Color(
-        backgroundColors.current.colorB
-      );
-      gradientEnvRef.current.colorA = new THREE.Color(
-        backgroundColors.current.colorA
-      );
-      gradientEnvRef.current.colorB = new THREE.Color(
-        backgroundColors.current.colorB
-      );
-      gradientEnvRef.current.colorB = new THREE.Color(
-        backgroundColors.current.colorB
-      );
+      const { colorA, colorB } = backgroundColors.current;
+
+      gradientRef.current.colorA = new Color(colorA);
+      gradientRef.current.colorB = new Color(colorB);
+      gradientEnvRef.current.colorA = new Color(colorA);
+      gradientEnvRef.current.colorB = new Color(colorB);
     });
+
+    const sphereScale = [50, 50, 50];
+    const directionalLightPosition = [3, 8, 4];
+    const sphereScaleEnv = [20, 20, 20];
+  
   
     return (
       <>
       
-        <Sphere scale={[50, 50, 50]} rotation-y={Math.PI / 2}>
-          <LayerMaterial color={"#ffffff"} side={THREE.BackSide}>
+        <Sphere scale={sphereScale} rotation={[0, halfPi, 0]}>
+          <LayerMaterial color={"#ffffff"} side={BackSide}>
             <Gradient ref={gradientRef} axes={"y"} start={start} end={end} />
           </LayerMaterial>
         </Sphere>
 
-        <directionalLight castShadow position={[3, 8, 4]} intensity={3} shadow-mapSize={1024}></directionalLight>
-        <pointLight position={[-10, 0, -20]} color="white" intensity={0.1} />
-        <pointLight position={[0, -10, 0]} intensity={0.1} />
+        <directionalLight castShadow position={directionalLightPosition} intensity={3} />
         
-        <Environment resolution={256} frames={Infinity} preset="warehouse">
+        <Environment resolution={256} frames={Infinity}>
           <Sphere
-            scale={[20, 20, 20]}
-            rotation-y={Math.PI / 2}
-            rotation-x={Math.PI}
-          >
-            <LayerMaterial color={"#ffffff"} side={THREE.BackSide}>
+            scale={sphereScaleEnv} rotation={[Math.PI, halfPi, 0]}>
+            <LayerMaterial color={"#ffffff"} side={BackSide}>
               <Gradient ref={gradientEnvRef} axes={"y"} start={start} end={end} />
             </LayerMaterial>
           </Sphere>
@@ -60,3 +51,4 @@ export const Background = ({ backgroundColors }) => {
     );
   };
  
+  export default React.memo(Background);

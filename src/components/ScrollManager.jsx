@@ -9,6 +9,7 @@ export const ScrollManager = (props) => {
     const data = useScroll();
     const lastScroll = useRef(0);
     const isAnimating = useRef(false);
+    // const totalPages = data.pages;
 
     //correct scroll position
     data.fill.classList.add("top-0");
@@ -34,19 +35,20 @@ export const ScrollManager = (props) => {
             return;
         }
 
-        //Scroll to first section
-        const curSection = Math.floor(data.scroll.current * data.pages);
-        if (data.scroll.current > lastScroll.current && curSection === 0) {
-            onSectionChange(1);
-        }
-        if (
-            data.scroll.current < lastScroll.current &&
-            data.scroll.current < 1 / (data.pages - 1)
-        ) {
-            onSectionChange(0);
-        }
-        
-        
+        //Smooth Scroll forward
+        // const curSection = Math.floor(data.scroll.current * totalPages);
+        // if (data.scroll.current > lastScroll.current && curSection === 0) {
+        //     onSectionChange(curSection + 1);
+        // }
+
+
+        //Smooth Scroll backwards
+        // if (data.scroll.current < lastScroll.current &&
+        //     data.scroll.current < 1 / (totalPages - 1)
+        // ) {
+        //     onSectionChange(lastSection);
+        // } 
+         
         lastScroll.current = data.scroll.current;
     })
     return null;
