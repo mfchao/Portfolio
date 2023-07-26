@@ -34,6 +34,7 @@
     "react-threejs": "^0.0.4",
     "stats.js": "*",
     "three": "^0.154.0",
+    "three-stdlib": "^2.23.13",
     "troika-3d-text": "^0.47.2",
     "valtio": "^1.11.0",
     "yarn": "^1.22.19"

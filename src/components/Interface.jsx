@@ -76,7 +76,7 @@ export const Interface = ({ mouseOverEvent, mouseOutEvent }) => {
           title: (
             <span>
               HI I'M <span className="text-rose-600">MAGGIE CHAO</span>, A{" "}
-              <span className="text-rose-600"> CREATIVE DEVELOPER</span> OF IMPACTFUL
+              <span onMouseOver={mouseOverEvent} onMouseOut={mouseOutEvent} className="text-rose-600"> CREATIVE DEVELOPER</span> OF IMPACTFUL
               SOLUTIONS.
             </span>
           ),

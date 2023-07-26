@@ -21,11 +21,11 @@ import './fonts/SFCompact/SF-Compact-Text-Thin.ttf';
 
 
 
-// import studio from '@theatre/studio'
-// import extension from '@theatre/r3f/dist/extension'
+import studio from '@theatre/studio'
+import extension from '@theatre/r3f/dist/extension'
 
-// studio.extend(extension);
-// studio.initialize();
+studio.extend(extension);
+studio.initialize();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
