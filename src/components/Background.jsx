@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { Color, BackSide } from "three";
 import React from "react";
+import { Portal } from "./Portal";
 
 const start = 0.2;
 const end = -0.5;
@@ -37,6 +38,8 @@ export const Background = ({ backgroundColors }) => {
           </LayerMaterial>
         </Sphere>
 
+        
+
         <directionalLight castShadow position={directionalLightPosition} intensity={3} />
         
         <Environment resolution={256} frames={Infinity}>
@@ -47,6 +50,8 @@ export const Background = ({ backgroundColors }) => {
             </LayerMaterial>
           </Sphere>
         </Environment>
+
+        
       </>
     );
   };
