@@ -1,6 +1,6 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Experience } from "./components/Experience";
-import { ScrollControls, useScroll, SoftShadows, Scroll, MeshTransmissionMaterial, Text, Cylinder, CameraControls } from "@react-three/drei";
+import { ScrollControls, useScroll, SoftShadows, Scroll, MeshTransmissionMaterial, Text, Cylinder, CameraControls, OrbitControls } from "@react-three/drei";
 import { getProject, val, types } from "@theatre/core";
 import { editable as e, editable, SheetProvider, PerspectiveCamera, useCurrentSheet } from "@theatre/r3f";
 import { EffectComposer, Noise } from "@react-three/postprocessing";
@@ -12,14 +12,13 @@ import { Colorado } from "./components/Colorado";
 import { Bangkok } from "./components/Bangkok";
 import { Boston } from "./components/Boston";
 import { London } from "./components/London";
-import { Base } from "./components/Base";
-import { GlassDiv } from "./components/glass";
 import flyThroughState from "./fly2.json";
 import './components/mouse.css';
 import { easing } from 'maath';
 import fonts from "./components/fonts";
 import { CylinderGeometry, MeshStandardMaterial } from "three";
 import { Portal } from "./components/Portal";
+import { TextElements } from "./components/TextElements";
 
 
 
@@ -52,6 +51,7 @@ function App() {
   return (
     <>
     <Canvas shadows gl={{ preserveDrawingBuffer: true }}>
+      {/* <OrbitControls/> */}
     
       <SoftShadows size={25} focus={0} samples={10}/>
 
@@ -97,28 +97,6 @@ function Scene({ mouseOverEvent, mouseOutEvent, cursorEnlarged }) {
   const cylinderRef = useRef();
   const [cylinderOpacity, setcylinderOpacity] = useState(null)
 
-  const textElements = [
-    {
-      key: "P1Text1",
-      text: "HI I'M",
-      fillOpacityState: useState(null),
-      ref: useRef(),
-      color: "black",
-      showHover: mouseOverEvent,
-      closeHover: mouseOutEvent,
-    },
-    {
-      key: "P1Text2",
-      text: "MAGGIE CHAO",
-      fillOpacityState: useState(null),
-      ref: useRef(),
-      color: "red",
-      showHover: null,
-      closeHover: null,
-    },
-    // Add more text elements here if needed
-  ];
-
 
   useEffect(
     () => {
@@ -131,36 +109,10 @@ function Scene({ mouseOverEvent, mouseOutEvent, cursorEnlarged }) {
     },[cylinderOpacity], )
 
 
-
-  useEffect(() => {
-    textElements.forEach((element) => {
-      const [opacityState, setOpacityState] = element.fillOpacityState;
-
-      if (!opacityState) return;
-
-      const unsubscribe = opacityState.onValuesChange((newValues) => {
-        element.ref.current.fillOpacity = newValues.fillOpacity;
-      });
-
-      return unsubscribe;
-    });
-  }, [textElements]);
-
- 
-
   useFrame(() => {
     const sequenceLength = val(sheet.sequence.pointer.length);
     sheet.sequence.position = scroll.offset * sequenceLength;
   })
-
-  const [title, setTitle] = useState({
-    fontSize: 0.1,
-    maxWidth: 300,
-    lineHeight: 1,
-    letterSpacing: 0.05,
-    textAlign: "center",
-    materialType: "MeshStandardMaterial",
-  });
 
 
   
@@ -182,8 +134,6 @@ function Scene({ mouseOverEvent, mouseOutEvent, cursorEnlarged }) {
   const cubeScale = [0.8, 0.8, 0.8];
 
   let lineLength = cursorEnlarged ? 3 : 0.8;
-
-
 
   return (
     <>
@@ -238,12 +188,9 @@ function Scene({ mouseOverEvent, mouseOutEvent, cursorEnlarged }) {
       <meshBasicMaterial ref={cylinderRef} opacity={1} transparent color='black'/>
     </e.mesh>
 
+
     {/* Text */}
-    {textElements.map((element) => (
-        <e.mesh key={element.key} theatreKey={element.key} additionalProps={{ fillOpacity: types.number(1, { nudgeMultiplier: 0.1 }) }} objRef={element.fillOpacityState[1]}>
-          <Text ref={element.ref} text={element.text} onPointerOver={element.showHover} onPointerOut={element.closeHover} font={fonts.SFCompactSemibold} color={element.color} {...title}/>
-        </e.mesh>
-      ))}
+    <TextElements mouseOverEvent={mouseOverEvent} mouseOutEvent={mouseOutEvent}/>
 
 
     {/* floor */}

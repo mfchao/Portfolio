@@ -75,81 +75,69 @@ export const Interface = ({ mouseOverEvent, mouseOutEvent }) => {
         {
           title: (
             <span>
-              HI I'M <span className="text-rose-600">MAGGIE CHAO</span>, A{" "}
-              <span onMouseOver={mouseOverEvent} onMouseOut={mouseOutEvent} className="text-rose-600"> CREATIVE DEVELOPER</span> OF IMPACTFUL
-              SOLUTIONS.
+              0
             </span>
           ),
           description:
-            "",
+            " ",
         },
         {
           title: (
             <span>
-              I WAS BORN IN <span className="text-rose-600">COLORADO</span>, 
-              WITH PARENTS FROM <span className="text-rose-600">TAIWAN</span>.
+              1
             </span>
           ),
-          description: "Ever since a young age, I've been passionate about human computer interaction.",
+          description: " ",
         },
         {
           title: (
             <span>
-              I MOVED TO <span className="text-rose-600">BANGKOK, THAILAND </span> 
-              WHEN I WAS 16. 
+              2 
             </span>
           ),
-          description: "Since then, I've picked up skills in creative development and UX.",
+          description: " ",
         },
       ], []);
 
       const projectSections = useMemo(() => [
         {
-          number: "01.",
+          number: " ",
           description:
           (
             <span>
-              WHEN I WENT TO <span className="text-rose-600">LONDON </span> 
-            TO ATTEND <span className="text-rose-600">UCL</span>
-            , I CREATED AN AUGMENTED REALITY MEMORY PALACE CALLED 
-            <span onMouseOver={mouseOverEvent} onMouseOut={mouseOutEvent} className="text-rose-600 underline underline-offset-4">INTRODUCING ECHO</span>.
+              3
             </span>
           ),
         },
         {
-          number: "02.",
+          number: " ",
           description: (
             <span>
-              IN LONDON, I CREATED EXPRESSIVE DESIGNS FOR HIGH FASHION BRAND,   
-             <span className="text-rose-600 underline underline-offset-4">NOSAKHARI</span>.
+             4
             </span>
           ),
         },
         {
-          number: "03.",
+          number: " ",
           description: (
             <span>
-              WHEN I MOVED TO <span className="text-rose-600">BOSTON</span>
-            , I CREATED A TEXT TO FACADE AI CALLED <span className="text-rose-600 underline underline-offset-4">DEEPFACADE</span> 
-             FOR A PROJECT AT <span className="text-rose-600">MIT</span>.
+              5
             </span>
           ),
         },
         {
-            number: "04.",
+            number: " ",
             description: (
               <span>
-                AT <span className="text-rose-600">HARVARD</span> I GAMIFIED SHOPPING USING AUGMENTED REALITY IN THE PROJECT 
-             <span className="text-rose-600 underline underline-offset-4">TEMPLES OF CONSUMERISM</span>.
+               6
               </span>
             ),
           },
           {
-            number: "05.",
+            number: " ",
             description: (
               <span>
-                IN COLLABORATION WITH THE <span className="text-rose-600">MAPS LAB</span>, I BUILT AN TREND PREDICTING AI MODEL THROUGH 
-             <span className="text-rose-600 underline underline-offset-4">MACHINE LEARNING RESEARCH</span>.
+               7
               </span>
             ),
           }
@@ -166,9 +154,8 @@ export const Interface = ({ mouseOverEvent, mouseOutEvent }) => {
         ))}
 
         <AboutSection title={<span> 
-            EXPLORE MORE OF MY OTHER PROJECTS ON <span className="text-rose-600">COMPUTATION</span>,  
-            <span className="text-rose-600">UX/UI</span>, OR <span className="text-rose-600">FABRICATION</span> HERE.
-        </span>} description={""}/>
+           8
+        </span>} description={" "}/>
 
     </div>
     )

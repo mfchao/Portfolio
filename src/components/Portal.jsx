@@ -6,8 +6,8 @@ import fonts from "./fonts";
 import { useFrame } from "@react-three/fiber";
 import { easing } from "maath";
 
-const width = 1;
-const height = 2;
+const width = 4.6;
+const height = 4.8;
 
 export const Portal = () => {
     const [hovered, setHovered] = useState(false);
@@ -27,11 +27,11 @@ export const Portal = () => {
         <>
 
             <group active={active} setActive={setActive} >
-            <Text font={fonts.SFCompactSemibold} fontSize={0.2} letterSpacing={0.05} anchorY="top" anchorX="left" position={[-0.4, -0.6, 0.051]} color={"white"}>
+            <Text font={fonts.SFCompactSemibold} fontSize={0.1} letterSpacing={0.05} anchorY="top" anchorX="left" position={[1, 0.2, 2]} color={"black"} rotation={[-1.57, 0, 0.77]}>
                 Archive
             </Text>
             
-            <RoundedBox args={[width, height, 0.1]} onDoubleClick={() => setActive(active ? false : true)}>
+            <RoundedBox args={[width, height, 0.1]} onDoubleClick={() => setActive(active ? false : true)} rotation={[-1.57, 0, 0.77]} >
                 
             <MeshPortalMaterial ref={portalMaterial}>
                 <ambientLight intensity={0.5}/>
@@ -41,12 +41,12 @@ export const Portal = () => {
 
                     <Sphere args={[20, 20, 20]}>
                         <LayerMaterial  side={BackSide}>
-                            <Gradient axes={"y"} start={0.2} end={-0.5} colorA={"blue"} colorB={"red"}/>
+                            <Gradient axes={"y"} start={0.2} end={-0.5} colorA={"white"} colorB={"#f1dcf7"}/>
                         </LayerMaterial>
                     </Sphere> 
                     <mesh>
                     <boxGeometry />
-                    <meshBasicMaterial />
+                    <meshBasicMaterial color={"black"}/>
                     </mesh>
                 
             </MeshPortalMaterial>
