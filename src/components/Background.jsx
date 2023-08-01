@@ -6,7 +6,7 @@ import { Color, BackSide } from "three";
 import React from "react";
 import { Portal } from "./Portal";
 
-const start = 0.2;
+const start = 0.6;
 const end = -0.5;
 const halfPi = Math.PI / 2;
 
@@ -25,7 +25,7 @@ export const Background = ({ backgroundColors }) => {
     });
 
     const sphereScale = [50, 50, 50];
-    const directionalLightPosition = [3, 8, 4];
+    const directionalLightPosition = [2, 8, 10];
     const sphereScaleEnv = [20, 20, 20];
   
   

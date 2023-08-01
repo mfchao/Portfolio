@@ -12,7 +12,7 @@ import { Colorado } from "./components/Colorado";
 import { Bangkok } from "./components/Bangkok";
 import { Boston } from "./components/Boston";
 import { London } from "./components/London";
-import flyThroughState from "./fly2.json";
+import flyThroughState from "./fly4.json";
 import './components/mouse.css';
 import { easing } from 'maath';
 import fonts from "./components/fonts";
@@ -43,8 +43,8 @@ function App() {
     setMenuOpened(false);
   }, [section])
 
-  const sheet = getProject("Fly Through 3").sheet("Scene")
-  // const sheet = useMemo(() => getProject("Fly Through 2", { state: flyThroughState }).sheet("Scene"), []);
+  // const sheet = getProject("Fly Through 4").sheet("Scene")
+  const sheet = useMemo(() => getProject("Fly Through 4", { state: flyThroughState }).sheet("Scene"), []);
 
 
 
@@ -65,10 +65,10 @@ function App() {
           <Scene mouseOverEvent={mouseOverEvent} mouseOutEvent={mouseOutEvent} cursorEnlarged={cursorEnlarged}/>
         </SheetProvider>
 
-        <Scroll html>
+        {/* <Scroll html>
         <Interface mouseOverEvent={mouseOverEvent} mouseOutEvent={mouseOutEvent}/>
         
-        </Scroll>
+        </Scroll> */}
 
       </ScrollControls>
       <Selector cursorEnlarged={cursorEnlarged}/>
@@ -131,7 +131,7 @@ function Scene({ mouseOverEvent, mouseOutEvent, cursorEnlarged }) {
   //   state.camera.lookAt(cameraLookAtX.get(), 0 , 0);
   // })
 
-  const cubeScale = [0.8, 0.8, 0.8];
+ 
 
   let lineLength = cursorEnlarged ? 3 : 0.8;
 
@@ -140,29 +140,19 @@ function Scene({ mouseOverEvent, mouseOutEvent, cursorEnlarged }) {
     <color attach="background" args={["#f0f0f0"]} />
     
     <e.mesh theatreKey='Colorado'>
-      <Colorado
-        scale={cubeScale}
-      />
+      <Colorado/>
     </e.mesh>
     <e.mesh theatreKey='Bangkok'>
-      <Bangkok
-        scale={cubeScale}
-      />
+      <Bangkok/>
     </e.mesh>
     <e.mesh theatreKey='Boston'>
-      <Boston
-        scale={cubeScale}
-      />
+      <Boston/>
     </e.mesh>
     <e.mesh theatreKey='London'>
-      <London
-        scale={cubeScale}
-      />
+      <London/>
     </e.mesh>
     {/* <e.mesh theatreKey='Base'>
-      <Base
-      scale={cubeScale}
-    />
+      <Base/>
     </e.mesh> */}
 
     <PerspectiveCamera
@@ -194,7 +184,7 @@ function Scene({ mouseOverEvent, mouseOutEvent, cursorEnlarged }) {
 
 
     {/* floor */}
-    <mesh rotation={[-Math.PI / 2 + 0.3, 0, 0]} position={[0, -2, 0]} receiveShadow>
+    <mesh rotation={[-Math.PI / 2 + 0.3, 0, 0]} position={[0, -6, 0]} receiveShadow>
           <planeGeometry args={[100, 100]} />
           <shadowMaterial transparent opacity={0.4} />
         </mesh>

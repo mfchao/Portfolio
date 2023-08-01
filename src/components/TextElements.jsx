@@ -11,24 +11,25 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
     const [styles, setStyles] = useState({
         maxWidth: 300,
         lineHeight: 1,
-        letterSpacing: 0.05,
         textAlign: "center",
         materialType: "MeshStandardMaterial",
       });
     
     const [title, setTitle] = useState({
         fontSize: 0.1,
+        letterSpacing: 0.05,
         font: fonts.SFCompactSemibold,
       });
 
       const [subtitle, setSubtitle] = useState({
         fontSize: 0.07,
-        font: fonts.SFCompactThin,
+        letterSpacing: 0.05,
+        font: fonts.SFCompactLight,
       });
 
       const [number, setNumber] = useState({
-        fontSize: 0.3,
-        font: fonts.SFCompactThin,
+        fontSize: 0.23,
+        font: fonts.SFCompactLight,
       });
 
 
@@ -81,7 +82,7 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
             color: "black",
             showHover: null,
             closeHover: null,
-            props: subtitle,
+            props: title,
         },
         {
             key: "P1Text2",
@@ -205,7 +206,7 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
         },
         {
             key: "P3Text4",
-            text: "AT UCL, I CREATED AN AUGMENTED REALITY MEMORY PALACE CALLED",
+            text: "AT UCL, I CREATED AN AUGMENTED REALITY",
             fillOpacityState: useState(null),
             ref: useRef(),
             color: "black",
@@ -215,7 +216,17 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
         },
         {
             key: "P3Text5",
-            text: "INTRODUCING ECHO",
+            text: "MEMORY PALACE CALLED",
+            fillOpacityState: useState(null),
+            ref: useRef(),
+            color: "black",
+            showHover: mouseOverEvent,
+            closeHover: mouseOutEvent,
+            props: title,
+        },
+        {
+            key: "P3Text6",
+            text: "INTRODUCING ECHO.",
             fillOpacityState: useState(null),
             ref: useRef(),
             color: "red",
@@ -355,7 +366,7 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
         },
         {
             key: "P6Text4",
-            text: ", I GAMIFIED SHOPPING REWARDS USING AUGMENTED REALITY IN THE PROJECT",
+            text: ", I GAMIFIED SHOPPING REWARDS USING AR IN THE PROJECT",
             fillOpacityState: useState(null),
             ref: useRef(),
             color: "black",
@@ -425,7 +436,7 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
         },
         {
             key: "P8Text1",
-            text: "EXPLORE MY OTHER PROJECTS ON",
+            text: "KEEP SCROLLING TO EXPLORE MY OTHER PROJECTS ON",
             fillOpacityState: useState(null),
             ref: useRef(),
             color: "black",

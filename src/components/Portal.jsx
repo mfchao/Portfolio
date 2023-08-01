@@ -6,8 +6,8 @@ import fonts from "./fonts";
 import { useFrame } from "@react-three/fiber";
 import { easing } from "maath";
 
-const width = 4.6;
-const height = 4.8;
+const width = 5.6;
+const height = 5.4;
 
 export const Portal = () => {
     const [hovered, setHovered] = useState(false);
@@ -27,7 +27,7 @@ export const Portal = () => {
         <>
 
             <group active={active} setActive={setActive} >
-            <Text font={fonts.SFCompactSemibold} fontSize={0.1} letterSpacing={0.05} anchorY="top" anchorX="left" position={[1, 0.2, 2]} color={"black"} rotation={[-1.57, 0, 0.77]}>
+            <Text font={fonts.SFCompactSemibold} fontSize={0.1} letterSpacing={0.05} anchorY="top" anchorX="left" position={[1.3, 0.2, 2.2]} color={"black"} rotation={[-1.57, 0, 0.77]}>
                 Archive
             </Text>
             
