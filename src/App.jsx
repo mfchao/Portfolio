@@ -1,8 +1,8 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Experience } from "./components/Experience";
-import { ScrollControls, useScroll, SoftShadows, Scroll, MeshTransmissionMaterial, Text, Cylinder, CameraControls, OrbitControls } from "@react-three/drei";
+import { ScrollControls, useScroll, Scroll, MeshTransmissionMaterial } from "@react-three/drei";
 import { getProject, val, types } from "@theatre/core";
-import { editable as e, editable, SheetProvider, PerspectiveCamera, useCurrentSheet } from "@theatre/r3f";
+import { editable as e, SheetProvider, PerspectiveCamera, useCurrentSheet } from "@theatre/r3f";
 import { EffectComposer, Noise } from "@react-three/postprocessing";
 import { Interface } from "./components/Interface";
 import React, { useEffect, useMemo, useState, useRef, useCallback, memo } from "react";
@@ -12,22 +12,26 @@ import { Colorado } from "./components/Colorado";
 import { Bangkok } from "./components/Bangkok";
 import { Boston } from "./components/Boston";
 import { London } from "./components/London";
-import flyThroughState from "./fly4.json";
+import flyThroughState from "./fly4arounded.json";
 import './components/mouse.css';
-import { easing } from 'maath';
-import fonts from "./components/fonts";
-import { CylinderGeometry, MeshStandardMaterial } from "three";
 import { Portal } from "./components/Portal";
 import { TextElements } from "./components/TextElements";
-
+import { Selector } from "./components/Selector";
 
 
 function App() {
+
+  const [sheet, setSheet] = useState(null);
+
 
   const [section, setSection] = useState(0);
   const [menuOpened, setMenuOpened] = useState(false);
   
   const [cursorEnlarged, setCursorEnlarged] = useState(false);
+
+
+  const [currentSection, setCurrentSection] = useState(0);
+
 
   const mouseOverEvent = () => {
     setCursorEnlarged(true);
@@ -37,33 +41,43 @@ function App() {
     setCursorEnlarged(false);
   }
 
-
   //close menu after clicked option
   useEffect(() => {
     setMenuOpened(false);
   }, [section])
+  
 
   // const sheet = getProject("Fly Through 4").sheet("Scene")
-  const sheet = useMemo(() => getProject("Fly Through 4", { state: flyThroughState }).sheet("Scene"), []);
+  // const sheet = useMemo(() => getProject("Fly Through 4", { state: flyThroughState }).sheet("Scene"), []);
+  useEffect(() => {
+    const fetchSheetData = async () => {
+      try {
+        
+        const loadedSheet = getProject("Fly Through 4", { state: flyThroughState }).sheet("Scene");
+       
+        setSheet(loadedSheet);
+      } catch (error) {
+        console.error('Error fetching JSON data:', error);
+      }
+    };
 
+    fetchSheetData();
+  }, []);
 
 
   return (
     <>
     <Canvas shadows gl={{ preserveDrawingBuffer: true }}>
-      {/* <OrbitControls/> */}
-    
-      <SoftShadows size={25} focus={0} samples={10}/>
-
       
       <ScrollControls pages={9} damping={0.8} maxSpeed={1}>
         <ScrollManager section={section} onSectionChange={setSection}/>
 
-      <Experience />
-
+      <Experience setCurrentSection={setCurrentSection} menuOpened={menuOpened}/>
+      {sheet && (
         <SheetProvider sheet={sheet}>
           <Scene mouseOverEvent={mouseOverEvent} mouseOutEvent={mouseOutEvent} cursorEnlarged={cursorEnlarged}/>
         </SheetProvider>
+        )}
 
         {/* <Scroll html>
         <Interface mouseOverEvent={mouseOverEvent} mouseOutEvent={mouseOutEvent}/>
@@ -71,16 +85,15 @@ function App() {
         </Scroll> */}
 
       </ScrollControls>
-      <Selector cursorEnlarged={cursorEnlarged}/>
+      <Selector cursorEnlarged={cursorEnlarged} menuOpened={menuOpened}/>
 
       <EffectComposer>
         <Noise opacity={0.2}/>
       </EffectComposer>
 
     </Canvas>
-    {/* <GlassDiv mouseOverEvent={mouseOverEvent} mouseOutEven={mouseOutEvent} cursorEnlarged={cursorEnlarged}/> */}
    
-    <Menu onSectionChange={setSection} menuOpened={menuOpened} setMenuOpened={setMenuOpened}/>
+    <Menu onSectionChange={setSection} menuOpened={menuOpened} setMenuOpened={setMenuOpened} currentSection={currentSection}/>
     </>
   );
 }
@@ -172,8 +185,7 @@ function Scene({ mouseOverEvent, mouseOutEvent, cursorEnlarged }) {
 
     {/* Line */}
     <e.mesh theatreKey="Cylinder"
-    additionalProps={{opacity: types.number(1, {nudgeMultiplier: 0.1,}),}} objRef={setcylinderOpacity}
-    >
+    additionalProps={{opacity: types.number(1, {nudgeMultiplier: 0.1,}),}} objRef={setcylinderOpacity}>
       <cylinderGeometry args={[0.0025, 0.0025, lineLength]} />
       <meshBasicMaterial ref={cylinderRef} opacity={1} transparent color='black'/>
     </e.mesh>
@@ -192,26 +204,3 @@ function Scene({ mouseOverEvent, mouseOutEvent, cursorEnlarged }) {
     </>
   )
 }
-
-function Selector({ cursorEnlarged }) {
-  const ref = useRef()
-  useFrame(({ viewport, camera, pointer }, delta) => {
-    const { width, height } = viewport.getCurrentViewport(camera, [0, 0, 3])
-    easing.damp3(ref.current.position, [(pointer.x * width) / 2, (pointer.y * height) / 2, 3], cursorEnlarged ? 0 : 0.1, delta)
-    easing.damp3(ref.current.scale, cursorEnlarged ? 4 : 0.01, cursorEnlarged ? 0.5 : 0.2, delta)
-    easing.dampC(ref.current.material.color, cursorEnlarged ? '#f0f0f0' : '#ccc', 0.1, delta)
-  })
-  return (
-    <>
-      <mesh ref={ref}>
-        <circleGeometry args={[4, 64, 64]} />
-        <MeshTransmissionMaterial samples={16} resolution={512} anisotropy={1} thickness={0.1} roughness={0.4} toneMapped={true} />
-      </mesh>
-    </>
-  )
-}
-
-
-
-
-

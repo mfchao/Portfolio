@@ -16,12 +16,6 @@ body {
 
 
 /* @font-face {
-  font-family: "SF-Compact-Bold";
-  src: local("SF-Compact-Bold"),
-   url("./src/fonts/SFCompact/SF-Compact-Text-Bold.ttf") format("truetype");
- }
-
- @font-face {
   font-family: "SF-Compact-BoldItalic";
   src: local("SF-Compact-BoldItalic"),
    url("./src/fonts/SFCompact/SF-Compact-Text-BoldItalic.ttf") format("truetype");
@@ -63,6 +57,12 @@ body {
    url("./src/fonts/SFCompact/SF-Compact-Text-Thin.ttf") format("truetype");
  }
 
+ @font-face {
+  font-family: "SF-Compact-Bold";
+  src: local("SF-Compact-Bold"),
+   url("./src/fonts/SFCompact/SF-Compact-Text-Bold.ttf") format("truetype");
+ }
+
 
 .SF-Compact-Medium {
   font-family: "SF-Compact-Medium";
@@ -80,3 +80,10 @@ body {
   font-family: "SF-Compact-Thin";
 }
 
+.SF-Compact-Bold {
+  font-family: "SF-Compact-Bold";
+}
+
+.text-stroke-1 {
+  -webkit-text-stroke: 1.5px black;
+}

@@ -1,4 +1,4 @@
-import { Environment, Sphere } from "@react-three/drei";
+import { Environment, Sphere, SoftShadows } from "@react-three/drei";
 import { Gradient, LayerMaterial } from "lamina";
 import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
@@ -31,18 +31,18 @@ export const Background = ({ backgroundColors }) => {
   
     return (
       <>
-      
+        {/* <SoftShadows size={25} focus={0} samples={10}/> */}
+
         <Sphere scale={sphereScale} rotation={[0, halfPi, 0]}>
           <LayerMaterial color={"#ffffff"} side={BackSide}>
             <Gradient ref={gradientRef} axes={"y"} start={start} end={end} />
           </LayerMaterial>
         </Sphere>
 
-        
+        {/* <directionalLight position={directionalLightPosition} intensity={3} castShadow/> */}
+        <pointLight position={directionalLightPosition}/>
 
-        <directionalLight castShadow position={directionalLightPosition} intensity={3} />
-        
-        <Environment resolution={256} frames={Infinity}>
+        <Environment resolution={256} frames={Infinity} preset="warehouse">
           <Sphere
             scale={sphereScaleEnv} rotation={[Math.PI, halfPi, 0]}>
             <LayerMaterial color={"#ffffff"} side={BackSide}>
@@ -51,7 +51,6 @@ export const Background = ({ backgroundColors }) => {
           </Sphere>
         </Environment>
 
-        
       </>
     );
   };

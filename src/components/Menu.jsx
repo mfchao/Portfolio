@@ -1,13 +1,17 @@
+import { useScroll } from "@react-three/drei";
 import logo from "./logo.svg";
+import { useEffect, useState } from "react";
 
 export const Menu = (props) => {
-    const { onSectionChange, menuOpened, setMenuOpened } = props;
+    const { onSectionChange, menuOpened, setMenuOpened, currentSection} = props;
+
+    
 
     return (
     <>
         <img
         src={logo}
-        className="fixed z-20 bottom-12 right-12 scale-[0.7]"
+        className={`fixed z-20 bottom-12 right-12 ${menuOpened ? "scale-[1.2]" : "scale-[0.7]"} transition-all`}
         />
 
         <button
@@ -32,26 +36,37 @@ export const Menu = (props) => {
         </button>
 
         <div
-        className={`z-10 fixed top-0 right-0 bottom-0 bg-white transition-all overflow-hidden flex flex-col
-        ${menuOpened ? "w-80" : "w-0"}`}
+        className={`z-10 fixed justify-center top-0 right-0 bottom-0 transition-all overflow-hidden flex flex-col  
+        ${menuOpened ? "w-screen" : "w-0"}`}
         >
-            <div className="flex-1 flex items-start justify-center flex-col gap-6 p-8"></div>
-            <MenuButton label="About" onClick={() => onSectionChange(0)} />
-            <MenuButton label="Works" onClick={() => onSectionChange(3)} />
-            <MenuButton label="Archive" onClick={() => onSectionChange(9)} />
-            <MenuButton label="Contact" onClick={() => onSectionChange(0)} />
+            <div className="z-30 flex justify-between m-4 ">
+            <MenuButton label="HOME" onClick={() => onSectionChange(0)} isActive={ currentSection === 0 }/>
+            <MenuButton label="ABOUT" onClick={() => onSectionChange(1)} isActive={currentSection === 1 || currentSection === 2}/>
+            <MenuButton label="HIGHLIGHTS" onClick={() => onSectionChange(3)} isActive={currentSection >= 3 && currentSection <= 7}/>
+            <MenuButton label="ARCHIVE" onClick={() => onSectionChange(9)} isActive={currentSection >= 8 && currentSection <= 9}/>
+            </div>
+
+            <div className="absolute SF-Compact-Semibold bottom-12 left-12">
+            <a href="https://www.instagram.com/mchaodesign/" target="_blank" className="hover:text-rose-700 transition-colors">INSTAGRAM</a>
+            <a href="https://www.linkedin.com/in/mfchao" target="_blank" className="hover:text-rose-700 transition-colors">LINKEDIN</a>
+            <p className="hover:text-rose-700 transition-colors">617-417-9866</p>
+            <p className="hover:text-rose-700 transition-colors">MAGGIECHAO@GSD.HARVARD.EDU</p>
+             </div>
         </div>
     </>);
 }
 
+
 const MenuButton = (props) => {
-    const { label, onClick } = props;
+    const { label, onClick, isActive } = props;
+  
     return (
-        <button
+      <button
         onClick={onClick}
-        className="text-2xl font-bold cursor-pointer hover:text-indigo-600 transition-colors"
-        >
-            {label}
-        </button>
-    )
-}
+        className={`z-30 text-2xl font-bold SF-Compact-Bold m-7 cursor-pointer hover:text-rose-700 transition-colors 
+        ${isActive ? "text-stroke-1 text-transparent" : ""}`}
+      >
+        {label}
+      </button>
+    );
+  };

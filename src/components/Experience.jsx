@@ -1,6 +1,6 @@
 import { useScroll } from "@react-three/drei";
 import { Background } from "./Background";
-import { useRef, useLayoutEffect, useMemo } from "react";
+import { useRef, useLayoutEffect, useMemo, useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
 import { gsap } from "gsap";
 import * as THREE from "three";
@@ -14,7 +14,8 @@ const bgColors = [
   { colorA: "#f1dcf7", colorB: "#f2f2f2", duration: 1 },
 ];
 
-export const Experience = () => {
+export const Experience = (props) => {
+  const {setCurrentSection, menuOpened } = props;
 
   //Scroll
   const scroll = useScroll();
@@ -25,9 +26,18 @@ export const Experience = () => {
     colorB: "#f2f2f2",
   });
 
+  //set section for menu
+  useEffect(() => {
+    if (menuOpened) {
+      setCurrentSection(Math.floor(scroll.offset * 10));
+    }
+  }, [menuOpened]);
+
+
   useFrame((_state, delta) => { 
     
     const scrollOffset = Math.max(0, scroll.offset);
+    
 
     //Calculate lerped scroll offset
     let lerpedScrollOffset = THREE.MathUtils.lerp(
@@ -43,7 +53,7 @@ export const Experience = () => {
 
   });
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     tl.current = gsap.timeline();
 
     bgColors.forEach(({ colorA, colorB, duration }) => {
