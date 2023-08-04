@@ -26,18 +26,13 @@ export const Experience = (props) => {
     colorB: "#f2f2f2",
   });
 
-  //set section for menu
-  useEffect(() => {
-    if (menuOpened) {
-      setCurrentSection(Math.floor(scroll.offset * 10));
-    }
-  }, [menuOpened]);
-
 
   useFrame((_state, delta) => { 
     
-    const scrollOffset = Math.max(0, scroll.offset);
-    
+    const scrollOffset = Math.max(0, scroll.offset);    
+
+    //set scroll position for menu
+    setCurrentSection(Math.floor(scrollOffset * 10));
 
     //Calculate lerped scroll offset
     let lerpedScrollOffset = THREE.MathUtils.lerp(

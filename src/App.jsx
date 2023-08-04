@@ -24,7 +24,7 @@ function App() {
   const [sheet, setSheet] = useState(null);
 
 
-  const [section, setSection] = useState(0);
+  const [section, setSection] = useState(null);
   const [menuOpened, setMenuOpened] = useState(false);
   
   const [cursorEnlarged, setCursorEnlarged] = useState(false);
@@ -81,7 +81,6 @@ function App() {
 
         {/* <Scroll html>
         <Interface mouseOverEvent={mouseOverEvent} mouseOutEvent={mouseOutEvent}/>
-        
         </Scroll> */}
 
       </ScrollControls>

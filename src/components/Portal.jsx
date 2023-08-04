@@ -27,7 +27,7 @@ export const Portal = () => {
         <>
 
             <group active={active} setActive={setActive} >
-            <Text font={fonts.SFCompactSemibold} fontSize={0.1} letterSpacing={0.05} anchorY="top" anchorX="left" position={[1.3, 0.2, 2.2]} color={"black"} rotation={[-1.57, 0, 0.77]}>
+            <Text font={fonts.SFCompactSemibold} fontSize={0.1} letterSpacing={0.05} anchorY="top" anchorX="left" position={[1.3, 0.1, 2.2]} color={"black"} rotation={[-1.57, 0, 0.77]}>
                 Archive
             </Text>
             
