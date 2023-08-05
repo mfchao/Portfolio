@@ -2,35 +2,50 @@ import { editable as e} from "@theatre/r3f";
 import React, { useEffect, useMemo, useState, useRef, useCallback, memo } from "react";
 import { getProject, val, types } from "@theatre/core";
 import fonts from "./fonts";
-import { Text } from "@react-three/drei";
+import { Text, useCursor } from "@react-three/drei";
 
 
 
-export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
-    
+export const TextElements = ({ setProjectOpened, projectOpened }) => {
+
+    const [hovered, setHovered] = useState(null);
+    useCursor(hovered);
+
     const [styles, setStyles] = useState({
         maxWidth: 300,
         lineHeight: 1,
         textAlign: "center",
         materialType: "MeshStandardMaterial",
+        moveNumber: 0,
       });
     
     const [title, setTitle] = useState({
         fontSize: 0.1,
         letterSpacing: 0.05,
         font: fonts.SFCompactSemibold,
+        moveNumber: 0,
       });
 
       const [subtitle, setSubtitle] = useState({
         fontSize: 0.07,
         letterSpacing: 0.05,
         font: fonts.SFCompactLight,
+        moveNumber: 0,
       });
 
       const [number, setNumber] = useState({
         fontSize: 0.23,
         font: fonts.SFCompactLight,
+        moveNumber: 0,
       });
+
+      useEffect(() => {
+        let numberHeight = projectOpened ? 1 : 0;
+        setNumber((prevNumber) => ({
+          ...prevNumber,
+          moveNumber: numberHeight,
+        }));
+      }, [projectOpened]);
 
 
     const textElements = [
@@ -40,9 +55,9 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
             fillOpacityState: useState(null),
             ref: useRef(),
             color: "black",
-            showHover: null,
-            closeHover: null,
+            toggleProject: false,
             props: title,
+            clickable: false,
         },
         {
             key: "P0Text2",
@@ -50,9 +65,9 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
             fillOpacityState: useState(null),
             ref: useRef(),
             color: "red",
-            showHover: null,
-            closeHover: null,
+            toggleProject: false,
             props: title,
+            clickable: false,
         },
         {
             key: "P0Text3",
@@ -60,9 +75,9 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
             fillOpacityState: useState(null),
             ref: useRef(),
             color: "black",
-            showHover: null,
-            closeHover: null,
+            toggleProject: false,
             props: title,
+            clickable: false
         },
         {
             key: "P0Text4",
@@ -70,9 +85,9 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
             fillOpacityState: useState(null),
             ref: useRef(),
             color: "black",
-            showHover: null,
-            closeHover: null,
+            toggleProject: false,
             props: subtitle,
+            clickable: false
         },
         {
             key: "P1Text1",
@@ -80,9 +95,9 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
             fillOpacityState: useState(null),
             ref: useRef(),
             color: "black",
-            showHover: null,
-            closeHover: null,
+            toggleProject: false,
             props: title,
+            clickable: false
         },
         {
             key: "P1Text2",
@@ -90,9 +105,9 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
             fillOpacityState: useState(null),
             ref: useRef(),
             color: "red",
-            showHover: null,
-            closeHover: null,
+            toggleProject: false,
             props: title,
+            clickable: false
         },
         {
             key: "P1Text3",
@@ -100,8 +115,7 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
             fillOpacityState: useState(null),
             ref: useRef(),
             color: "black",
-            showHover: null,
-            closeHover: null,
+            toggleProject: false,
             props: title,
         },
         {
@@ -110,8 +124,7 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
             fillOpacityState: useState(null),
             ref: useRef(),
             color: "black",
-            showHover: null,
-            closeHover: null,
+            toggleProject: false,
             props: subtitle,
         },
         {
@@ -120,8 +133,7 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
             fillOpacityState: useState(null),
             ref: useRef(),
             color: "black",
-            showHover: null,
-            closeHover: null,
+            toggleProject: false,
             props: title,
         },
         {
@@ -130,8 +142,7 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
             fillOpacityState: useState(null),
             ref: useRef(),
             color: "red",
-            showHover: null,
-            closeHover: null,
+            toggleProject: false,
             props: title,
         },
         {
@@ -140,8 +151,7 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
             fillOpacityState: useState(null),
             ref: useRef(),
             color: "black",
-            showHover: null,
-            closeHover: null,
+            toggleProject: false,
             props: title,
         },
         {
@@ -150,8 +160,7 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
             fillOpacityState: useState(null),
             ref: useRef(),
             color: "black",
-            showHover: null,
-            closeHover: null,
+            toggleProject: false,
             props: subtitle,
         },
         {
@@ -160,9 +169,9 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
             fillOpacityState: useState(null),
             ref: useRef(),
             color: "red",
-            showHover: mouseOverEvent,
-            closeHover: mouseOutEvent,
+            toggleProject: true,
             props: subtitle,
+            clickable: true
         },
         {
             key: "P2Text6",
@@ -170,8 +179,7 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
             fillOpacityState: useState(null),
             ref: useRef(),
             color: "black",
-            showHover: null,
-            closeHover: null,
+            toggleProject: false,
             props: subtitle,
         },
         {
@@ -180,8 +188,7 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
             fillOpacityState: useState(null),
             ref: useRef(),
             color: "black",
-            showHover: mouseOverEvent,
-            closeHover: mouseOutEvent,
+            toggleProject: true,
             props: number,
         },
         {
@@ -190,8 +197,7 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
             fillOpacityState: useState(null),
             ref: useRef(),
             color: "black",
-            showHover: mouseOverEvent,
-            closeHover: mouseOutEvent,
+            toggleProject: true,
             props: title,
         },
         {
@@ -200,8 +206,7 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
             fillOpacityState: useState(null),
             ref: useRef(),
             color: "red",
-            showHover: mouseOverEvent,
-            closeHover: mouseOutEvent,
+            toggleProject: true,
             props: title,
         },
         {
@@ -210,8 +215,7 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
             fillOpacityState: useState(null),
             ref: useRef(),
             color: "black",
-            showHover: mouseOverEvent,
-            closeHover: mouseOutEvent,
+            toggleProject: true,
             props: title,
         },
         {
@@ -220,8 +224,7 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
             fillOpacityState: useState(null),
             ref: useRef(),
             color: "black",
-            showHover: mouseOverEvent,
-            closeHover: mouseOutEvent,
+            toggleProject: true,
             props: title,
         },
         {
@@ -230,9 +233,9 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
             fillOpacityState: useState(null),
             ref: useRef(),
             color: "red",
-            showHover: mouseOverEvent,
-            closeHover: mouseOutEvent,
+            toggleProject: true,
             props: title,
+            clickable: true
         },
         {
             key: "P4Text1",
@@ -240,8 +243,7 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
             fillOpacityState: useState(null),
             ref: useRef(),
             color: "black",
-            showHover: mouseOverEvent,
-            closeHover: mouseOutEvent,
+            toggleProject: true,
             props: number,
         },
         {
@@ -250,8 +252,7 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
             fillOpacityState: useState(null),
             ref: useRef(),
             color: "black",
-            showHover: mouseOverEvent,
-            closeHover: mouseOutEvent,
+            toggleProject: true,
             props: title,
         },
         {
@@ -260,9 +261,9 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
             fillOpacityState: useState(null),
             ref: useRef(),
             color: "red",
-            showHover: mouseOverEvent,
-            closeHover: mouseOutEvent,
+            toggleProject: true,
             props: title,
+            clickable: true
         },
         {
             key: "P5Text1",
@@ -270,8 +271,7 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
             fillOpacityState: useState(null),
             ref: useRef(),
             color: "black",
-            showHover: mouseOverEvent,
-            closeHover: mouseOutEvent,
+            toggleProject: true,
             props: number,
         },
         {
@@ -280,8 +280,7 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
             fillOpacityState: useState(null),
             ref: useRef(),
             color: "black",
-            showHover: mouseOverEvent,
-            closeHover: mouseOutEvent,
+            toggleProject: true,
             props: title,
         },
         {
@@ -290,8 +289,7 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
             fillOpacityState: useState(null),
             ref: useRef(),
             color: "red",
-            showHover: mouseOverEvent,
-            closeHover: mouseOutEvent,
+            toggleProject: true,
             props: title,
         },
         {
@@ -300,8 +298,7 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
             fillOpacityState: useState(null),
             ref: useRef(),
             color: "black",
-            showHover: mouseOverEvent,
-            closeHover: mouseOutEvent,
+            toggleProject: true,
             props: title,
         },
         {
@@ -310,9 +307,9 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
             fillOpacityState: useState(null),
             ref: useRef(),
             color: "red",
-            showHover: mouseOverEvent,
-            closeHover: mouseOutEvent,
+            toggleProject: true,
             props: title,
+            clickable: true
         },
         {
             key: "P5Text6",
@@ -320,8 +317,7 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
             fillOpacityState: useState(null),
             ref: useRef(),
             color: "black",
-            showHover: mouseOverEvent,
-            closeHover: mouseOutEvent,
+            toggleProject: true,
             props: title,
         },
         {
@@ -330,8 +326,7 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
             fillOpacityState: useState(null),
             ref: useRef(),
             color: "red",
-            showHover: mouseOverEvent,
-            closeHover: mouseOutEvent,
+            toggleProject: true,
             props: title,
         },
         {
@@ -340,8 +335,7 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
             fillOpacityState: useState(null),
             ref: useRef(),
             color: "black",
-            showHover: mouseOverEvent,
-            closeHover: mouseOutEvent,
+            toggleProject: true,
             props: number,
         },
         {
@@ -350,8 +344,7 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
             fillOpacityState: useState(null),
             ref: useRef(),
             color: "black",
-            showHover: mouseOverEvent,
-            closeHover: mouseOutEvent,
+            toggleProject: true,
             props: title,
         },
         {
@@ -360,8 +353,7 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
             fillOpacityState: useState(null),
             ref: useRef(),
             color: "red",
-            showHover: mouseOverEvent,
-            closeHover: mouseOutEvent,
+            toggleProject: true,
             props: title,
         },
         {
@@ -370,8 +362,7 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
             fillOpacityState: useState(null),
             ref: useRef(),
             color: "black",
-            showHover: mouseOverEvent,
-            closeHover: mouseOutEvent,
+            toggleProject: true,
             props: title,
         },
         {
@@ -380,9 +371,9 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
             fillOpacityState: useState(null),
             ref: useRef(),
             color: "red",
-            showHover: mouseOverEvent,
-            closeHover: mouseOutEvent,
+            toggleProject: true,
             props: title,
+            clickable: true
         },
         {
             key: "P7Text1",
@@ -390,8 +381,7 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
             fillOpacityState: useState(null),
             ref: useRef(),
             color: "black",
-            showHover: mouseOverEvent,
-            closeHover: mouseOutEvent,
+            toggleProject: true,
             props: number,
         },
         {
@@ -400,8 +390,7 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
             fillOpacityState: useState(null),
             ref: useRef(),
             color: "black",
-            showHover: mouseOverEvent,
-            closeHover: mouseOutEvent,
+            toggleProject: true,
             props: title,
         },
         {
@@ -410,8 +399,7 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
             fillOpacityState: useState(null),
             ref: useRef(),
             color: "red",
-            showHover: mouseOverEvent,
-            closeHover: mouseOutEvent,
+            toggleProject: true,
             props: title,
         },
         {
@@ -420,8 +408,7 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
             fillOpacityState: useState(null),
             ref: useRef(),
             color: "black",
-            showHover: mouseOverEvent,
-            closeHover: mouseOutEvent,
+            toggleProject: true,
             props: title,
         },
         {
@@ -430,9 +417,9 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
             fillOpacityState: useState(null),
             ref: useRef(),
             color: "red",
-            showHover: mouseOverEvent,
-            closeHover: mouseOutEvent,
+            toggleProject: true,
             props: title,
+            clickable: true
         },
         {
             key: "P8Text1",
@@ -440,8 +427,7 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
             fillOpacityState: useState(null),
             ref: useRef(),
             color: "black",
-            showHover: mouseOverEvent,
-            closeHover: mouseOutEvent,
+            toggleProject: true,
             props: title,
         },
         {
@@ -450,8 +436,7 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
             fillOpacityState: useState(null),
             ref: useRef(),
             color: "red",
-            showHover: mouseOverEvent,
-            closeHover: mouseOutEvent,
+            toggleProject: true,
             props: title,
         },
         {
@@ -460,8 +445,7 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
             fillOpacityState: useState(null),
             ref: useRef(),
             color: "black",
-            showHover: mouseOverEvent,
-            closeHover: mouseOutEvent,
+            toggleProject: true,
             props: title,
         },
         {
@@ -470,8 +454,7 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
             fillOpacityState: useState(null),
             ref: useRef(),
             color: "red",
-            showHover: mouseOverEvent,
-            closeHover: mouseOutEvent,
+            toggleProject: true,
             props: title,
         },
         {
@@ -480,8 +463,7 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
             fillOpacityState: useState(null),
             ref: useRef(),
             color: "black",
-            showHover: mouseOverEvent,
-            closeHover: mouseOutEvent,
+            toggleProject: true,
             props: subtitle,
         },
         ];
@@ -500,11 +482,19 @@ export const TextElements = ({ mouseOverEvent, mouseOutEvent }) => {
         });
       }, [textElements]);
 
+
     return (
         <>
         {textElements.map((element) => (
         <e.mesh key={element.key} theatreKey={element.key} additionalProps={{ fillOpacity: types.number(1, { nudgeMultiplier: 0.1 }) }} objRef={element.fillOpacityState[1]}>
-          <Text ref={element.ref} text={element.text} onPointerOver={element.showHover} onPointerOut={element.closeHover} color={element.color} {...styles} {...element.props}/>
+          <Text ref={element.ref} 
+          text={element.text} 
+          position={[0, element.props.moveNumber, 0]} 
+          onClick={element.toggleProject ? () => setProjectOpened(!projectOpened) : null} 
+          color={element.color} 
+          {...styles} {...element.props} 
+          onPointerOver={element.clickable && !projectOpened ? () => setHovered(true): null} onPointerOut={() => setHovered(false)}
+          />
         </e.mesh>
       ))}
         </>

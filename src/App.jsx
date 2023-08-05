@@ -17,6 +17,9 @@ import './components/mouse.css';
 import { Portal } from "./components/Portal";
 import { TextElements } from "./components/TextElements";
 import { Selector } from "./components/Selector";
+import { easing } from 'maath';
+import { ProjectManager } from "./components/ProjectManager";
+
 
 
 function App() {
@@ -29,8 +32,9 @@ function App() {
   
   const [cursorEnlarged, setCursorEnlarged] = useState(false);
 
-
   const [currentSection, setCurrentSection] = useState(0);
+
+  const [projectOpened, setProjectOpened] = useState(false);
 
 
   const mouseOverEvent = () => {
@@ -41,10 +45,33 @@ function App() {
     setCursorEnlarged(false);
   }
 
+  useEffect(() => {
+    if (projectOpened) {
+      setCursorEnlarged(true)
+    } else {
+      setCursorEnlarged(false)
+    }
+  }, [projectOpened])
+
+  
+  // const projectOpenEvent = () => {
+  //   setProjectOpened(true);
+  // }
+
+  // const projectClosedEvent = () => {
+  //   setProjectOpened(false);
+  // }
+
+
   //close menu after clicked option
   useEffect(() => {
     setMenuOpened(false);
   }, [section])
+
+  //close project when menu open
+  useEffect(() => {
+    setProjectOpened(false);
+  }, [menuOpened])
   
 
   // const sheet = getProject("Fly Through 4").sheet("Scene")
@@ -69,13 +96,13 @@ function App() {
     <>
     <Canvas shadows gl={{ preserveDrawingBuffer: true }}>
       
-      <ScrollControls pages={9} damping={0.8} maxSpeed={1}>
+      <ScrollControls pages={9} damping={0.8} maxSpeed={1} enabled={projectOpened ? false: true}>
         <ScrollManager section={section} onSectionChange={setSection}/>
 
       <Experience setCurrentSection={setCurrentSection} menuOpened={menuOpened}/>
       {sheet && (
         <SheetProvider sheet={sheet}>
-          <Scene mouseOverEvent={mouseOverEvent} mouseOutEvent={mouseOutEvent} cursorEnlarged={cursorEnlarged}/>
+          <Scene setProjectOpened={setProjectOpened} projectOpened={projectOpened}/>
         </SheetProvider>
         )}
 
@@ -93,6 +120,7 @@ function App() {
     </Canvas>
    
     <Menu onSectionChange={setSection} menuOpened={menuOpened} setMenuOpened={setMenuOpened} currentSection={currentSection}/>
+    <ProjectManager currentSection={currentSection} projectOpened={projectOpened} setProjectOpened={setProjectOpened}/>
     </>
   );
 }
@@ -101,13 +129,17 @@ export default React.memo(App);
 
 
 
-function Scene({ mouseOverEvent, mouseOutEvent, cursorEnlarged }) {
+function Scene({ setProjectOpened, projectOpened }) {
 
   const sheet = useCurrentSheet();
   const scroll = useScroll();
 
   const cylinderRef = useRef();
-  const [cylinderOpacity, setcylinderOpacity] = useState(null)
+  const [cylinderOpacity, setcylinderOpacity] = useState(null);
+
+  const cylinderGeometryRef = useRef();
+  // const [lineLength, setLineLength] = useState(0.8);
+
 
 
   useEffect(
@@ -143,9 +175,18 @@ function Scene({ mouseOverEvent, mouseOutEvent, cursorEnlarged }) {
   //   state.camera.lookAt(cameraLookAtX.get(), 0 , 0);
   // })
 
- 
+  let lineLength = projectOpened ? 3 : 0.8;
 
-  let lineLength = cursorEnlarged ? 3 : 0.8;
+  // useFrame((state, delta) => {
+  //   // Apply damping to smoothly transition the lineLength
+  //   const targetLineLength = cursorEnlarged ? 3 : 0.8; 
+  //   setLineLength(easing.damp(cylinderGeometryRef.current?.parameters, "height", targetLineLength, 0.2, delta)
+  //   );
+
+  // }, [cursorEnlarged, cylinderGeometryRef]);
+
+
+
 
   return (
     <>
@@ -185,13 +226,13 @@ function Scene({ mouseOverEvent, mouseOutEvent, cursorEnlarged }) {
     {/* Line */}
     <e.mesh theatreKey="Cylinder"
     additionalProps={{opacity: types.number(1, {nudgeMultiplier: 0.1,}),}} objRef={setcylinderOpacity}>
-      <cylinderGeometry args={[0.0025, 0.0025, lineLength]} />
+      <cylinderGeometry ref={cylinderGeometryRef} args={[0.0025, 0.0025, lineLength]} />
       <meshBasicMaterial ref={cylinderRef} opacity={1} transparent color='black'/>
     </e.mesh>
 
 
     {/* Text */}
-    <TextElements mouseOverEvent={mouseOverEvent} mouseOutEvent={mouseOutEvent}/>
+    <TextElements setProjectOpened={setProjectOpened} projectOpened={projectOpened}/>
 
 
     {/* floor */}
