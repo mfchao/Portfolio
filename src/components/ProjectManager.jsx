@@ -6,28 +6,22 @@ export const ProjectManager = (props) => {
     return (
     <>
         <div
-        className={`z-10 absolute top-0 left-0 transition-all overflow-hidden ease-in-out duration-700 h-screen
-        ${projectOpened ? "w-screen" : "w-0"}`}
+        className={`z-10 relative transition-all ease-in-out duration-700 
+       `}
         >
-            <button className={`fixed top-12 left-12 SF-Compact-Light text-sm cursor-pointer hover:text-rose-700 transition-colors
-            ${projectOpened ? "" : "hidden"}`}
+            <button className={`fixed top-12 left-12 SF-Compact-Light overflow-y-scroll text-sm cursor-pointer hover:text-rose-700 transition-colors
+           `}
             onClick={() => setProjectOpened(false)}>
                 BACK
             </button>
 
-            <div className={`absolute top-[25%] left-[28%] ${currentSection === 4 ? "" : "hidden"}`}>
-                <ProjectHeader 
-                title="Introducing Echo" 
-                date="2022"
-                location="University College London"
-                course="Individual Course Project"
-                role="Role: Augmented Reality Prototyper"
-                description="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. "
-                />
-                <Echo/>
+            <div className={`absolute top-[25%] left-[28%] overflow-y-scroll`}>
+                
+                <Echo currentSection={currentSection}/>
+                
             </div>
 
-            <div className="absolute bottom-[15%] left-[28%] SF-Compact-Medium text-rose-700">
+            <div className="absolute bottom-[15%] left-[28%] SF-Compact-Medium text-rose-700 overflow-y-scroll">
                 <p>Scroll to view project</p>
             </div>
 
@@ -48,34 +42,7 @@ export const ProjectManager = (props) => {
     </>);
 }
 
-const ProjectHeader = (props) => {
-    const { title, date, location, course, role, description } = props;
-  
-    return (
-        <div className="text-left mb-8 top-0 left-0 ">
-            <div className="text-7xl SF-Compact-Bold mb-8">
-                {title}
-            </div>
-            <div className="text-sm SF-Compact-Thin my-px mb-8">
-                <div>
-                    {date}
-                </div>
-                <div>
-                    {location}
-                </div>
-                <div>
-                    {course}
-                </div>
-                <div>
-                    {role}
-                </div>
-            </div>
-            <div className="text-base SF-Compact-Light max-w-2xl">
-                {description}
-            </div>
-        </div>
-    );
-  };
+
 
 
 

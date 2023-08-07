@@ -1,6 +1,6 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Experience } from "./components/Experience";
-import { ScrollControls, useScroll, Scroll, MeshTransmissionMaterial } from "@react-three/drei";
+import { ScrollControls, useScroll, Scroll, MeshTransmissionMaterial, Html, Box } from "@react-three/drei";
 import { getProject, val, types } from "@theatre/core";
 import { editable as e, SheetProvider, PerspectiveCamera, useCurrentSheet } from "@theatre/r3f";
 import { EffectComposer, Noise } from "@react-three/postprocessing";
@@ -19,6 +19,7 @@ import { TextElements } from "./components/TextElements";
 import { Selector } from "./components/Selector";
 import { easing } from 'maath';
 import { ProjectManager } from "./components/ProjectManager";
+import { HtmlWrapper } from "./components/HtmlWrapper";
 
 
 
@@ -97,8 +98,11 @@ function App() {
     <Canvas shadows gl={{ preserveDrawingBuffer: true }}>
       
       <ScrollControls pages={9} damping={0.8} maxSpeed={1} enabled={projectOpened ? false: true}>
-        <ScrollManager section={section} onSectionChange={setSection}/>
 
+        <HtmlWrapper currentSection={currentSection} projectOpened={projectOpened} setProjectOpened={setProjectOpened} />
+
+        <ScrollManager section={section} onSectionChange={setSection}/>
+      
       <Experience setCurrentSection={setCurrentSection} menuOpened={menuOpened}/>
       {sheet && (
         <SheetProvider sheet={sheet}>
@@ -109,18 +113,26 @@ function App() {
         {/* <Scroll html>
         <Interface mouseOverEvent={mouseOverEvent} mouseOutEvent={mouseOutEvent}/>
         </Scroll> */}
-
+        
       </ScrollControls>
+
+      
       <Selector cursorEnlarged={cursorEnlarged} menuOpened={menuOpened}/>
 
       <EffectComposer>
         <Noise opacity={0.2}/>
       </EffectComposer>
 
+      
+
+      
+
     </Canvas>
    
     <Menu onSectionChange={setSection} menuOpened={menuOpened} setMenuOpened={setMenuOpened} currentSection={currentSection}/>
-    <ProjectManager currentSection={currentSection} projectOpened={projectOpened} setProjectOpened={setProjectOpened}/>
+
+    
+    
     </>
   );
 }
