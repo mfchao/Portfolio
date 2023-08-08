@@ -1,7 +1,10 @@
 import { Echo } from "./projects/Echo";
 
+
+
 export const ProjectManager = (props) => {
-    const { currentSection, projectOpened, setProjectOpened } = props;    
+    const { currentSection, projectOpened, setProjectOpened } = props;  
+
 
     return (
     <>
@@ -9,19 +12,17 @@ export const ProjectManager = (props) => {
         className={`z-10 relative transition-all ease-in-out duration-700 
        `}
         >
-            <button className={`fixed top-12 left-12 SF-Compact-Light overflow-y-scroll text-sm cursor-pointer hover:text-rose-700 transition-colors
+            <button className={`z-30 fixed top-12 left-12 SF-Compact-Light text-sm cursor-pointer hover:text-rose-700 transition-colors
            `}
             onClick={() => setProjectOpened(false)}>
                 BACK
             </button>
 
-            <div className={`absolute top-[25%] left-[28%] overflow-y-scroll`}>
-                
+            <div className={`absolute top-0 left-0 w-screen h-screen overflow-y-scroll`}>
                 <Echo currentSection={currentSection}/>
-                
             </div>
 
-            <div className="absolute bottom-[15%] left-[28%] SF-Compact-Medium text-rose-700 overflow-y-scroll">
+            <div className="absolute bottom-[15%] left-[28%] SF-Compact-Medium text-rose-700 ">
                 <p>Scroll to view project</p>
             </div>
 

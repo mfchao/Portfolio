@@ -15,6 +15,7 @@
     "@react-three/drei": "^9.80.1",
     "@react-three/fiber": "^8.7.2",
     "@react-three/postprocessing": "^2.14.13",
+    "@studio-freight/lenis": "^1.0.19",
     "@theatre/core": "0.6.2",
     "@theatre/r3f": "0.6.2",
     "@theatre/studio": "0.6.2",

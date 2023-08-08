@@ -14,7 +14,7 @@ export const Echo = (props) => {
                 role="Role: Augmented Reality Prototyper"
                 description="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. "
         />
-        <div className="absolute h-[100vh] bottom-0 overflow-y-scroll">
+        <div className="absolute bottom-0 ">
             <p>this is a test</p>
         </div>
         </>
