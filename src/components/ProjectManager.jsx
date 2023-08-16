@@ -3,7 +3,7 @@ import { Echo } from "./projects/Echo";
 
 
 export const ProjectManager = (props) => {
-    const { currentSection, projectOpened, setProjectOpened } = props;  
+    const { currentSection, projectOpened, setProjectOpened, } = props;  
 
 
     return (
@@ -19,7 +19,7 @@ export const ProjectManager = (props) => {
             </button>
 
             <div className={`absolute top-0 left-0 w-screen h-screen overflow-y-scroll`}>
-                <Echo currentSection={currentSection}/>
+                <Echo currentSection={currentSection} />
             </div>
 
             <div className="absolute bottom-[15%] left-[28%] SF-Compact-Medium text-rose-700 ">

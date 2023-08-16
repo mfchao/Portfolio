@@ -1,4 +1,4 @@
-import { editable as e} from "@theatre/r3f";
+import { editable as e } from "@theatre/r3f";
 import React, { useEffect, useMemo, useState, useRef, useCallback, memo } from "react";
 import { getProject, val, types } from "@theatre/core";
 import fonts from "./fonts";
@@ -17,35 +17,35 @@ export const TextElements = ({ setProjectOpened, projectOpened }) => {
         textAlign: "center",
         materialType: "MeshStandardMaterial",
         moveNumber: 0,
-      });
-    
+    });
+
     const [title, setTitle] = useState({
         fontSize: 0.1,
         letterSpacing: 0.05,
         font: fonts.SFCompactSemibold,
         moveNumber: 0,
-      });
+    });
 
-      const [subtitle, setSubtitle] = useState({
+    const [subtitle, setSubtitle] = useState({
         fontSize: 0.07,
         letterSpacing: 0.05,
         font: fonts.SFCompactLight,
         moveNumber: 0,
-      });
+    });
 
-      const [number, setNumber] = useState({
+    const [number, setNumber] = useState({
         fontSize: 0.23,
         font: fonts.SFCompactLight,
         moveNumber: 0,
-      });
+    });
 
-      useEffect(() => {
+    useEffect(() => {
         let numberHeight = projectOpened ? 1 : 0;
         setNumber((prevNumber) => ({
-          ...prevNumber,
-          moveNumber: numberHeight,
+            ...prevNumber,
+            moveNumber: numberHeight,
         }));
-      }, [projectOpened]);
+    }, [projectOpened]);
 
 
     const textElements = [
@@ -466,39 +466,38 @@ export const TextElements = ({ setProjectOpened, projectOpened }) => {
             toggleProject: true,
             props: subtitle,
         },
-        ];
+    ];
 
-      useEffect(() => {
+    useEffect(() => {
         textElements.forEach((element) => {
-          const [opacityState, setOpacityState] = element.fillOpacityState;
-    
-          if (!opacityState) return;
-    
-          const unsubscribe = opacityState.onValuesChange((newValues) => {
-            element.ref.current.fillOpacity = newValues.fillOpacity;
-          });
-    
-          return unsubscribe;
+            const [opacityState, setOpacityState] = element.fillOpacityState;
+
+            if (!opacityState) return;
+
+            const unsubscribe = opacityState.onValuesChange((newValues) => {
+                element.ref.current.fillOpacity = newValues.fillOpacity;
+            });
+
+            return unsubscribe;
         });
-      }, [textElements]);
+    }, [textElements]);
 
 
     return (
         <>
-        {textElements.map((element) => (
-        <e.mesh key={element.key} theatreKey={element.key} additionalProps={{ fillOpacity: types.number(1, { nudgeMultiplier: 0.1 }) }} objRef={element.fillOpacityState[1]}>
-          <Text ref={element.ref} 
-          text={element.text} 
-          position={[0, element.props.moveNumber, 0]} 
-          onClick={element.toggleProject ? () => setProjectOpened(!projectOpened) : null} 
-          color={element.color} 
-          {...styles} {...element.props} 
-          onPointerOver={element.clickable && !projectOpened ? () => setHovered(true): null} onPointerOut={() => setHovered(false)}
-          />
-        </e.mesh>
-      ))}
+            {textElements.map((element) => (
+                <e.mesh key={element.key} theatreKey={element.key} additionalProps={{ fillOpacity: types.number(1, { nudgeMultiplier: 0.1 }) }} objRef={element.fillOpacityState[1]}>
+                    <Text ref={element.ref}
+                        text={element.text}
+                        position={[0, element.props.moveNumber, 0]}
+                        onClick={element.toggleProject ? () => setProjectOpened(!projectOpened) : null}
+                        color={element.color}
+                        {...styles} {...element.props}
+                        onPointerOver={element.clickable && !projectOpened ? () => setHovered(true) : null} onPointerOut={() => setHovered(false)}
+                    />
+                </e.mesh>
+            ))}
         </>
-        )
-    }
-    
-    
+    )
+}
+

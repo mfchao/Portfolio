@@ -1,7 +1,7 @@
 import { ProjectHeader } from "../ProjectHero";
 
 export const Echo = (props) => {
-    const { currentSection } = props;    
+    const { currentSection, scrollData } = props;    
 
     if (currentSection === 3) {
     return (
