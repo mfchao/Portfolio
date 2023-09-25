@@ -214,9 +214,9 @@ function Scene({ setProjectOpened, projectOpened }) {
         far={70}
       />
 
-      <e.mesh theatreKey="Portal">
+      {/* <e.mesh theatreKey="Portal">
         <Portal />
-      </e.mesh>
+      </e.mesh> */}
 
       {/* Line */}
       <e.mesh

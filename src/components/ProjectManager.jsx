@@ -3,30 +3,31 @@ import { Echo } from "./projects/Echo";
 
 
 export const ProjectManager = (props) => {
-    const { currentSection, projectOpened, setProjectOpened, } = props;  
+    const { currentSection, projectOpened, setProjectOpened, } = props;
 
 
     return (
-    <>
-        <div
-        className={`z-10 relative transition-all ease-in-out duration-700 
+        <>
+            <div
+                className={`z-10 relative transition-all ease-in-out duration-700 
        `}
-        >
-            <button className={`z-30 fixed top-12 left-12 SF-Compact-Light text-sm cursor-pointer hover:text-rose-700 transition-colors
+            >
+                <button className={`z-30 fixed top-12 left-12 SF-Compact-Light text-sm cursor-pointer hover:text-rose-700 transition-colors
            `}
-            onClick={() => setProjectOpened(false)}>
-                BACK
-            </button>
+                    onClick={() => setProjectOpened(false)}>
+                    BACK
+                </button>
 
-            <div className={`absolute top-0 left-0 w-screen h-screen overflow-y-scroll`}>
-                <Echo currentSection={currentSection} />
-            </div>
+                <div className={`absolute top-0 left-0 w-screen h-screen overflow-y-scroll`}>
+                    <Echo currentSection={currentSection} />
 
-            <div className="absolute bottom-[15%] left-[28%] SF-Compact-Medium text-rose-700 ">
-                <p>Scroll to view project</p>
-            </div>
+                </div>
 
-            {/* <div className="z-30 flex justify-between m-4 ">
+                <div className="absolute bottom-[15%] left-[28%] SF-Compact-Medium text-rose-700 ">
+                    <p>Scroll to view project</p>
+                </div>
+
+                {/* <div className="z-30 flex justify-between m-4 ">
             <MenuButton label="HOME" onClick={() => onSectionChange(0)} isActive={ currentSection === 0 }/>
             <MenuButton label="ABOUT" onClick={() => onSectionChange(1)} isActive={currentSection === 1 || currentSection === 2}/>
             <MenuButton label="HIGHLIGHTS" onClick={() => onSectionChange(3)} isActive={currentSection >= 3 && currentSection <= 7}/>
@@ -39,8 +40,8 @@ export const ProjectManager = (props) => {
             <p className="hover:text-rose-700 transition-colors">617-417-9866</p>
             <p className="hover:text-rose-700 transition-colors">MAGGIECHAO@GSD.HARVARD.EDU</p>
              </div> */}
-        </div>
-    </>);
+            </div>
+        </>);
 }
 
 
