@@ -6,7 +6,7 @@ import { Text, useCursor } from "@react-three/drei";
 
 
 
-export const TextElements = ({ setProjectOpened, projectOpened }) => {
+export const TextElements = ({ setProjectOpened, projectOpened, currentSection }) => {
 
     const [hovered, setHovered] = useState(null);
     useCursor(hovered);
@@ -525,43 +525,21 @@ export const TextElements = ({ setProjectOpened, projectOpened }) => {
             const unsubscribe = opacityState.onValuesChange((newValues) => {
                 element.ref.current.fillOpacity = newValues.fillOpacity;
 
-                //fix clicking visibility
+
                 if (element.ref.current.fillOpacity > 0.8) {
                     element.visible = setVisibleState(true);
                 }
+
+                if (currentSection === 9) {
+                    setVisibleState(false);
+                }
+
 
             });
 
             return unsubscribe;
         });
     }, [textElements]);
-
-
-
-
-
-    // useEffect(() => {
-    //     textElements.forEach((el) => {
-
-
-
-    //         if (!visibleState) return;
-
-
-
-
-    //         // if (!visible) return;
-
-    //         // const unsubscribe2 = visible.onValuesChange((newValues) => {
-    //         //     // console.log(element.ref.current.fillOpacity);
-
-    //         // });
-
-    //         // return unsubscribe2;
-    //     });
-    // }, [textElements]);
-
-
 
 
     return (

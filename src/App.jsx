@@ -27,6 +27,7 @@ import { Selector } from './components/Selector';
 import { easing } from 'maath';
 import { ProjectManager } from './components/ProjectManager';
 import { HtmlWrapper } from './components/HtmlWrapper';
+import { Archive } from './components/Archive';
 
 function App() {
   const [sheet, setSheet] = useState(null);
@@ -108,7 +109,7 @@ function App() {
 
           {sheet && (
             <SheetProvider sheet={sheet}>
-              <Scene setProjectOpened={setProjectOpened} projectOpened={projectOpened} />
+              <Scene setProjectOpened={setProjectOpened} projectOpened={projectOpened} currentSection={currentSection} />
             </SheetProvider>
           )}
 
@@ -116,6 +117,9 @@ function App() {
         <Interface mouseOverEvent={mouseOverEvent} mouseOutEvent={mouseOutEvent}/>
         </Scroll> */}
         </ScrollControls>
+
+        <Archive currentSection={currentSection} />
+
 
         <Selector cursorEnlarged={cursorEnlarged} menuOpened={menuOpened} />
 
@@ -136,7 +140,7 @@ function App() {
 
 export default React.memo(App);
 
-function Scene({ setProjectOpened, projectOpened }) {
+function Scene({ setProjectOpened, projectOpened, currentSection }) {
   const sheet = useCurrentSheet();
   const scroll = useScroll();
 
@@ -228,7 +232,7 @@ function Scene({ setProjectOpened, projectOpened }) {
       </e.mesh>
 
       {/* Text */}
-      <TextElements setProjectOpened={setProjectOpened} projectOpened={projectOpened} />
+      <TextElements setProjectOpened={setProjectOpened} projectOpened={projectOpened} currentSection={currentSection} />
 
       {/* floor */}
       <mesh rotation={[-Math.PI / 2 + 0.3, 0, 0]} position={[0, -6, 0]} receiveShadow>
