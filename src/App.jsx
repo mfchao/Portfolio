@@ -113,12 +113,14 @@ function App() {
             </SheetProvider>
           )}
 
+          <Archive currentSection={currentSection} />
+
           {/* <Scroll html>
         <Interface mouseOverEvent={mouseOverEvent} mouseOutEvent={mouseOutEvent}/>
         </Scroll> */}
         </ScrollControls>
 
-        <Archive currentSection={currentSection} />
+
 
 
         <Selector cursorEnlarged={cursorEnlarged} menuOpened={menuOpened} />

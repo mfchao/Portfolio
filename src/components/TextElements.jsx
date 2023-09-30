@@ -503,7 +503,7 @@ export const TextElements = ({ setProjectOpened, projectOpened, currentSection }
         },
         {
             key: "P8Text5",
-            text: "Double click to enter",
+            text: "Click projects to explore",
             fillOpacityState: useState(null),
             visible: useState(false),
             ref: useRef(),

@@ -44,17 +44,22 @@ body {
   width: 100vw;
 } */
 
-svg { 
-  position: absolute; 
-  top:0;
-  left:0;
-  height:100vh;
-  width: 100vw;  
+svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
 }
 
 /* #roundcorners {
   visibility: hidden;
 } */
+
+img {
+  border-radius: 50%;
+  overflow: hidden
+}
 
 
 
@@ -81,35 +86,35 @@ svg {
    url("./src/fonts/SFCompact/SF-Compact-Text-LightItalic.ttf") format("truetype");
  } */
 
- @font-face {
+@font-face {
   font-family: "SF-Compact-Medium";
   src: local("SF-Compact-Medium"),
-   url("./src/fonts/SFCompact/SF-Compact-Text-Medium.ttf") format("truetype");
- }
+    url("./src/fonts/SFCompact/SF-Compact-Text-Medium.ttf") format("truetype");
+}
 
- @font-face {
+@font-face {
   font-family: "SF-Compact-Semibold";
   src: local("SF-Compact-Semibold"),
-   url("./src/fonts/SFCompact/SF-Compact-Text-Semibold.ttf") format("truetype");
- }
+    url("./src/fonts/SFCompact/SF-Compact-Text-Semibold.ttf") format("truetype");
+}
 
- @font-face {
+@font-face {
   font-family: "SF-Compact-Light";
   src: local("SF-Compact-Light"),
-   url("./src/fonts/SFCompact/SF-Compact-Text-Light.ttf") format("truetype");
- }
+    url("./src/fonts/SFCompact/SF-Compact-Text-Light.ttf") format("truetype");
+}
 
- @font-face {
+@font-face {
   font-family: "SF-Compact-Thin";
   src: local("SF-Compact-Thin"),
-   url("./src/fonts/SFCompact/SF-Compact-Text-Thin.ttf") format("truetype");
- }
+    url("./src/fonts/SFCompact/SF-Compact-Text-Thin.ttf") format("truetype");
+}
 
- @font-face {
+@font-face {
   font-family: "SF-Compact-Bold";
   src: local("SF-Compact-Bold"),
-   url("./src/fonts/SFCompact/SF-Compact-Text-Bold.ttf") format("truetype");
- }
+    url("./src/fonts/SFCompact/SF-Compact-Text-Bold.ttf") format("truetype");
+}
 
 
 .SF-Compact-Medium {
