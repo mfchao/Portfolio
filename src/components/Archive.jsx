@@ -1,8 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useMemo } from "react";
 import * as THREE from 'three';
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { Image, ScrollControls, Scroll, useScroll, Text, Html } from '@react-three/drei'
 import { proxy, useSnapshot } from 'valtio'
+import { useDrag } from '@use-gesture/react'
+import { useCallback } from "react";
 
 const damp = THREE.MathUtils.damp;
 
@@ -14,6 +16,8 @@ const state = proxy({
 
 const w = 0.7;
 const gap = 0.15;
+const xW = w + gap;
+const factor = 0.01;
 
 const TitleText = ({ title, position }) => {
     return (
@@ -42,43 +46,76 @@ const TitleText = ({ title, position }) => {
 export const Archive = (props) => {
     const { currentSection } = props;
 
-    const { urls } = useSnapshot(state)
-    const { titles } = useSnapshot(state)
-    const { width } = useThree((state) => state.viewport)
-    const xW = w + gap;
+    const { urls, titles } = useSnapshot(state);
 
     const ref = useRef()
+
+    const [x, setX] = useState(0);
+
+    const bind = useDrag(({ down, offset: [x] }) => {
+        setX(x);
+    },
+        { enabled: currentSection >= 9 ? true : false }
+    );
+
+    const optimizedUrls = useMemo(() => urls.map((url, i) => ({
+        url,
+        position: [i * xW, 0, 1.5],
+        scale: [w, 4, 1]
+    })), [urls, xW]);
 
 
     return (
         <>
-            {urls.map((url, i) => <Item currentSection={currentSection} key={i} index={i} position={[i * xW, 0, 1.5]} scale={[w, 4, 1]} url={url} titles={titles} />) /* prettier-ignore */}
-
+            <group ref={ref} {...bind()} position-x={x * factor}>
+                {optimizedUrls.map(({ url, position, scale }, i) => (
+                    <Item
+                        currentSection={currentSection}
+                        key={i}
+                        index={i}
+                        position={position}
+                        scale={scale}
+                        url={url}
+                        titles={titles}
+                    />
+                ))}
+            </group>
         </>
     );
 }
 
 function Item({ currentSection, index, position, scale, c = new THREE.Color(), titles, ...props }) {
     const ref = useRef()
-    const scroll = useScroll()
+
     const { hovered, urls } = useSnapshot(state)
-    const hover = () => (state.hovered = index === hovered ? null : index)
+    const hover = () => {
+        if (visible) {
+            state.hovered = index === hovered ? null : index;
+        }
+    }
     const out = () => state.hovered = null;
 
-    const [visible, setVisible] = useState(0);
+    const [visible, setVisible] = useState(false);
+    const [startOpacityAnimation, setStartOpacityAnimation] = useState(false);
 
     useEffect(() => {
 
-        if (currentSection === 9) {
-            setVisible(1);
+        if (currentSection >= 9) {
+            setTimeout(() => {
+                setStartOpacityAnimation(true);
+            }, 2000);
+            setVisible(true);
+
         } else {
-            setVisible(0);
+            setStartOpacityAnimation(false);
+            setVisible(false);
         }
 
     }, [currentSection]);
 
+
+
     useFrame((state, delta) => {
-        // const y = scroll.curve(index / urls.length - 1.5 / urls.length, 4 / urls.length)
         ref.current.material.scale[1] = ref.current.scale.y = damp(ref.current.scale.y, hovered === index ? 5 : 4, 8, delta)
         ref.current.material.scale[0] = ref.current.scale.x = damp(ref.current.scale.x, hovered === index ? 4.7 : scale[0], 6, delta)
         if (hovered !== null && index < hovered) ref.current.position.x = damp(ref.current.position.x, position[0] - 2, 6, delta)
@@ -86,13 +123,15 @@ function Item({ currentSection, index, position, scale, c = new THREE.Color(), t
         if (hovered === null || hovered === index) ref.current.position.x = damp(ref.current.position.x, position[0], 6, delta)
         ref.current.material.grayscale = damp(ref.current.material.grayscale, hovered === index ? 0 : Math.max(0, 1), 6, delta)
         ref.current.material.color.lerp(c.set(hovered === index ? 'white' : '#aaa'), hovered ? 0.3 : 0.1)
+
+        ref.current.material.opacity = damp(ref.current.material.opacity, startOpacityAnimation && visible === true ? 1 : 0, 5, delta)
+
     })
     return (
         <>
-            <Image ref={ref} {...props} position={position} scale={scale} onPointerOver={hover} onPointerOut={out} transparent opacity={visible} />
-            {hovered === index && <TitleText title={titles[index]} position={[position[0], position[1] - ref.current.scale.y + 2, position[2]]} />
 
-            }
+            <Image ref={ref} {...props} position={position} scale={scale} onPointerOver={hover} onPointerOut={out} transparent />
+            {hovered === index && <TitleText title={titles[index]} position={[position[0], position[1] - ref.current.scale.y + 2, position[2]]} />}
 
         </>
     )

@@ -113,15 +113,14 @@ function App() {
             </SheetProvider>
           )}
 
-          <Archive currentSection={currentSection} />
-
           {/* <Scroll html>
-        <Interface mouseOverEvent={mouseOverEvent} mouseOutEvent={mouseOutEvent}/>
-        </Scroll> */}
+
+            <Interface mouseOverEvent={mouseOverEvent} mouseOutEvent={mouseOutEvent} />
+          </Scroll> */}
         </ScrollControls>
 
 
-
+        <Archive currentSection={currentSection} />
 
         <Selector cursorEnlarged={cursorEnlarged} menuOpened={menuOpened} />
 
@@ -129,6 +128,9 @@ function App() {
           <Noise opacity={0.2} />
         </EffectComposer>
       </Canvas>
+
+
+
 
       <Menu
         onSectionChange={setSection}
