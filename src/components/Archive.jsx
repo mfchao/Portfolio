@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState, useMemo } from "react";
 import * as THREE from 'three';
-import { Canvas, useFrame, useThree } from '@react-three/fiber'
-import { Image, ScrollControls, Scroll, useScroll, Text, Html } from '@react-three/drei'
+import { useFrame } from '@react-three/fiber'
+import { Image, Text } from '@react-three/drei'
 import { proxy, useSnapshot } from 'valtio'
 import { useDrag } from '@use-gesture/react'
-import { useCallback } from "react";
+import React from "react";
+
 
 const damp = THREE.MathUtils.damp;
 
@@ -44,7 +45,8 @@ const TitleText = ({ title, position }) => {
 
 
 export const Archive = (props) => {
-    const { currentSection } = props;
+    const { currentSection, archiveProjectId, setArchiveProjectId, setProjectOpened, projectOpened } = props;
+
 
     const { urls, titles } = useSnapshot(state);
 
@@ -77,14 +79,19 @@ export const Archive = (props) => {
                         scale={scale}
                         url={url}
                         titles={titles}
+                        setArchiveProjectId={setArchiveProjectId}
+                        archiveProjectId={archiveProjectId}
+                        setProjectOpened={setProjectOpened}
                     />
                 ))}
             </group>
+
+
         </>
     );
 }
 
-function Item({ currentSection, index, position, scale, c = new THREE.Color(), titles, ...props }) {
+function Item({ currentSection, index, position, scale, c = new THREE.Color(), titles, archiveProjectId, setArchiveProjectId, setProjectOpened, ...props }) {
     const ref = useRef()
 
     const { hovered, urls } = useSnapshot(state)
@@ -97,10 +104,19 @@ function Item({ currentSection, index, position, scale, c = new THREE.Color(), t
 
     const [visible, setVisible] = useState(false);
     const [startOpacityAnimation, setStartOpacityAnimation] = useState(false);
+    const [dragging, setDragging] = useState(false);
+
+    const handleClick = () => {
+        if (!dragging) {
+            setArchiveProjectId(index);
+            setProjectOpened(true);
+        }
+    };
+
 
     useEffect(() => {
 
-        if (currentSection >= 9) {
+        if (currentSection >= 9 && archiveProjectId == null) {
             setTimeout(() => {
                 setStartOpacityAnimation(true);
             }, 2000);
@@ -111,7 +127,7 @@ function Item({ currentSection, index, position, scale, c = new THREE.Color(), t
             setVisible(false);
         }
 
-    }, [currentSection]);
+    }, [currentSection, archiveProjectId]);
 
 
 
@@ -130,7 +146,11 @@ function Item({ currentSection, index, position, scale, c = new THREE.Color(), t
     return (
         <>
 
-            <Image ref={ref} {...props} position={position} scale={scale} onPointerOver={hover} onPointerOut={out} transparent />
+            <Image ref={ref} {...props} position={position} scale={scale} onPointerOver={hover} onPointerOut={out}
+                onPointerDown={() => setDragging(false)}
+                onPointerMove={() => setDragging(true)}
+                onPointerUp={handleClick}
+                transparent />
             {hovered === index && <TitleText title={titles[index]} position={[position[0], position[1] - ref.current.scale.y + 2, position[2]]} />}
 
         </>

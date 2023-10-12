@@ -1,10 +1,15 @@
 import { Echo } from "./projects/Echo";
+import { Project1 } from "./projects/Project1";
 
 
 
 export const ProjectManager = (props) => {
-    const { currentSection, projectOpened, setProjectOpened, } = props;
+    const { currentSection, projectOpened, setProjectOpened, archiveProjectId, setArchiveProjectId } = props;
 
+    const handleClick = () => {
+        setProjectOpened(false)
+        setArchiveProjectId(null);
+    };
 
     return (
         <>
@@ -14,12 +19,13 @@ export const ProjectManager = (props) => {
             >
                 <button className={`z-30 fixed top-12 left-12 SF-Compact-Light text-sm cursor-pointer hover:text-rose-700 transition-colors
            `}
-                    onClick={() => setProjectOpened(false)}>
+                    onClick={handleClick}>
                     BACK
                 </button>
 
                 <div className={`absolute top-0 left-0 w-screen h-screen overflow-y-scroll`}>
                     <Echo currentSection={currentSection} />
+                    <Project1 archiveProjectId={archiveProjectId} />
 
                 </div>
 

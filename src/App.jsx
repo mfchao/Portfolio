@@ -28,6 +28,8 @@ import { easing } from 'maath';
 import { ProjectManager } from './components/ProjectManager';
 import { HtmlWrapper } from './components/HtmlWrapper';
 import { Archive } from './components/Archive';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { ArchiveManager } from './components/ArchiveManager';
 
 function App() {
   const [sheet, setSheet] = useState(null);
@@ -40,6 +42,8 @@ function App() {
   const [currentSection, setCurrentSection] = useState(0);
 
   const [projectOpened, setProjectOpened] = useState(false);
+
+  const [archiveProjectId, setArchiveProjectId] = useState(null);
 
   const mouseOverEvent = () => {
     setCursorEnlarged(true);
@@ -95,39 +99,50 @@ function App() {
 
   return (
     <>
-      <Canvas shadows gl={{ preserveDrawingBuffer: true }}>
-        <ScrollControls pages={9} damping={0.8} maxSpeed={1} enabled={projectOpened ? false : true}>
-          <ScrollManager section={section} onSectionChange={setSection} />
+      <BrowserRouter>
+        <Canvas shadows gl={{ preserveDrawingBuffer: true }}>
+          <ScrollControls pages={9} damping={0.8} maxSpeed={1} enabled={projectOpened ? false : true}>
+            <ScrollManager section={section} onSectionChange={setSection} />
 
-          <HtmlWrapper
-            currentSection={currentSection}
-            projectOpened={projectOpened}
-            setProjectOpened={setProjectOpened}
-          />
+            <HtmlWrapper
+              currentSection={currentSection}
+              projectOpened={projectOpened}
+              setProjectOpened={setProjectOpened}
+              archiveProjectId={archiveProjectId}
+              setArchiveProjectId={setArchiveProjectId}
+            />
 
-          <Experience setCurrentSection={setCurrentSection} menuOpened={menuOpened} />
+            <Experience setCurrentSection={setCurrentSection} menuOpened={menuOpened} />
 
-          {sheet && (
-            <SheetProvider sheet={sheet}>
-              <Scene setProjectOpened={setProjectOpened} projectOpened={projectOpened} currentSection={currentSection} />
-            </SheetProvider>
-          )}
+            {sheet && (
+              <SheetProvider sheet={sheet}>
+                <Scene setProjectOpened={setProjectOpened} projectOpened={projectOpened} currentSection={currentSection} />
+              </SheetProvider>
+            )}
 
-          {/* <Scroll html>
+            {/* <Scroll html>
 
             <Interface mouseOverEvent={mouseOverEvent} mouseOutEvent={mouseOutEvent} />
           </Scroll> */}
-        </ScrollControls>
+          </ScrollControls>
 
 
-        <Archive currentSection={currentSection} />
+          <Archive currentSection={currentSection} archiveProjectId={archiveProjectId} setArchiveProjectId={setArchiveProjectId}
+            setProjectOpened={setProjectOpened} projectOpened={projectOpened} />
+          {/* <ArchiveManager currentSection={currentSection} /> */}
 
-        <Selector cursorEnlarged={cursorEnlarged} menuOpened={menuOpened} />
 
-        <EffectComposer>
-          <Noise opacity={0.2} />
-        </EffectComposer>
-      </Canvas>
+
+          <Selector cursorEnlarged={cursorEnlarged} menuOpened={menuOpened} />
+
+          <EffectComposer>
+            <Noise opacity={0.2} />
+          </EffectComposer>
+        </Canvas>
+
+
+
+      </BrowserRouter>
 
 
 
