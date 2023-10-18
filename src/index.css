@@ -147,6 +147,20 @@ svg {
   -webkit-text-stroke: 1.5px black;
 }
 
+h2 {
+  font-family: "SF-Compact-Semibold";
+  line-height: 3.5em;
+  font-size: 1.2em;
+}
+
+li {
+  font-family: "SF-Compact-Thin";
+}
+
+h3 {
+  font-family: "SF-Compact-Medium";
+}
+
 
 
 /* archive */

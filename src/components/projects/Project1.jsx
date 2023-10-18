@@ -4,9 +4,7 @@ import { ProjectHeader } from "../ProjectHero";
 export const Project1 = (props) => {
     const { archiveProjectId } = props;
 
-    useEffect(() => {
-        console.log(archiveProjectId)
-    }, [archiveProjectId])
+
 
     if (archiveProjectId === 1) {
 

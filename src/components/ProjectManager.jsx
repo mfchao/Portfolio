@@ -1,5 +1,6 @@
 import { Echo } from "./projects/Echo";
 import { Project1 } from "./projects/Project1";
+import { Skills } from "./projects/Skills";
 
 
 
@@ -26,6 +27,7 @@ export const ProjectManager = (props) => {
                 <div className={`absolute top-0 left-0 w-screen h-screen overflow-y-scroll`}>
                     <Echo currentSection={currentSection} />
                     <Project1 archiveProjectId={archiveProjectId} />
+                    <Skills currentSection={currentSection} />
 
                 </div>
 
