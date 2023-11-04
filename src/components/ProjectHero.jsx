@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useScroll } from "@react-three/drei";
 import { useFrame } from '@react-three/fiber';
+import { motion } from "framer-motion";
 
 
 export const ProjectHeader = (props) => {
@@ -89,10 +90,16 @@ export const ProjectHeader = (props) => {
 
 
             <div className="absolute top-56 left-[28%] h-full " >
-                <div className=" text-7xl SF-Compact-Bold mb-8 ">
+                <motion.div className=" text-7xl SF-Compact-Bold mb-8 "
+                    initial={{ opacity: 0, y: 25 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1, delay: 0 }}>
                     {title}
-                </div>
-                <div className=" text-sm SF-Compact-Thin my-px mb-8">
+                </motion.div>
+                <motion.div className=" text-sm SF-Compact-Thin my-px mb-8"
+                    initial={{ opacity: 0, y: 25 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1, delay: 0 }}>
                     <div>
                         {date}
                     </div>
@@ -105,13 +112,20 @@ export const ProjectHeader = (props) => {
                     <div>
                         {role}
                     </div>
-                </div>
-                <div className="text-base SF-Compact-Light max-w-2xl">
+                </motion.div>
+                <motion.div className="text-base SF-Compact-Light max-w-2xl"
+                    initial={{ opacity: 0, y: 25 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1, delay: 0 }}>
                     {description}
-                </div>
+                </motion.div>
+
             </div>
 
 
+            <div className="absolute bottom-[50%] left-[0%] SF-Compact-Medium">
+                <p>Scroll to view project</p>
+            </div>
         </div>
     );
 };
