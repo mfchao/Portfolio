@@ -18,13 +18,13 @@ export const ProjectHeader = (props) => {
             const el = myElementRef.current;
             setPositionTop(el.scrollTop);
             setPositionLeft(el.scrollLeft);
-            console.log("scrolled")
+
 
         };
 
 
         const element = myElementRef.current;
-        console.log(element)
+
         element.addEventListener("scroll", handleScroll);
 
         return () => {

@@ -107,7 +107,7 @@ function Item({ currentSection, index, position, scale, c = new THREE.Color(), t
     const [dragging, setDragging] = useState(false);
 
     const handleClick = () => {
-        if (!dragging) {
+        if (!dragging && visible) {
             setArchiveProjectId(index);
             setProjectOpened(true);
         }
@@ -149,7 +149,7 @@ function Item({ currentSection, index, position, scale, c = new THREE.Color(), t
             <Image ref={ref} {...props} position={position} scale={scale} onPointerOver={hover} onPointerOut={out}
                 onPointerDown={() => setDragging(false)}
                 onPointerMove={() => setDragging(true)}
-                onPointerUp={handleClick}
+                onPointerUp={() => handleClick()}
                 transparent />
             {hovered === index && <TitleText title={titles[index]} position={[position[0], position[1] - ref.current.scale.y + 2, position[2]]} />}
 

@@ -1,9 +1,9 @@
 import { ProjectHeader } from "../ProjectHero";
 
 export const Skills = (props) => {
-    const { currentSection, scrollData } = props;
+    const { currentSection, openProject } = props;
 
-    if (currentSection === 2) {
+    if (openProject === "skills") {
         return (
             <div className="flex justify-evenly items-center min-h-screen mx-52">
                 <div className="w-1/2 mx-auto ">

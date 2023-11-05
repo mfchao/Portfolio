@@ -36,6 +36,7 @@ function App() {
 
   const [section, setSection] = useState(null);
   const [menuOpened, setMenuOpened] = useState(false);
+  const [openProject, setOpenProject] = useState(null);
 
   const [cursorEnlarged, setCursorEnlarged] = useState(false);
 
@@ -110,13 +111,15 @@ function App() {
               setProjectOpened={setProjectOpened}
               archiveProjectId={archiveProjectId}
               setArchiveProjectId={setArchiveProjectId}
+              openProject={openProject}
+              setOpenProject={setOpenProject}
             />
 
             <Experience setCurrentSection={setCurrentSection} menuOpened={menuOpened} />
 
             {sheet && (
               <SheetProvider sheet={sheet}>
-                <Scene setProjectOpened={setProjectOpened} projectOpened={projectOpened} currentSection={currentSection} />
+                <Scene setProjectOpened={setProjectOpened} projectOpened={projectOpened} currentSection={currentSection} openProject={openProject} setOpenProject={setOpenProject} />
               </SheetProvider>
             )}
 
@@ -159,7 +162,7 @@ function App() {
 
 export default React.memo(App);
 
-function Scene({ setProjectOpened, projectOpened, currentSection }) {
+function Scene({ setProjectOpened, projectOpened, currentSection, openProject, setOpenProject }) {
   const sheet = useCurrentSheet();
   const scroll = useScroll();
 
@@ -251,7 +254,7 @@ function Scene({ setProjectOpened, projectOpened, currentSection }) {
       </e.mesh>
 
       {/* Text */}
-      <TextElements setProjectOpened={setProjectOpened} projectOpened={projectOpened} currentSection={currentSection} />
+      <TextElements setProjectOpened={setProjectOpened} projectOpened={projectOpened} currentSection={currentSection} openProject={openProject} setOpenProject={setOpenProject} />
 
       {/* floor */}
       <mesh rotation={[-Math.PI / 2 + 0.3, 0, 0]} position={[0, -6, 0]} receiveShadow>

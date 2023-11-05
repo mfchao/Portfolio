@@ -3,15 +3,16 @@ import { motion } from "framer-motion";
 import { useMotion } from "../motion";
 
 export const Nosakhari = (props) => {
-    const { currentSection, setProjectOpened, setArchiveProjectId } = props;
+    const { currentSection, setProjectOpened, setArchiveProjectId, openProject, setOpenProject } = props;
     const motionProps = useMotion();
 
     const handleClick = () => {
         setProjectOpened(false)
         setArchiveProjectId(null);
+        setOpenProject(null);
     };
 
-    if (currentSection === 4) {
+    if (openProject === 'nosakhari') {
         return (
             <>
                 <div className="fixed w-screen z-0">

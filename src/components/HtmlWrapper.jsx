@@ -2,7 +2,7 @@ import { Html, useScroll } from "@react-three/drei";
 import { ProjectManager } from "./ProjectManager";
 
 export const HtmlWrapper = (props) => {
-  const { currentSection, projectOpened, setProjectOpened, archiveProjectId, setArchiveProjectId } = props;
+  const { currentSection, projectOpened, setProjectOpened, archiveProjectId, setArchiveProjectId, openProject, setOpenProject } = props;
 
   const scrollData = useScroll();
 
@@ -26,7 +26,7 @@ export const HtmlWrapper = (props) => {
           <div
           // onPointerDown={(e) => e.stopPropagation()}
           >
-            <ProjectManager currentSection={currentSection} projectOpened={projectOpened} setProjectOpened={setProjectOpened} archiveProjectId={archiveProjectId} setArchiveProjectId={setArchiveProjectId} />
+            <ProjectManager currentSection={currentSection} projectOpened={projectOpened} setProjectOpened={setProjectOpened} archiveProjectId={archiveProjectId} setArchiveProjectId={setArchiveProjectId} openProject={openProject} setOpenProject={setOpenProject} />
           </div>
         </Html>
       </mesh>

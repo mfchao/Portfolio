@@ -6,9 +6,10 @@ import { Skills } from "./projects/Skills";
 
 
 export const ProjectManager = (props) => {
-    const { currentSection, projectOpened, setProjectOpened, archiveProjectId, setArchiveProjectId } = props;
+    const { currentSection, projectOpened, setProjectOpened, archiveProjectId, setArchiveProjectId, openProject, setOpenProject } = props;
 
     const handleClick = () => {
+        setOpenProject(null);
         setProjectOpened(false)
         setArchiveProjectId(null);
     };
@@ -24,10 +25,10 @@ export const ProjectManager = (props) => {
                 </button>
 
                 <div className={`absolute top-0 left-0 w-screen h-screen overflow-y-scroll transition-all ease-in-out duration-700 `}>
-                    <Skills currentSection={currentSection} />
-                    <Echo currentSection={currentSection} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} />
+                    <Skills currentSection={currentSection} openProject={openProject} />
+                    <Echo currentSection={currentSection} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} openProject={openProject} setOpenProject={setOpenProject} />
                     <Project1 archiveProjectId={archiveProjectId} />
-                    <Nosakhari currentSection={currentSection} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} />
+                    <Nosakhari currentSection={currentSection} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} openProject={openProject} setOpenProject={setOpenProject} />
 
                 </div>
 

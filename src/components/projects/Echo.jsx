@@ -1,17 +1,21 @@
 import { ProjectHeader } from "../ProjectHero";
 import { motion } from "framer-motion";
 import { useMotion } from "../motion";
+import { useEffect } from "react";
 
 export const Echo = (props) => {
-    const { currentSection, setProjectOpened, setArchiveProjectId } = props;
+    const { currentSection, setProjectOpened, setArchiveProjectId, openProject, setOpenProject } = props;
     const motionProps = useMotion();
 
     const handleClick = () => {
         setProjectOpened(false)
         setArchiveProjectId(null);
+        setOpenProject(null)
     };
 
-    if (currentSection === 3) {
+
+
+    if (openProject === "echo") {
         return (
             <>
                 <div className="fixed w-screen z-0">
