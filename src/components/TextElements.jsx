@@ -531,27 +531,22 @@ export const TextElements = ({ setProjectOpened, projectOpened, currentSection, 
             const unsubscribe = opacityState.onValuesChange((newValues) => {
                 element.ref.current.fillOpacity = newValues.fillOpacity;
 
-
                 if (element.ref.current.fillOpacity > 0.7) {
                     element.visible.current = true;
                 } else {
                     element.visible.current = false;
                 }
-
                 if (currentSection === 9) {
                     element.visible.current = false;
                 }
 
             });
-            console.log(element.visible.current)
-
             return unsubscribe;
         });
-    }, [textElements, openProject, currentSection]);
+    }, [textElements, openProject, currentSection, hovered]);
 
 
     const handleClick = (element) => {
-
         setProjectOpened(true);
         setOpenProject(element.project);
     };
@@ -565,7 +560,8 @@ export const TextElements = ({ setProjectOpened, projectOpened, currentSection, 
                     <Text ref={element.ref}
                         text={element.text}
                         position={[0, element.props.moveNumber, 0]}
-                        onClick={element.visible.current && element.toggleProject && element.project ? () => handleClick(element) : null}
+                        // onClick={element.visible.current && element.toggleProject && element.project ? () => handleClick(element) : null}
+                        onClick={element.toggleProject && element.project ? () => handleClick(element) : null}
                         color={element.color}
                         {...styles} {...element.props}
                         onPointerOver={element.clickable && element.visible.current && !projectOpened ? () => setHovered(true) : null} onPointerOut={() => setHovered(false)}
