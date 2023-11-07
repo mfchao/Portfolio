@@ -11,8 +11,8 @@ const damp = THREE.MathUtils.damp;
 
 const state = proxy({
     hovered: null,
-    urls: [1, 2, 3, 4].map((u) => `/images/archiveHeros/${u}.jpg`),
-    titles: ['ASCER Machine Learning Research', 'Assignment[0]: Intro to Comp', 'Title 3', 'Title 4']
+    urls: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((u) => `/images/archiveHeros/${u}.jpg`),
+    titles: ['ASCER Machine Learning Research', 'Assignment[0]: Intro to Comp', 'Title 3', 'Title 4', 'Title 5', 'Title 6', 'Cuttlefish', '3D Droop', 'Title 9', 'Title 10', 'Title 11', 'Title 12']
 })
 
 const w = 0.7;

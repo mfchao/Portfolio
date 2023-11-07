@@ -5,6 +5,8 @@ import { Ascer } from "./projects/Ascer";
 import { Skills } from "./projects/Skills";
 import { TangibleIdeas } from "./projects/TangibleIdeas";
 import { Temples } from "./projects/Temples";
+import { Cuttlefish } from "./projects/Cuttlefish";
+import { Droop } from "./projects/Droop";
 
 
 
@@ -36,6 +38,9 @@ export const ProjectManager = (props) => {
                     <TangibleIdeas currentSection={currentSection} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} openProject={openProject} setOpenProject={setOpenProject} />
 
                     <Ascer archiveProjectId={archiveProjectId} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} />
+                    <Cuttlefish archiveProjectId={archiveProjectId} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} />
+                    <Droop archiveProjectId={archiveProjectId} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} />
+
                 </div>
 
 
