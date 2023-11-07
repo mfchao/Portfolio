@@ -123,9 +123,9 @@ export const ProjectHeader = (props) => {
             </div>
 
 
-            <div className="absolute bottom-[50%] left-[0%] SF-Compact-Medium">
+            {/* <div className="absolute bottom-[50%] left-[0%] SF-Compact-Medium">
                 <p>Scroll to view project</p>
-            </div>
+            </div> */}
         </div>
     );
 };

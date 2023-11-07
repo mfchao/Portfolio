@@ -11,8 +11,8 @@ const damp = THREE.MathUtils.damp;
 
 const state = proxy({
     hovered: null,
-    urls: [1, 2, 3, 4].map((u) => `/images/${u}.png`),
-    titles: ['Title 1', 'Assignment[0]: Intro to Comp', 'Title 3', 'Title 4']
+    urls: [1, 2, 3, 4].map((u) => `/images/archiveHeros/${u}.jpg`),
+    titles: ['ASCER Machine Learning Research', 'Assignment[0]: Intro to Comp', 'Title 3', 'Title 4']
 })
 
 const w = 0.7;
@@ -140,7 +140,7 @@ function Item({ currentSection, index, position, scale, c = new THREE.Color(), t
         ref.current.material.grayscale = damp(ref.current.material.grayscale, hovered === index ? 0 : Math.max(0, 1), 6, delta)
         ref.current.material.color.lerp(c.set(hovered === index ? 'white' : '#aaa'), hovered ? 0.3 : 0.1)
 
-        ref.current.material.opacity = damp(ref.current.material.opacity, startOpacityAnimation && visible === true ? 1 : 0, 5, delta)
+        ref.current.material.opacity = damp(ref.current.material.opacity, startOpacityAnimation && visible === true ? 1 : 0, 6, delta)
 
     })
     return (

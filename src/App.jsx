@@ -29,7 +29,6 @@ import { ProjectManager } from './components/ProjectManager';
 import { HtmlWrapper } from './components/HtmlWrapper';
 import { Archive } from './components/Archive';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import { ArchiveManager } from './components/ArchiveManager';
 
 function App() {
   const [sheet, setSheet] = useState(null);
@@ -132,7 +131,6 @@ function App() {
 
           <Archive currentSection={currentSection} archiveProjectId={archiveProjectId} setArchiveProjectId={setArchiveProjectId}
             setProjectOpened={setProjectOpened} projectOpened={projectOpened} />
-          {/* <ArchiveManager currentSection={currentSection} /> */}
 
 
 
