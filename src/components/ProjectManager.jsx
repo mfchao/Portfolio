@@ -7,6 +7,8 @@ import { TangibleIdeas } from "./projects/TangibleIdeas";
 import { Temples } from "./projects/Temples";
 import { Cuttlefish } from "./projects/Cuttlefish";
 import { Droop } from "./projects/Droop";
+import { UCLAssistant } from "./projects/UCLAssistant";
+import { GreeningCities } from "./projects/GreeningCities";
 
 
 
@@ -40,6 +42,8 @@ export const ProjectManager = (props) => {
                     <Ascer archiveProjectId={archiveProjectId} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} />
                     <Cuttlefish archiveProjectId={archiveProjectId} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} />
                     <Droop archiveProjectId={archiveProjectId} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} />
+                    <UCLAssistant archiveProjectId={archiveProjectId} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} />
+                    <GreeningCities archiveProjectId={archiveProjectId} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} />
 
                 </div>
 
