@@ -3,6 +3,8 @@ import { Echo } from "./projects/Echo";
 import { Nosakhari } from "./projects/Nosakhari";
 import { Project1 } from "./projects/Project1";
 import { Skills } from "./projects/Skills";
+import { TangibleIdeas } from "./projects/TangibleIdeas";
+import { Temples } from "./projects/Temples";
 
 
 
@@ -31,6 +33,8 @@ export const ProjectManager = (props) => {
                     <Project1 archiveProjectId={archiveProjectId} />
                     <Nosakhari currentSection={currentSection} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} openProject={openProject} setOpenProject={setOpenProject} />
                     <DeepFacade currentSection={currentSection} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} openProject={openProject} setOpenProject={setOpenProject} />
+                    <Temples currentSection={currentSection} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} openProject={openProject} setOpenProject={setOpenProject} />
+                    <TangibleIdeas currentSection={currentSection} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} openProject={openProject} setOpenProject={setOpenProject} />
 
                 </div>
 

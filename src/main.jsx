@@ -30,7 +30,7 @@ import './fonts/SFCompact/SF-Compact-Text-Thin.ttf';
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Suspense fallback={null}>
-    <App />
+      <App />
     </Suspense>
   </React.StrictMode>,
 )
