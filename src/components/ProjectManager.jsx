@@ -9,6 +9,7 @@ import { Cuttlefish } from "./projects/Cuttlefish";
 import { Droop } from "./projects/Droop";
 import { UCLAssistant } from "./projects/UCLAssistant";
 import { GreeningCities } from "./projects/GreeningCities";
+import { NeuralSynesthesia } from "./projects/NeuralSynesthesia";
 
 
 
@@ -44,6 +45,7 @@ export const ProjectManager = (props) => {
                     <Droop archiveProjectId={archiveProjectId} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} />
                     <UCLAssistant archiveProjectId={archiveProjectId} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} />
                     <GreeningCities archiveProjectId={archiveProjectId} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} />
+                    <NeuralSynesthesia archiveProjectId={archiveProjectId} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} />
 
                 </div>
 

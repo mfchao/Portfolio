@@ -30,9 +30,9 @@ export const TangibleIdeas = (props) => {
                     <div className="absolute h-20 bg-gradient-to-t from-white ... w-screen bottom-0">
                         <div className="bg-white w-screen mt-20">
                             <div className="mainContainer">
-                                <motion.div className="image-small mt-20"
+                                <motion.div className="image-full mt-20"
                                     {...motionProps}>
-                                    <img src="/images/TangibleIdeas/tangiblehero.jpg"></img>
+                                    <img src="/images/TangibleIdeas/heroimage.jpeg"></img>
                                 </motion.div>
                                 <div className="section-title">
                                     <motion.p
@@ -62,7 +62,7 @@ export const TangibleIdeas = (props) => {
                                 </div>
                                 <motion.div className="image-full"
                                     {...motionProps}>
-                                    <video autoPlay loop id="myVideo" src="/images/TangibleIdeas/tangiblevideo.mov" type="video/mov">
+                                    <video controls id="myVideo" src="/images/TangibleIdeas/tangiblevideo.mov" type="video/mov">
                                         Your browser does not support this video.
                                     </video>
                                     <p className="caption-text">Demo Video: With group members Alex, Jin Gao, and Keyi.</p>
@@ -104,7 +104,7 @@ export const TangibleIdeas = (props) => {
                                 <div className="text-container large-text">
                                     <motion.p
                                         {...motionProps}
-                                    >This creates a partnership between the user and the mind map itself, where it supersedes a simple recording device by being able to impose its own logic and bias on the nodes while simultaneously responding to user inputs in real time. </motion.p>
+                                    >This creates a partnership between the user and the mind map itself, where it supersedes a simple recording device by being able to impose its own logic and bias on the nodes while simultaneously responding to user inputs in real time, creating a bi-directional communication flow between the human and the machine. </motion.p>
                                 </div>
                                 <motion.div className="image-full"
                                     {...motionProps}>
@@ -130,20 +130,48 @@ export const TangibleIdeas = (props) => {
                                     <img src="/images/TangibleIdeas/droplet.jpg"></img>
                                     <p className="caption-text">Render of Robotic Droplet</p>
                                 </motion.div>
+                                <motion.div className="image-full"
+                                    {...motionProps}>
+                                    <video autoPlay loop id="myVideo" src="/images/TangibleIdeas/robot.mov" type="video/mov">
+                                        Your browser does not support this video.
+                                    </video>
+                                    <p className="caption-text">Tangible robot that syncs with digital mind map.</p>
+                                </motion.div>
                                 <div className="text-container large-text">
                                     <motion.p
                                         {...motionProps}
                                     >We also implemented gestural recognition to sync with the projected mind map, using Microsoft’s AHAT articulated hand tracking.
                                     </motion.p>
                                 </div>
-                                <motion.div className="image-small"
+                                <motion.div className="image-full columns"
                                     {...motionProps}>
-                                    <img src="/images/TangibleIdeas/gesture.jpg"></img>
+                                    <img src="/images/TangibleIdeas/gesture.jpg" className="col  w-16"></img>
+                                    <img src="/images/TangibleIdeas/gesturecontrols.jpg" className="col w-16"></img>
                                 </motion.div>
+                                <div className="section-title">
+                                    <motion.p
+                                        {...motionProps}
+                                    >SO WHAT ?
+                                    </motion.p>
+                                </div>
+                                <div className="text-container normal-text">
+                                    <motion.p
+                                        {...motionProps}
+                                    >This project has the potential to redefine the way we approach creative brainstorming and problem-solving. By integrating AI and robotics into the process, we are not just enhancing our creative capabilities, but also transforming the way we interact with technology. The project aims to create a symbiotic relationship between humans and AI, where both contribute equally to the creative process. The addition of robotic 'droplets' adds a tangible, interactive element to the process, allowing ideas to be physically manipulated and explored, which is important in the user experience of brainstorming.
+                                    </motion.p>
+                                </div>
+                                <div className="text-container large-text">
+                                    <motion.p
+                                        {...motionProps}
+                                    >This project is not just about creating a new tool, but about reimagining the entire creative process - blurring the lines between human and machine, and transforming our understanding of what it means to be creative and what it looks like to navigate that creative space.
+                                    </motion.p>
+                                </div>
+
                                 <motion.div className="image-full"
                                     {...motionProps}>
                                     <img src="/images/TangibleIdeas/projection.jpg"></img>
                                 </motion.div>
+
 
 
 
