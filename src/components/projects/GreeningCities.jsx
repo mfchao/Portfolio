@@ -21,7 +21,7 @@ export const GreeningCities = (props) => {
                         title="Greening Cities"
                         date="2021"
                         location="London, UK"
-                        course="University College London Greening Cities Course"
+                        course="University College London Greening Cities Individual Research"
                         role="Individual Research Project | Winner of Architectural Research Prize 2021"
                         description="This project was an architectural ideation project and academic report that aims to utilize case studies, interviews, and literature review to analyze, evaluate, and propose green infrastructure solutions to
                         the Bangkok Art and Culture Center (BACC)."

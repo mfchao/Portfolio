@@ -21,7 +21,7 @@ export const Cuttlefish = (props) => {
                         title="Cuttlefish"
                         date="2022"
                         location="Cambridge, MA"
-                        course="Harvard GSD 6338 Introduction to Computational Design"
+                        course="Harvard GSD 6338 Introduction to Computational Design Group Project"
                         role="Role: Computational Designer"
                         description="My new Rhino Grasshopper plug-in, Cuttlefish."
                     />

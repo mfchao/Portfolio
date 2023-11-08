@@ -21,7 +21,7 @@ export const Droop = (props) => {
                         title="3D Droop"
                         date="2022"
                         location="Cambridge, MA"
-                        course="Harvard GSD 6338 Introduction to Computational Design"
+                        course="Harvard GSD 6338 Introduction to Computational Design Group Project"
                         role="Role: Computational Designer"
                         description="Experimenting with alternative ways of 3D printing by altering and creating custom G-code algorithms."
                     />

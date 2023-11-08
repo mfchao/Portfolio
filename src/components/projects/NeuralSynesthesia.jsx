@@ -21,7 +21,7 @@ export const NeuralSynesthesia = (props) => {
                         title="Neural Synesthesia"
                         date="2023"
                         location="Cambridge, MA"
-                        course="Harvard GSD 6487 Machine Aesthetics"
+                        course="Harvard GSD 6487 Machine Aesthetics Group Project"
                         role="Role: Machine Learning Engineer"
                         description="Exploring ambience sound to image associations and generating art with machine learning."
                     />

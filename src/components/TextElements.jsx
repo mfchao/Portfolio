@@ -536,8 +536,9 @@ export const TextElements = ({ setProjectOpened, projectOpened, currentSection, 
                 } else {
                     element.visible.current = false;
                 }
-                if (currentSection === 9) {
+                if (currentSection >= 9) {
                     element.visible.current = false;
+                    element.clickable = false;
                 }
 
             });
@@ -561,7 +562,7 @@ export const TextElements = ({ setProjectOpened, projectOpened, currentSection, 
                         text={element.text}
                         position={[0, element.props.moveNumber, 0]}
                         // onClick={element.visible.current && element.toggleProject && element.project ? () => handleClick(element) : null}
-                        onClick={element.toggleProject && element.project ? () => handleClick(element) : null}
+                        onClick={element.clickable && element.toggleProject && element.project ? () => handleClick(element) : null}
                         color={element.color}
                         {...styles} {...element.props}
                         onPointerOver={element.clickable && element.visible.current && !projectOpened ? () => setHovered(true) : null} onPointerOut={() => setHovered(false)}

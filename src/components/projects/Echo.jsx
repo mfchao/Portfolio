@@ -23,7 +23,7 @@ export const Echo = (props) => {
                         title="Introducing Echo"
                         date="2022"
                         location="Bartlett UCL"
-                        course="Individual Final Course Project"
+                        course="UCL Design and Creative Practice Individual Project"
                         role="Role: Augmented Reality Prototyper"
                         description="Creating Echo, the augmented reality app designed as your personal memory palace.
                     Living in a consumer society, we tend to ground ourselves through our belongings; thus we associate memories with objects and locations. 
