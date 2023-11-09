@@ -12,6 +12,8 @@ import { GreeningCities } from "./projects/GreeningCities";
 import { NeuralSynesthesia } from "./projects/NeuralSynesthesia";
 import { FlowScape } from "./projects/FlowScape";
 import { Always } from "./projects/Always";
+import { FooBot } from "./projects/FooBot";
+import { SpotLite } from "./projects/SpotLite";
 
 
 
@@ -50,6 +52,8 @@ export const ProjectManager = (props) => {
                     <NeuralSynesthesia archiveProjectId={archiveProjectId} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} />
                     <FlowScape archiveProjectId={archiveProjectId} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} />
                     <Always archiveProjectId={archiveProjectId} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} />
+                    <FooBot archiveProjectId={archiveProjectId} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} />
+                    <SpotLite archiveProjectId={archiveProjectId} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} />
 
                 </div>
 
