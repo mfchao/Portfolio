@@ -26,6 +26,13 @@ export const TextElements = ({ setProjectOpened, projectOpened, currentSection, 
         moveNumber: 0,
     });
 
+    const [bold, setBold] = useState({
+        fontSize: 0.1,
+        letterSpacing: 0.05,
+        font: fonts.SFCompactBold,
+        moveNumber: 0,
+    });
+
     const [subtitle, setSubtitle] = useState({
         fontSize: 0.07,
         letterSpacing: 0.05,
@@ -53,469 +60,502 @@ export const TextElements = ({ setProjectOpened, projectOpened, currentSection, 
             key: "P0Text1",
             text: "HI I'M",
             fillOpacityState: useState(null),
-            visible: useRef(false),
+            visible: useState(false),
             ref: useRef(),
             color: "black",
             toggleProject: false,
             props: title,
-            clickable: false,
+            clickable: useState(false),
         },
         {
             key: "P0Text2",
             text: "MAGGIE CHAO",
             fillOpacityState: useState(null),
-            visible: useRef(false),
+            visible: useState(false),
             ref: useRef(),
             color: "red",
             toggleProject: false,
             props: title,
-            clickable: false,
+            clickable: useState(false),
         },
         {
             key: "P0Text3",
             text: ", A CREATIVE DEVELOPER AND COMPUTATIONAL DESIGNER.",
             fillOpacityState: useState(null),
-            visible: useRef(false),
+            visible: useState(false),
             ref: useRef(),
             color: "black",
             toggleProject: false,
             props: title,
-            clickable: false
+            clickable: useState(false)
         },
         {
             key: "P0Text4",
             text: "Scroll to explore my world",
             fillOpacityState: useState(null),
-            visible: useRef(false),
+            visible: useState(false),
             ref: useRef(),
             color: "black",
             toggleProject: false,
             props: subtitle,
-            clickable: false
+            clickable: useState(false)
         },
         {
             key: "P1Text1",
             text: "MY JOURNEY STARTED IN",
             fillOpacityState: useState(null),
-            visible: useRef(false),
+            visible: useState(false),
             ref: useRef(),
             color: "black",
             toggleProject: false,
             props: title,
-            clickable: false
+            clickable: useState(false)
         },
         {
             key: "P1Text2",
             text: "COLORADO",
             fillOpacityState: useState(null),
-            visible: useRef(false),
+            visible: useState(false),
             ref: useRef(),
-            color: "red",
+            color: "black",
             toggleProject: false,
-            props: title,
-            clickable: false
+            props: bold,
+            clickable: useState(false)
         },
         {
             key: "P1Text3",
             text: ", WHERE I GREW UP FASCINATED WITH DESIGN.",
             fillOpacityState: useState(null),
-            visible: useRef(false),
+            visible: useState(false),
             ref: useRef(),
             color: "black",
             toggleProject: false,
             props: title,
+            clickable: useState(false)
         },
         {
             key: "P1Text4",
             text: "Ever since a young age, I've been passionate about human computer interaction and innovation.",
             fillOpacityState: useState(null),
-            visible: useRef(false),
+            visible: useState(false),
             ref: useRef(),
             color: "black",
             toggleProject: false,
             props: subtitle,
+            clickable: useState(false)
         },
         {
             key: "P2Text1",
             text: "I MOVED TO",
             fillOpacityState: useState(null),
-            visible: useRef(false),
+            visible: useState(false),
             ref: useRef(),
             color: "black",
             toggleProject: false,
             props: title,
+            clickable: useState(false)
         },
         {
             key: "P2Text2",
             text: "BANGKOK, THAILAND",
             fillOpacityState: useState(null),
-            visible: useRef(false),
+            visible: useState(false),
             ref: useRef(),
-            color: "red",
+            color: "black",
             toggleProject: false,
-            props: title,
+            props: bold,
+            clickable: useState(false)
         },
         {
             key: "P2Text3",
             text: "WHEN I WAS 16.",
             fillOpacityState: useState(null),
-            visible: useRef(false),
+            visible: useState(false),
             ref: useRef(),
             color: "black",
             toggleProject: false,
             props: title,
+            clickable: useState(false)
         },
         {
             key: "P2Text4",
             text: "Since then, I've picked up",
             fillOpacityState: useState(null),
-            visible: useRef(false),
+            visible: useState(false),
             ref: useRef(),
             color: "black",
             toggleProject: false,
             props: subtitle,
+            clickable: useState(false)
         },
         {
             key: "P2Text5",
             text: "these skills",
             fillOpacityState: useState(null),
-            visible: useRef(false),
+            visible: useState(false),
             ref: useRef(),
-            color: "red",
+            color: hovered ? "rgb(255, 45, 0)" : "rgb(213, 39, 1)",
             toggleProject: true,
             props: subtitle,
-            clickable: true,
+            clickable: useState(true),
             project: "skills"
         },
         {
             key: "P2Text6",
             text: "in design, computation, and fabrication.",
             fillOpacityState: useState(null),
-            visible: useRef(false),
+            visible: useState(false),
             ref: useRef(),
             color: "black",
             toggleProject: false,
             props: subtitle,
+            clickable: useState(false)
         },
         {
             key: "P3Text1",
             text: "01.",
             fillOpacityState: useState(null),
-            visible: useRef(false),
+            visible: useState(false),
             ref: useRef(),
             color: "black",
             toggleProject: true,
             props: number,
+            clickable: useState(false)
         },
         {
             key: "P3Text2",
             text: "WHILE STUDYING ARCHITECTURE IN",
             fillOpacityState: useState(null),
-            visible: useRef(false),
+            visible: useState(false),
             ref: useRef(),
             color: "black",
             toggleProject: true,
             props: title,
+            clickable: useState(false)
         },
         {
             key: "P3Text3",
             text: "LONDON",
             fillOpacityState: useState(null),
-            visible: useRef(false),
+            visible: useState(false),
             ref: useRef(),
-            color: "red",
+            color: "black",
             toggleProject: true,
-            props: title,
+            props: bold,
+            clickable: useState(false)
         },
         {
             key: "P3Text4",
             text: "AT UCL, I CREATED AN AUGMENTED REALITY",
             fillOpacityState: useState(null),
-            visible: useRef(false),
+            visible: useState(false),
             ref: useRef(),
             color: "black",
             toggleProject: true,
             props: title,
+            clickable: useState(false)
         },
         {
             key: "P3Text5",
             text: "MEMORY PALACE CALLED",
             fillOpacityState: useState(null),
-            visible: useRef(false),
+            visible: useState(false),
             ref: useRef(),
             color: "black",
             toggleProject: true,
             props: title,
+            clickable: useState(false)
         },
         {
             key: "P3Text6",
             text: "INTRODUCING ECHO.",
             fillOpacityState: useState(null),
-            visible: useRef(false),
+            visible: useState(false),
             ref: useRef(),
-            color: "red",
+            color: hovered ? "rgb(255, 45, 0)" : "rgb(213, 39, 1)",
             toggleProject: true,
             props: title,
-            clickable: true,
+            clickable: useState(true),
             project: "echo"
         },
         {
             key: "P4Text1",
             text: "02.",
             fillOpacityState: useState(null),
-            visible: useRef(false),
+            visible: useState(false),
             ref: useRef(),
             color: "black",
             toggleProject: true,
             props: number,
+            clickable: useState(false)
         },
         {
             key: "P4Text2",
             text: "IN LONDON, I CREATED EXPRESSIVE UX/UI DESIGNS FOR HIGH FASHION BRAND,",
             fillOpacityState: useState(null),
-            visible: useRef(false),
+            visible: useState(false),
             ref: useRef(),
             color: "black",
             toggleProject: true,
             props: title,
+            clickable: useState(false)
         },
         {
             key: "P4Text3",
             text: "NOSAKHARI",
             fillOpacityState: useState(null),
-            visible: useRef(false),
+            visible: useState(false),
             ref: useRef(),
-            color: "red",
+            color: hovered ? "rgb(255, 45, 0)" : "rgb(213, 39, 1)",
             toggleProject: true,
             props: title,
-            clickable: true,
+            clickable: useState(true),
             project: "nosakhari"
         },
         {
             key: "P5Text1",
             text: "03.",
             fillOpacityState: useState(null),
-            visible: useRef(false),
+            visible: useState(false),
             ref: useRef(),
             color: "black",
             toggleProject: true,
             props: number,
+            clickable: useState(false)
         },
         {
             key: "P5Text2",
             text: "DURING MY GRADUATE STUDIES IN",
             fillOpacityState: useState(null),
-            visible: useRef(false),
+            visible: useState(false),
             ref: useRef(),
             color: "black",
             toggleProject: true,
             props: title,
+            clickable: useState(false)
         },
         {
             key: "P5Text3",
             text: "BOSTON",
             fillOpacityState: useState(null),
-            visible: useRef(false),
+            visible: useState(false),
             ref: useRef(),
-            color: "red",
+            color: "black",
             toggleProject: true,
-            props: title,
+            props: bold,
+            clickable: useState(false)
         },
         {
             key: "P5Text4",
             text: ", I CREATED A TEXT TO FACADE AI MODEL CALLED",
             fillOpacityState: useState(null),
-            visible: useRef(false),
+            visible: useState(false),
             ref: useRef(),
             color: "black",
             toggleProject: true,
             props: title,
+            clickable: useState(false)
         },
         {
             key: "P5Text5",
             text: "DEEPFACADE",
             fillOpacityState: useState(null),
-            visible: useRef(false),
+            visible: useState(false),
             ref: useRef(),
-            color: "red",
+            color: hovered ? "rgb(255, 45, 0)" : "rgb(213, 39, 1)",
             toggleProject: true,
             props: title,
-            clickable: true,
+            clickable: useState(true),
             project: "deepfacade"
         },
         {
             key: "P5Text6",
             text: "FOR A PROJECT AT",
             fillOpacityState: useState(null),
-            visible: useRef(false),
+            visible: useState(false),
             ref: useRef(),
             color: "black",
             toggleProject: true,
             props: title,
+            clickable: useState(false)
         },
         {
             key: "P5Text7",
             text: "MIT.",
             fillOpacityState: useState(null),
-            visible: useRef(false),
+            visible: useState(false),
             ref: useRef(),
-            color: "red",
+            color: "black",
             toggleProject: true,
-            props: title,
+            props: bold,
+            clickable: useState(false)
         },
         {
             key: "P6Text1",
             text: "04.",
             fillOpacityState: useState(null),
-            visible: useRef(false),
+            visible: useState(false),
             ref: useRef(),
             color: "black",
             toggleProject: true,
             props: number,
+            clickable: useState(false)
         },
         {
             key: "P6Text2",
             text: "AT",
             fillOpacityState: useState(null),
-            visible: useRef(false),
+            visible: useState(false),
             ref: useRef(),
             color: "black",
             toggleProject: true,
             props: title,
+            clickable: useState(false)
         },
         {
             key: "P6Text3",
             text: "HARVARD GSD",
             fillOpacityState: useState(null),
-            visible: useRef(false),
+            visible: useState(false),
             ref: useRef(),
-            color: "red",
+            color: "black",
             toggleProject: true,
-            props: title,
+            props: bold,
+            clickable: useState(false)
         },
         {
             key: "P6Text4",
             text: ", I GAMIFIED SHOPPING REWARDS USING AR IN THE PROJECT",
             fillOpacityState: useState(null),
-            visible: useRef(false),
+            visible: useState(false),
             ref: useRef(),
             color: "black",
             toggleProject: true,
             props: title,
+            clickable: useState(false)
         },
         {
             key: "P6Text5",
             text: "TEMPLES OF CONSUMERISM.",
             fillOpacityState: useState(null),
-            visible: useRef(false),
+            visible: useState(false),
             ref: useRef(),
-            color: "red",
+            color: hovered ? "rgb(255, 45, 0)" : "rgb(213, 39, 1)",
             toggleProject: true,
             props: title,
-            clickable: true,
+            clickable: useState(true),
             project: "temples"
         },
         {
             key: "P7Text1",
             text: "05.",
             fillOpacityState: useState(null),
-            visible: useRef(false),
+            visible: useState(false),
             ref: useRef(),
             color: "black",
             toggleProject: true,
             props: number,
+            clickable: useState(false)
         },
         {
             key: "P7Text2",
             text: "WHILE TAKING CLASSES AT THE",
             fillOpacityState: useState(null),
-            visible: useRef(false),
+            visible: useState(false),
             ref: useRef(),
             color: "black",
             toggleProject: true,
             props: title,
+            clickable: useState(false)
         },
         {
             key: "P7Text3",
             text: "MEDIA LAB",
             fillOpacityState: useState(null),
-            visible: useRef(false),
+            visible: useState(false),
             ref: useRef(),
-            color: "red",
+            color: "black",
             toggleProject: true,
-            props: title,
+            props: bold,
+            clickable: useState(false)
         },
         {
             key: "P7Text4",
             text: ", I BUILT AN INTERACTIVE BRAINSTORMING TOOL CALLED",
             fillOpacityState: useState(null),
-            visible: useRef(false),
+            visible: useState(false),
             ref: useRef(),
             color: "black",
             toggleProject: true,
             props: title,
+            clickable: useState(false)
         },
         {
             key: "P7Text5",
             text: "MAKING IDEAS TANGIBLE.",
             fillOpacityState: useState(null),
-            visible: useRef(false),
+            visible: useState(false),
             ref: useRef(),
-            color: "red",
+            color: hovered ? "rgb(255, 45, 0)" : "rgb(213, 39, 1)",
             toggleProject: true,
             props: title,
-            clickable: true,
+            clickable: useState(true),
             project: "tangibleIdeas"
         },
         {
             key: "P8Text1",
             text: "KEEP SCROLLING TO EXPLORE MY OTHER PROJECTS ON",
             fillOpacityState: useState(null),
-            visible: useRef(false),
+            visible: useState(false),
             ref: useRef(),
             color: "black",
             toggleProject: true,
             props: title,
+            clickable: useState(false)
         },
         {
             key: "P8Text2",
             text: "COMPUTATION, UX/UI,",
             fillOpacityState: useState(null),
-            visible: useRef(false),
+            visible: useState(false),
             ref: useRef(),
-            color: "red",
+            color: "black",
             toggleProject: true,
-            props: title,
+            props: bold,
+            clickable: useState(false)
         },
         {
             key: "P8Text3",
             text: "AND",
             fillOpacityState: useState(null),
-            visible: useRef(false),
+            visible: useState(false),
             ref: useRef(),
             color: "black",
             toggleProject: true,
             props: title,
+            clickable: useState(false)
         },
         {
             key: "P8Text4",
             text: "FABRICATION.",
             fillOpacityState: useState(null),
-            visible: useRef(false),
+            visible: useState(false),
             ref: useRef(),
-            color: "red",
+            color: "black",
             toggleProject: true,
-            props: title,
+            props: bold,
+            clickable: useState(false)
         },
         {
             key: "P8Text5",
             text: "Click projects to explore",
             fillOpacityState: useState(null),
-            visible: useRef(false),
+            visible: useState(false),
             ref: useRef(),
             color: "black",
             toggleProject: true,
             props: subtitle,
+            clickable: useState(false)
         },
     ];
 
@@ -524,23 +564,27 @@ export const TextElements = ({ setProjectOpened, projectOpened, currentSection, 
     useEffect(() => {
         textElements.forEach((element) => {
             const [opacityState, setOpacityState] = element.fillOpacityState;
-            // const [visibleState, setVisibleState] = element.visible;
+            const [visible, setVisibleState] = element.visible;
+            const [clickable, setClickableState] = element.clickable;
+
+            if (element.color != "black") {
+                setClickableState(true);
+            } else {
+                setClickableState(false);
+            }
+            console.log(element.clickable)
+
 
             if (!opacityState) return;
 
             const unsubscribe = opacityState.onValuesChange((newValues) => {
                 element.ref.current.fillOpacity = newValues.fillOpacity;
 
-                if (element.ref.current.fillOpacity > 0.7) {
-                    element.visible.current = true;
+                if (element.ref.current.fillOpacity > 0.6) {
+                    setVisibleState(true);
                 } else {
-                    element.visible.current = false;
+                    setVisibleState(false);
                 }
-                if (currentSection >= 9) {
-                    element.visible.current = false;
-                    element.clickable = false;
-                }
-
             });
             return unsubscribe;
         });
@@ -561,11 +605,10 @@ export const TextElements = ({ setProjectOpened, projectOpened, currentSection, 
                     <Text ref={element.ref}
                         text={element.text}
                         position={[0, element.props.moveNumber, 0]}
-                        // onClick={element.visible.current && element.toggleProject && element.project ? () => handleClick(element) : null}
-                        onClick={element.clickable && element.toggleProject && element.project ? () => handleClick(element) : null}
+                        onClick={element.visible[0] && element.toggleProject && element.project && element.clickable[0] ? () => handleClick(element) : null}
                         color={element.color}
                         {...styles} {...element.props}
-                        onPointerOver={element.clickable && element.visible.current && !projectOpened ? () => setHovered(true) : null} onPointerOut={() => setHovered(false)}
+                        onPointerOver={element.visible[0] && element.clickable[0] && !projectOpened ? () => setHovered(true) : null} onPointerOut={() => setHovered(false)}
                     />
                 </e.mesh>
             ))}

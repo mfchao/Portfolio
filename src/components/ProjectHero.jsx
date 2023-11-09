@@ -89,14 +89,14 @@ export const ProjectHeader = (props) => {
 
 
 
-            <div className="absolute top-56 left-[28%] h-full " >
+            <div className="absolute top-56 left-[28%] " >
                 <motion.div className=" text-7xl SF-Compact-Bold mb-8 "
                     initial={{ opacity: 0, y: 25 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, delay: 0 }}>
                     {title}
                 </motion.div>
-                <motion.div className=" text-sm SF-Compact-Thin my-px mb-8"
+                <motion.div className=" text-sm SF-Compact-Thin my-px mb-8 "
                     initial={{ opacity: 0, y: 25 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, delay: 0 }}>
@@ -113,19 +113,26 @@ export const ProjectHeader = (props) => {
                         {role}
                     </div>
                 </motion.div>
-                <motion.div className="text-base SF-Compact-Light max-w-2xl"
+                <motion.div className="text-base SF-Compact-Light max-w-2xl "
                     initial={{ opacity: 0, y: 25 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, delay: 0 }}>
                     {description}
                 </motion.div>
+                <br></br><br></br>
+                <div className="svgHero max-w-2xl ">
+                    <svg width="24" height="54" viewBox="0 0 24 54" fill="none" xmlns="http://www.w3.org/2000/svg" role="img">
+                        <rect x="1" y="1" width="22" height="34" rx="11" stroke="black" strokeWidth="2" />
+                        <line x1="12.3" y1="10.3" x2="12.3" y2="17.7" stroke="black" strokeWidth="2.6" strokeLinecap="round" />
+                        <path d="M8 42L12.6467 46.3333L17.1481 42" stroke="black" strokeWidth="2" strokeLinecap="round" />
+                        <path d="M8 48.2592L12.6467 52.5926L17.1481 48.2592" stroke="black" strokeWidth="2" strokeLinecap="round" />
+                    </svg>
+                </div>
 
             </div>
 
 
-            {/* <div className="absolute bottom-[50%] left-[0%] SF-Compact-Medium">
-                <p>Scroll to view project</p>
-            </div> */}
+
         </div>
     );
 };
