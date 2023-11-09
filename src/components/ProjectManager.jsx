@@ -14,6 +14,8 @@ import { FlowScape } from "./projects/FlowScape";
 import { Always } from "./projects/Always";
 import { FooBot } from "./projects/FooBot";
 import { SpotLite } from "./projects/SpotLite";
+import { Prosthetics } from "./projects/Prosthetics";
+import { EMotion } from "./projects/EMotion";
 
 
 
@@ -54,6 +56,8 @@ export const ProjectManager = (props) => {
                     <Always archiveProjectId={archiveProjectId} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} />
                     <FooBot archiveProjectId={archiveProjectId} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} />
                     <SpotLite archiveProjectId={archiveProjectId} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} />
+                    <Prosthetics archiveProjectId={archiveProjectId} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} />
+                    <EMotion archiveProjectId={archiveProjectId} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} />
 
                 </div>
 

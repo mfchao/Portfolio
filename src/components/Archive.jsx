@@ -12,7 +12,7 @@ const damp = THREE.MathUtils.damp;
 const state = proxy({
     hovered: null,
     urls: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((u) => `/images/archiveHeros/${u}.jpg`),
-    titles: ['ASCER Machine Learning Research', 'Neural Synesthesia', 'FlowScape', 'Always', 'Silent Game BuildBot', 'SpotLite', 'Cuttlefish', '3D Droop', 'Title 9', 'UCL Assistant', 'Title 11', 'Greening Cities']
+    titles: ['ASCER Machine Learning Research', 'Neural Synesthesia', 'FlowScape', 'Always', 'Silent Game BuildBot', 'SpotLite', 'Cuttlefish', '3D Droop', 'E-Motion', 'UCL Assistant', 'Accessible Prosthetics', 'Greening Cities']
 })
 
 const w = 0.7;
