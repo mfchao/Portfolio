@@ -560,7 +560,7 @@ export const TextElements = ({ setHovered, setProjectOpened, projectOpened, curr
         },
         {
             key: "P8Text5",
-            text: "Click projects to explore",
+            text: "<< Drag >>",
             fillOpacityState: useState(null),
             visible: useState(false),
             ref: useRef(),

@@ -1,4 +1,4 @@
-import { Canvas, useFrame } from '@react-three/fiber';
+import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Experience } from './components/Experience';
 import {
   ScrollControls,
@@ -6,7 +6,8 @@ import {
   Scroll,
   MeshTransmissionMaterial,
   Html,
-  Box
+  Box,
+  OrbitControls
 } from '@react-three/drei';
 import { getProject, val, types } from '@theatre/core';
 import { editable as e, SheetProvider, PerspectiveCamera, useCurrentSheet } from '@theatre/r3f';
@@ -30,6 +31,7 @@ import { HtmlWrapper } from './components/HtmlWrapper';
 import { Archive } from './components/Archive';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { TextElementContext } from './components/TextElementContext';
+import { CameraController } from './components/CameraController';
 
 function App() {
   const [sheet, setSheet] = useState(null);
@@ -45,6 +47,7 @@ function App() {
   const [projectOpened, setProjectOpened] = useState(false);
 
   const [archiveProjectId, setArchiveProjectId] = useState(null);
+
 
   const mouseOverEvent = () => {
     setCursorEnlarged(true);
@@ -102,6 +105,7 @@ function App() {
     <>
       <BrowserRouter>
         <Canvas shadows gl={{ preserveDrawingBuffer: true }}>
+          <CameraController projectOpened={projectOpened} />
           <ScrollControls pages={9} damping={0.8} maxSpeed={1} enabled={projectOpened ? false : true}>
             <ScrollManager section={section} onSectionChange={setSection} />
 
@@ -160,6 +164,8 @@ function App() {
 }
 
 export default React.memo(App);
+
+
 
 function Scene({ setProjectOpened, projectOpened, currentSection, openProject, setOpenProject }) {
   const sheet = useCurrentSheet();
