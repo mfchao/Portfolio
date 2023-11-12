@@ -1,13 +1,15 @@
 import { editable as e } from "@theatre/r3f";
-import React, { useEffect, useMemo, useState, useRef, useCallback, memo } from "react";
+import React, { useEffect, useMemo, useState, useRef, useCallback, memo, useContext } from "react";
 import { getProject, val, types } from "@theatre/core";
 import fonts from "./fonts";
 import { Text, useCursor } from "@react-three/drei";
+import { TextElementContext } from './TextElementContext';
 
 
-export const TextElements = ({ setProjectOpened, projectOpened, currentSection, openProject, setOpenProject }) => {
 
-    const [hovered, setHovered] = useState(null);
+export const TextElements = ({ setHovered, setProjectOpened, projectOpened, currentSection, openProject, setOpenProject, setProjectHovered }) => {
+    const { hovered } = useContext(TextElementContext);
+
     useCursor(hovered);
 
 
@@ -272,7 +274,9 @@ export const TextElements = ({ setProjectOpened, projectOpened, currentSection, 
             fillOpacityState: useState(null),
             visible: useState(false),
             ref: useRef(),
-            color: hovered ? "rgb(255, 45, 0)" : "rgb(213, 39, 1)",
+            color: hovered ? "rgb(255, 255, 255)" : "rgb(213, 39, 1)",
+            outlineWidth: hovered ? 0.008 : 0,
+            outlineOpacity: hovered ? 1 : 0,
             toggleProject: true,
             props: title,
             clickable: useState(true),
@@ -306,7 +310,9 @@ export const TextElements = ({ setProjectOpened, projectOpened, currentSection, 
             fillOpacityState: useState(null),
             visible: useState(false),
             ref: useRef(),
-            color: hovered ? "rgb(255, 45, 0)" : "rgb(213, 39, 1)",
+            color: hovered ? "rgb(255, 255, 255)" : "rgb(213, 39, 1)",
+            outlineWidth: hovered ? 0.008 : 0,
+            outlineOpacity: hovered ? 1 : 0,
             toggleProject: true,
             props: title,
             clickable: useState(true),
@@ -362,7 +368,9 @@ export const TextElements = ({ setProjectOpened, projectOpened, currentSection, 
             fillOpacityState: useState(null),
             visible: useState(false),
             ref: useRef(),
-            color: hovered ? "rgb(255, 45, 0)" : "rgb(213, 39, 1)",
+            color: hovered ? "rgb(255, 255, 255)" : "rgb(213, 39, 1)",
+            outlineWidth: hovered ? 0.008 : 0,
+            outlineOpacity: hovered ? 1 : 0,
             toggleProject: true,
             props: title,
             clickable: useState(true),
@@ -440,7 +448,9 @@ export const TextElements = ({ setProjectOpened, projectOpened, currentSection, 
             fillOpacityState: useState(null),
             visible: useState(false),
             ref: useRef(),
-            color: hovered ? "rgb(255, 45, 0)" : "rgb(213, 39, 1)",
+            color: hovered ? "rgb(255, 255, 255)" : "rgb(213, 39, 1)",
+            outlineWidth: hovered ? 0.008 : 0,
+            outlineOpacity: hovered ? 1 : 0,
             toggleProject: true,
             props: title,
             clickable: useState(true),
@@ -496,7 +506,9 @@ export const TextElements = ({ setProjectOpened, projectOpened, currentSection, 
             fillOpacityState: useState(null),
             visible: useState(false),
             ref: useRef(),
-            color: hovered ? "rgb(255, 45, 0)" : "rgb(213, 39, 1)",
+            color: hovered ? "rgb(255, 255, 255)" : "rgb(213, 39, 1)",
+            outlineWidth: hovered ? 0.008 : 0,
+            outlineOpacity: hovered ? 1 : 0,
             toggleProject: true,
             props: title,
             clickable: useState(true),
@@ -572,8 +584,6 @@ export const TextElements = ({ setProjectOpened, projectOpened, currentSection, 
             } else {
                 setClickableState(false);
             }
-            console.log(element.clickable)
-
 
             if (!opacityState) return;
 
@@ -596,6 +606,16 @@ export const TextElements = ({ setProjectOpened, projectOpened, currentSection, 
         setOpenProject(element.project);
     };
 
+    const handleHover = (element) => {
+        setHovered(true);
+        setProjectHovered(element.project);
+    };
+
+    const handleHoverOut = (element) => {
+        setHovered(false);
+        setProjectHovered(null);
+    };
+
 
     return (
         <>
@@ -607,8 +627,12 @@ export const TextElements = ({ setProjectOpened, projectOpened, currentSection, 
                         position={[0, element.props.moveNumber, 0]}
                         onClick={element.visible[0] && element.toggleProject && element.project && element.clickable[0] ? () => handleClick(element) : null}
                         color={element.color}
+                        outlineColor={'black'}
+                        outlineOpacity={element.outlineOpacity && element.visible[0] ? element.outlineOpacity : 0}
+                        outlineWidth={element.outlineWidth ? element.outlineWidth : 0}
                         {...styles} {...element.props}
-                        onPointerOver={element.visible[0] && element.clickable[0] && !projectOpened ? () => setHovered(true) : null} onPointerOut={() => setHovered(false)}
+                        onPointerOver={element.visible[0] && element.clickable[0] && !projectOpened ? () => handleHover(element) : null}
+                        onPointerOut={() => handleHoverOut(element)}
                     />
                 </e.mesh>
             ))}

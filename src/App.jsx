@@ -29,6 +29,7 @@ import { ProjectManager } from './components/ProjectManager';
 import { HtmlWrapper } from './components/HtmlWrapper';
 import { Archive } from './components/Archive';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { TextElementContext } from './components/TextElementContext';
 
 function App() {
   const [sheet, setSheet] = useState(null);
@@ -170,6 +171,11 @@ function Scene({ setProjectOpened, projectOpened, currentSection, openProject, s
   const cylinderGeometryRef = useRef();
   // const [lineLength, setLineLength] = useState(0.8);
 
+  const [hovered, setHovered] = useState(null);
+  const [projectHovered, setProjectHovered] = useState(null);
+
+
+
   useEffect(() => {
     if (!cylinderOpacity) return;
 
@@ -211,54 +217,56 @@ function Scene({ setProjectOpened, projectOpened, currentSection, openProject, s
 
   return (
     <>
-      <color attach="background" args={['#f0f0f0']} />
+      <TextElementContext.Provider value={{ hovered, projectHovered }}>
+        <color attach="background" args={['#f0f0f0']} />
 
-      <e.mesh theatreKey="Colorado">
-        <Colorado />
-      </e.mesh>
-      <e.mesh theatreKey="Bangkok">
-        <Bangkok />
-      </e.mesh>
-      <e.mesh theatreKey="Boston">
-        <Boston />
-      </e.mesh>
-      <e.mesh theatreKey="London">
-        <London />
-      </e.mesh>
-      {/* <e.mesh theatreKey='Base'>
+        <e.mesh theatreKey="Colorado">
+          <Colorado />
+        </e.mesh>
+        <e.mesh theatreKey="Bangkok">
+          <Bangkok />
+        </e.mesh>
+        <e.mesh theatreKey="Boston">
+          <Boston />
+        </e.mesh>
+        <e.mesh theatreKey="London">
+          <London />
+        </e.mesh>
+        {/* <e.mesh theatreKey='Base'>
       <Base/>
     </e.mesh> */}
 
-      <PerspectiveCamera
-        theatreKey="Camera"
-        makeDefault={true}
-        position={[0, 0, 5]}
-        fov={90}
-        near={0.1}
-        far={70}
-      />
+        <PerspectiveCamera
+          theatreKey="Camera"
+          makeDefault={true}
+          position={[0, 0, 5]}
+          fov={90}
+          near={0.1}
+          far={70}
+        />
 
-      {/* <e.mesh theatreKey="Portal">
+        {/* <e.mesh theatreKey="Portal">
         <Portal />
       </e.mesh> */}
 
-      {/* Line */}
-      <e.mesh
-        theatreKey="Cylinder"
-        additionalProps={{ opacity: types.number(1, { nudgeMultiplier: 0.1 }) }}
-        objRef={setcylinderOpacity}>
-        <cylinderGeometry ref={cylinderGeometryRef} args={[0.0025, 0.0025, lineLength]} />
-        <meshBasicMaterial ref={cylinderRef} opacity={1} transparent color="black" />
-      </e.mesh>
+        {/* Line */}
+        <e.mesh
+          theatreKey="Cylinder"
+          additionalProps={{ opacity: types.number(1, { nudgeMultiplier: 0.1 }) }}
+          objRef={setcylinderOpacity}>
+          <cylinderGeometry ref={cylinderGeometryRef} args={[0.0025, 0.0025, lineLength]} />
+          <meshBasicMaterial ref={cylinderRef} opacity={1} transparent color="black" />
+        </e.mesh>
 
-      {/* Text */}
-      <TextElements setProjectOpened={setProjectOpened} projectOpened={projectOpened} currentSection={currentSection} openProject={openProject} setOpenProject={setOpenProject} />
+        {/* Text */}
+        <TextElements setHovered={setHovered} setProjectOpened={setProjectOpened} projectOpened={projectOpened} currentSection={currentSection} openProject={openProject} setOpenProject={setOpenProject} setProjectHovered={setProjectHovered} />
 
-      {/* floor */}
-      <mesh rotation={[-Math.PI / 2 + 0.3, 0, 0]} position={[0, -6, 0]} receiveShadow>
-        <planeGeometry args={[100, 100]} />
-        <shadowMaterial transparent opacity={0.4} />
-      </mesh>
+        {/* floor */}
+        <mesh rotation={[-Math.PI / 2 + 0.3, 0, 0]} position={[0, -6, 0]} receiveShadow>
+          <planeGeometry args={[100, 100]} />
+          <shadowMaterial transparent opacity={0.4} />
+        </mesh>
+      </TextElementContext.Provider>
     </>
   );
 }
