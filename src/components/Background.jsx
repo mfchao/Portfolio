@@ -76,7 +76,7 @@ export const Background = ({ backgroundColors }) => {
             position={[0, 2, 0]}
             segments={5}
             bounds={[20, 10, 0]}
-            volume={15}
+            volume={17}
             opacity={0.75}
             growth={20}
             fade={21}
@@ -87,7 +87,7 @@ export const Background = ({ backgroundColors }) => {
             position={[0, -2, 0]}
             segments={5}
             bounds={[20, 10, 0]}
-            volume={15}
+            volume={17}
             growth={20}
             opacity={0.75}
             fade={21}
@@ -98,7 +98,7 @@ export const Background = ({ backgroundColors }) => {
       </group>
 
 
-      <Environment resolution={64} preset="sunset">
+      <Environment resolution={64} preset="warehouse">
         <Sphere
           scale={sphereScaleEnv} rotation={[Math.PI, halfPi, 0]}>
           <LayerMaterial color={"#ffffff"} side={BackSide}>

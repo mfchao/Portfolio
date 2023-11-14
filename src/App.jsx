@@ -7,7 +7,8 @@ import {
   MeshTransmissionMaterial,
   Html,
   Box,
-  OrbitControls
+  OrbitControls,
+  Loader
 } from '@react-three/drei';
 import { getProject, val, types } from '@theatre/core';
 import { editable as e, SheetProvider, PerspectiveCamera, useCurrentSheet } from '@theatre/r3f';
@@ -32,6 +33,8 @@ import { Archive } from './components/Archive';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { TextElementContext } from './components/TextElementContext';
 import { CameraController } from './components/CameraController';
+import fonts from "./components/fonts";
+
 
 function App() {
   const [sheet, setSheet] = useState(null);
@@ -101,57 +104,57 @@ function App() {
     fetchSheetData();
   }, []);
 
+
+
+  const dataStyles = {
+    fontSize: '12px',
+    font: fonts.SFCompactSemibold
+  };
+
   return (
     <>
-      <BrowserRouter>
-        <Canvas shadows gl={{ preserveDrawingBuffer: true }}>
-          <CameraController projectOpened={projectOpened} />
-          <ScrollControls pages={9} damping={0.8} maxSpeed={1} enabled={projectOpened ? false : true}>
-            <ScrollManager section={section} onSectionChange={setSection} />
+      <Canvas shadows gl={{ preserveDrawingBuffer: true }}>
+        <CameraController projectOpened={projectOpened} />
+        <ScrollControls pages={9} damping={0.8} maxSpeed={1} enabled={projectOpened ? false : true}>
+          <ScrollManager section={section} onSectionChange={setSection} />
 
-            <HtmlWrapper
-              currentSection={currentSection}
-              projectOpened={projectOpened}
-              setProjectOpened={setProjectOpened}
-              archiveProjectId={archiveProjectId}
-              setArchiveProjectId={setArchiveProjectId}
-              openProject={openProject}
-              setOpenProject={setOpenProject}
-            />
+          <HtmlWrapper
+            currentSection={currentSection}
+            projectOpened={projectOpened}
+            setProjectOpened={setProjectOpened}
+            archiveProjectId={archiveProjectId}
+            setArchiveProjectId={setArchiveProjectId}
+            openProject={openProject}
+            setOpenProject={setOpenProject}
+          />
 
-            <Experience setCurrentSection={setCurrentSection} menuOpened={menuOpened} />
+          <Experience setCurrentSection={setCurrentSection} menuOpened={menuOpened} />
 
-            {sheet && (
-              <SheetProvider sheet={sheet}>
-                <Scene setProjectOpened={setProjectOpened} projectOpened={projectOpened} currentSection={currentSection} openProject={openProject} setOpenProject={setOpenProject} />
-              </SheetProvider>
-            )}
+          {sheet && (
+            <SheetProvider sheet={sheet}>
+              <Scene setProjectOpened={setProjectOpened} projectOpened={projectOpened} currentSection={currentSection} openProject={openProject} setOpenProject={setOpenProject} />
+            </SheetProvider>
+          )}
 
-            {/* <Scroll html>
-
+          {/* <Scroll html>
             <Interface mouseOverEvent={mouseOverEvent} mouseOutEvent={mouseOutEvent} />
           </Scroll> */}
-          </ScrollControls>
+        </ScrollControls>
 
 
-          <Archive currentSection={currentSection} archiveProjectId={archiveProjectId} setArchiveProjectId={setArchiveProjectId}
-            setProjectOpened={setProjectOpened} projectOpened={projectOpened} />
+        <Archive currentSection={currentSection} archiveProjectId={archiveProjectId} setArchiveProjectId={setArchiveProjectId}
+          setProjectOpened={setProjectOpened} projectOpened={projectOpened} />
 
+        <Selector cursorEnlarged={cursorEnlarged} menuOpened={menuOpened} />
 
-
-          <Selector cursorEnlarged={cursorEnlarged} menuOpened={menuOpened} />
-
-          <EffectComposer>
-            <Noise opacity={0.2} />
-          </EffectComposer>
-        </Canvas>
-
-
-
-      </BrowserRouter>
-
-
-
+        <EffectComposer>
+          <Noise opacity={0.2} />
+        </EffectComposer>
+      </Canvas>
+      <Loader
+        dataInterpolation={(p) => `${p.toFixed(0)}`}
+        dataStyles={dataStyles}
+      />
 
       <Menu
         onSectionChange={setSection}
