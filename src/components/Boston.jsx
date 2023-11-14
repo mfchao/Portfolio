@@ -5,7 +5,7 @@ Command: npx gltfjsx@6.2.7 public/models/boston.gltf
 
 import React, { useContext, useRef, useState } from 'react'
 import { Decal, MeshDistortMaterial, MeshWobbleMaterial, useGLTF, useTexture } from '@react-three/drei'
-import { TextElementContext } from './TextElementContext';
+import { TextElementContext } from '../assets/TextElementContext';
 import { useFrame } from '@react-three/fiber';
 import { easing } from 'maath';
 

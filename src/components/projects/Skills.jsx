@@ -1,7 +1,7 @@
 import { ProjectHeader } from "../ProjectHero";
 
 export const Skills = (props) => {
-    const { currentSection, openProject } = props;
+    const { openProject } = props;
 
     if (openProject === "skills") {
         return (

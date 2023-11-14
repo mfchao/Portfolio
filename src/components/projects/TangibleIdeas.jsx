@@ -1,9 +1,9 @@
 import { ProjectHeader } from "../ProjectHero";
 import { motion } from "framer-motion";
-import { useMotion } from "../motion";
+import { useMotion } from "../../assets/motion";
 
 export const TangibleIdeas = (props) => {
-    const { currentSection, setProjectOpened, setArchiveProjectId, openProject, setOpenProject } = props;
+    const { setProjectOpened, setArchiveProjectId, openProject, setOpenProject } = props;
     const motionProps = useMotion();
 
     const handleClick = () => {

@@ -5,7 +5,7 @@ Command: npx gltfjsx@6.2.7 public/models/london.gltf
 
 import React, { useContext, useRef, useState } from 'react'
 import { Decal, MeshDistortMaterial, MeshWobbleMaterial, useGLTF, useTexture } from '@react-three/drei'
-import { TextElementContext } from './TextElementContext';
+import { TextElementContext } from '../assets/TextElementContext';
 
 export function London() {
   const { hovered, projectHovered } = useContext(TextElementContext);

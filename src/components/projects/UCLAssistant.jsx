@@ -1,6 +1,6 @@
 import { ProjectHeader } from "../ProjectHero";
 import { motion } from "framer-motion";
-import { useMotion } from "../motion";
+import { useMotion } from "../../assets/motion";
 
 export const UCLAssistant = (props) => {
     const { archiveProjectId, setProjectOpened, setArchiveProjectId } = props;

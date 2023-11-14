@@ -1,9 +1,9 @@
 import { editable as e } from "@theatre/r3f";
 import React, { useEffect, useMemo, useState, useRef, useCallback, memo, useContext } from "react";
 import { getProject, val, types } from "@theatre/core";
-import fonts from "./fonts";
+import fonts from "../assets/fonts";
 import { Text, useCursor } from "@react-three/drei";
-import { TextElementContext } from './TextElementContext';
+import { TextElementContext } from '../assets/TextElementContext';
 
 
 

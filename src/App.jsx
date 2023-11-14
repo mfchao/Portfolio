@@ -1,20 +1,10 @@
-import { Canvas, useFrame, useThree } from '@react-three/fiber';
+import { Canvas, useFrame } from '@react-three/fiber';
 import { Experience } from './components/Experience';
-import {
-  ScrollControls,
-  useScroll,
-  Scroll,
-  MeshTransmissionMaterial,
-  Html,
-  Box,
-  OrbitControls,
-  Loader
-} from '@react-three/drei';
+import { ScrollControls, useScroll, Loader } from '@react-three/drei';
 import { getProject, val, types } from '@theatre/core';
 import { editable as e, SheetProvider, PerspectiveCamera, useCurrentSheet } from '@theatre/r3f';
 import { EffectComposer, Noise } from '@react-three/postprocessing';
-import { Interface } from './components/Interface';
-import React, { useEffect, useMemo, useState, useRef, useCallback, memo } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { ScrollManager } from './components/ScrollManager';
 import { Menu } from './components/Menu';
 import { Colorado } from './components/Colorado';
@@ -22,18 +12,13 @@ import { Bangkok } from './components/Bangkok';
 import { Boston } from './components/Boston';
 import { London } from './components/London';
 import flyThroughState from './fly4arounded.json';
-import './components/mouse.css';
-import { Portal } from './components/Portal';
 import { TextElements } from './components/TextElements';
 import { Selector } from './components/Selector';
-import { easing } from 'maath';
-import { ProjectManager } from './components/ProjectManager';
 import { HtmlWrapper } from './components/HtmlWrapper';
 import { Archive } from './components/Archive';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import { TextElementContext } from './components/TextElementContext';
+import { TextElementContext } from './assets/TextElementContext';
 import { CameraController } from './components/CameraController';
-import fonts from "./components/fonts";
+import fonts from "./assets/fonts";
 
 
 function App() {
@@ -68,13 +53,6 @@ function App() {
     }
   }, [projectOpened]);
 
-  // const projectOpenEvent = () => {
-  //   setProjectOpened(true);
-  // }
-
-  // const projectClosedEvent = () => {
-  //   setProjectOpened(false);
-  // }
 
   //close menu after clicked option
   useEffect(() => {
@@ -178,7 +156,6 @@ function Scene({ setProjectOpened, projectOpened, currentSection, openProject, s
   const [cylinderOpacity, setcylinderOpacity] = useState(null);
 
   const cylinderGeometryRef = useRef();
-  // const [lineLength, setLineLength] = useState(0.8);
 
   const [hovered, setHovered] = useState(null);
   const [projectHovered, setProjectHovered] = useState(null);
@@ -199,30 +176,9 @@ function Scene({ setProjectOpened, projectOpened, currentSection, openProject, s
     sheet.sequence.position = scroll.offset * sequenceLength;
   });
 
-  //camera move for menu
-
-  // const cameraPositionX = useMotionValue();
-  // const cameraLookAtX = useMotionValue();
-
-  // useEffect(() => {
-  //   animate(cameraPositionX, menuOpened ? -5 : 0);
-  //   animate(cameraLookAtX, menuOpened ? 5 : 0);
-  // }, [menuOpened])
-
-  // useFrame((state) => {
-  //   state.camera.position.x = cameraPositionX.get();
-  //   state.camera.lookAt(cameraLookAtX.get(), 0 , 0);
-  // })
 
   let lineLength = projectOpened ? 3 : 0.8;
 
-  // useFrame((state, delta) => {
-  //   // Apply damping to smoothly transition the lineLength
-  //   const targetLineLength = cursorEnlarged ? 3 : 0.8;
-  //   setLineLength(easing.damp(cylinderGeometryRef.current?.parameters, "height", targetLineLength, 0.2, delta)
-  //   );
-
-  // }, [cursorEnlarged, cylinderGeometryRef]);
 
   return (
     <>

@@ -11,7 +11,7 @@ const damp = THREE.MathUtils.damp;
 
 const state = proxy({
     hovered: null,
-    urls: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((u) => `/images/archiveHeros/${u}.jpg`),
+    urls: Array.from({ length: 12 }, (_, i) => `/images/archiveHeros/${i + 1}.jpg`),
     titles: ['ASCER Machine Learning Research', 'Neural Synesthesia', 'FlowScape', 'Always', 'Silent Game BuildBot', 'SpotLite', 'Cuttlefish', '3D Droop', 'E-Motion', 'UCL Assistant', 'Accessible Prosthetics', 'Greening Cities']
 })
 
@@ -54,7 +54,7 @@ export const Archive = (props) => {
 
     const [x, setX] = useState(0);
 
-    const bind = useDrag(({ down, offset: [x] }) => {
+    const bind = useDrag(({ offset: [x] }) => {
         setX(x);
     },
         { enabled: currentSection >= 9 ? true : false }

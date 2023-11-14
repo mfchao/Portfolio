@@ -18,8 +18,6 @@ export const ProjectHeader = (props) => {
             const el = myElementRef.current;
             setPositionTop(el.scrollTop);
             setPositionLeft(el.scrollLeft);
-
-
         };
 
 
@@ -31,32 +29,6 @@ export const ProjectHeader = (props) => {
             element.removeEventListener("scroll", handleScroll);
         };
     }, []);
-
-
-    //   const handleScroll = () => {
-    //     console.log("scrolled")
-    //     // Define a threshold for triggering the animation
-    //     const threshold = 100; // Adjust this value based on your needs
-
-    //     // Calculate the scroll position and viewport height
-    //     const scrollPosition = window.scrollY;
-    //     const viewportHeight = window.innerHeight;
-
-    //     // Calculate the trigger point for the animation
-    //     const triggerPoint = viewportHeight - threshold;
-
-    //     // Check if the user has scrolled beyond the trigger point
-    //     if (scrollPosition > triggerPoint) {
-    //       setAnimatePath(true);
-    //     } else {
-    //       setAnimatePath(false);
-    //     }
-    //   };
-
-
-
-
-
 
     return (
         <div ref={myElementRef}>

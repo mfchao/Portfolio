@@ -21,10 +21,6 @@ export const Background = ({ backgroundColors }) => {
   const cloud1 = useRef();
   const cloudRef = useRef();
   const lightRef = useRef();
-  const lightRef2 = useRef();
-
-  const cloudMaterialA = new THREE.MeshLambertMaterial({ color: "#f1dcf7" });
-  const cloudMaterialB = new THREE.MeshLambertMaterial({ color: "#f2f2f2" });
 
   useFrame(() => {
     const { colorA, colorB } = backgroundColors.current;
@@ -35,7 +31,6 @@ export const Background = ({ backgroundColors }) => {
     gradientEnvRef.current.colorB = new Color(colorB);
 
     lightRef.current.color = new Color(colorA);
-    // lightRef2.current.color = new Color(colorB);
   });
 
   const sphereScale = [50, 50, 50];
@@ -50,7 +45,6 @@ export const Background = ({ backgroundColors }) => {
     cloudsRef.current.rotation.y = Math.cos(state.clock.elapsedTime / 2) / 6
     cloudsRef.current.rotation.x = Math.sin(state.clock.elapsedTime / 2) / 6
     cloud1.current.rotation.y -= delta / 6
-    // cloud0.current.color = new Color(colorA);
 
   })
 
@@ -67,7 +61,6 @@ export const Background = ({ backgroundColors }) => {
 
       {/* <directionalLight position={directionalLightPosition} intensity={0.4} /> */}
       <pointLight ref={lightRef} position={directionalLightPosition} intensity={0.85} />
-      {/* <pointLight ref={lightRef2} position={[0, 1, 6]} intensity={0.1} /> */}
 
       <group ref={cloudsRef}>
         <Clouds ref={cloudRef} material={THREE.MeshLambertMaterial} position={[0, 0, -5]}>
@@ -80,7 +73,6 @@ export const Background = ({ backgroundColors }) => {
             opacity={0.75}
             growth={20}
             fade={21}
-          // color={'white'}
           />
           <Cloud
             ref={cloud1}
@@ -91,7 +83,6 @@ export const Background = ({ backgroundColors }) => {
             growth={20}
             opacity={0.75}
             fade={21}
-          // color={cloudColorB}
           />
 
         </Clouds>

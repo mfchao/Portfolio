@@ -9,7 +9,7 @@ export const ScrollManager = (props) => {
     const data = useScroll();
     const lastScroll = useRef(0);
     const isAnimating = useRef(false);
-    // const totalPages = data.pages;
+
 
     //correct scroll position
     data.fill.classList.add("top-0");
