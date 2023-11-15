@@ -130,6 +130,7 @@ function App() {
             setArchiveProjectId={setArchiveProjectId}
             openProject={openProject}
             setOpenProject={setOpenProject}
+            windowWidth={windowWidth}
           />
 
           <Experience setCurrentSection={setCurrentSection} menuOpened={menuOpened} />
@@ -166,6 +167,7 @@ function App() {
         setMenuOpened={setMenuOpened}
         currentSection={currentSection}
         windowWidth={windowWidth}
+        projectOpened={projectOpened}
       />
     </>
   );

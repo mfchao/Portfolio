@@ -3,13 +3,13 @@ import logo from "../../images/icons/logo.svg";
 import { useEffect, useState } from "react";
 
 export const Menu = (props) => {
-  const { onSectionChange, menuOpened, setMenuOpened, currentSection, windowWidth } = props;
+  const { onSectionChange, menuOpened, setMenuOpened, currentSection, windowWidth, projectOpened } = props;
 
   return (
     <>
       <img
         src={logo}
-        className={`fixed z-20 bottom-12 right-12 ${menuOpened ? "scale-[1.2]" : "scale-[0.7]"} transition-all`}
+        className={`fixed z-20 bottom-12 right-12 ${menuOpened ? "scale-[1.2]" : "scale-[0.7]"} transition-all ${windowWidth < 765 && projectOpened ? "hidden" : ""}`}
         onClick={() => onSectionChange(0)}
       />
 
@@ -52,7 +52,7 @@ export const Menu = (props) => {
 
       {/* progress lines */}
       <div className={`transition-all fixed bottom-0 left-0 flex flex-row m-12 items-end 
-        ${menuOpened ? "hidden" : ""}`}>
+        ${menuOpened || windowWidth < 765 && projectOpened ? "hidden" : ""}`}>
         <Line onClick={() => onSectionChange(0)} isLong={currentSection === 0} />
         <Line onClick={() => onSectionChange(1)} isLong={currentSection === 1} />
         <Line onClick={() => onSectionChange(2)} isLong={currentSection === 2} />
