@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 
 export const CameraController = (props) => {
-    const { projectOpened } = props
+    const { projectOpened, windowWidth } = props
     const { camera } = useThree();
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
@@ -18,7 +18,7 @@ export const CameraController = (props) => {
     }, []);
 
     useFrame(() => {
-        if (projectOpened) {
+        if (projectOpened || windowWidth < 765) {
             return;
         }
 

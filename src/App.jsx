@@ -12,6 +12,7 @@ import { Bangkok } from './components/Bangkok';
 import { Boston } from './components/Boston';
 import { London } from './components/London';
 import flyThroughState from './fly4arounded.json';
+import flyThroughState2 from './fly4b.json'
 import { TextElements } from './components/TextElements';
 import { Selector } from './components/Selector';
 import { HtmlWrapper } from './components/HtmlWrapper';
@@ -36,6 +37,9 @@ function App() {
 
   const [archiveProjectId, setArchiveProjectId] = useState(null);
 
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+
 
   const mouseOverEvent = () => {
     setCursorEnlarged(true);
@@ -53,6 +57,18 @@ function App() {
     }
   }, [projectOpened]);
 
+  //responsive
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
 
   //close menu after clicked option
   useEffect(() => {
@@ -68,19 +84,29 @@ function App() {
   // const sheet = useMemo(() => getProject("Fly Through 4", { state: flyThroughState }).sheet("Scene"), []);
   useEffect(() => {
     const fetchSheetData = async () => {
-      try {
-        const loadedSheet = getProject('Fly Through 4', {
-          state: flyThroughState
-        }).sheet('Scene');
-
-        setSheet(loadedSheet);
-      } catch (error) {
-        console.error('Error fetching JSON data:', error);
+      if (windowWidth < 768) {
+        try {
+          const loadedSheet = getProject('Fly Through 5', {
+            state: flyThroughState2
+          }).sheet('Scene');
+          setSheet(loadedSheet);
+        } catch (error) {
+          console.error('Error fetching JSON data:', error);
+        }
+      } else {
+        try {
+          const loadedSheet = getProject('Fly Through 4', {
+            state: flyThroughState
+          }).sheet('Scene');
+          setSheet(loadedSheet);
+        } catch (error) {
+          console.error('Error fetching JSON data:', error);
+        }
       }
     };
 
     fetchSheetData();
-  }, []);
+  }, [windowWidth]);
 
 
 
@@ -92,7 +118,7 @@ function App() {
   return (
     <>
       <Canvas shadows gl={{ preserveDrawingBuffer: true }}>
-        <CameraController projectOpened={projectOpened} />
+        <CameraController projectOpened={projectOpened} windowWidth={windowWidth} />
         <ScrollControls pages={9} damping={0.8} maxSpeed={1} enabled={projectOpened ? false : true}>
           <ScrollManager section={section} onSectionChange={setSection} />
 

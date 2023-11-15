@@ -82,7 +82,7 @@ export const TextElements = ({ setHovered, setProjectOpened, projectOpened, curr
         },
         {
             key: "P0Text3",
-            text: ", A CREATIVE DEVELOPER AND COMPUTATIONAL DESIGNER.",
+            text: "- A CREATIVE DEVELOPER AND COMPUTATIONAL DESIGNER.",
             fillOpacityState: useState(null),
             visible: useState(false),
             ref: useRef(),
@@ -115,7 +115,7 @@ export const TextElements = ({ setHovered, setProjectOpened, projectOpened, curr
         },
         {
             key: "P1Text2",
-            text: "COLORADO",
+            text: "COLORADO,",
             fillOpacityState: useState(null),
             visible: useState(false),
             ref: useRef(),
@@ -126,7 +126,7 @@ export const TextElements = ({ setHovered, setProjectOpened, projectOpened, curr
         },
         {
             key: "P1Text3",
-            text: ", WHERE I GREW UP FASCINATED WITH DESIGN.",
+            text: " WHERE I GREW UP FASCINATED WITH DESIGN.",
             fillOpacityState: useState(null),
             visible: useState(false),
             ref: useRef(),
@@ -137,7 +137,7 @@ export const TextElements = ({ setHovered, setProjectOpened, projectOpened, curr
         },
         {
             key: "P1Text4",
-            text: "Ever since a young age, I've been passionate about human computer interaction and innovation.",
+            text: "Ever since a young age, I've been passionate about innovation.",
             fillOpacityState: useState(null),
             visible: useState(false),
             ref: useRef(),
@@ -295,7 +295,7 @@ export const TextElements = ({ setHovered, setProjectOpened, projectOpened, curr
         },
         {
             key: "P4Text2",
-            text: "IN LONDON, I CREATED EXPRESSIVE UX/UI DESIGNS FOR HIGH FASHION BRAND,",
+            text: "IN LONDON, I CREATED EXPRESSIVE UX/UI DESIGNS FOR",
             fillOpacityState: useState(null),
             visible: useState(false),
             ref: useRef(),
@@ -342,7 +342,7 @@ export const TextElements = ({ setHovered, setProjectOpened, projectOpened, curr
         },
         {
             key: "P5Text3",
-            text: "BOSTON",
+            text: "BOSTON, ",
             fillOpacityState: useState(null),
             visible: useState(false),
             ref: useRef(),
@@ -353,7 +353,7 @@ export const TextElements = ({ setHovered, setProjectOpened, projectOpened, curr
         },
         {
             key: "P5Text4",
-            text: ", I CREATED A TEXT TO FACADE AI MODEL CALLED",
+            text: "I CREATED A TEXT TO FACADE AI MODEL CALLED",
             fillOpacityState: useState(null),
             visible: useState(false),
             ref: useRef(),
@@ -422,7 +422,7 @@ export const TextElements = ({ setHovered, setProjectOpened, projectOpened, curr
         },
         {
             key: "P6Text3",
-            text: "HARVARD GSD",
+            text: "HARVARD GSD, ",
             fillOpacityState: useState(null),
             visible: useState(false),
             ref: useRef(),
@@ -433,7 +433,7 @@ export const TextElements = ({ setHovered, setProjectOpened, projectOpened, curr
         },
         {
             key: "P6Text4",
-            text: ", I GAMIFIED SHOPPING REWARDS USING AR IN THE PROJECT",
+            text: "I GAMIFIED SHOPPING REWARDS WITH AR IN THE APP",
             fillOpacityState: useState(null),
             visible: useState(false),
             ref: useRef(),
@@ -480,7 +480,7 @@ export const TextElements = ({ setHovered, setProjectOpened, projectOpened, curr
         },
         {
             key: "P7Text3",
-            text: "MEDIA LAB",
+            text: "MEDIA LAB, ",
             fillOpacityState: useState(null),
             visible: useState(false),
             ref: useRef(),
@@ -491,7 +491,7 @@ export const TextElements = ({ setHovered, setProjectOpened, projectOpened, curr
         },
         {
             key: "P7Text4",
-            text: ", I BUILT AN INTERACTIVE BRAINSTORMING TOOL CALLED",
+            text: "I BUILT AN INTERACTIVE BRAINSTORMING TOOL CALLED",
             fillOpacityState: useState(null),
             visible: useState(false),
             ref: useRef(),
