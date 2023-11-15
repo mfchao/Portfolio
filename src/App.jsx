@@ -165,6 +165,7 @@ function App() {
         menuOpened={menuOpened}
         setMenuOpened={setMenuOpened}
         currentSection={currentSection}
+        windowWidth={windowWidth}
       />
     </>
   );

@@ -3,13 +3,14 @@ import logo from "../../images/icons/logo.svg";
 import { useEffect, useState } from "react";
 
 export const Menu = (props) => {
-  const { onSectionChange, menuOpened, setMenuOpened, currentSection } = props;
+  const { onSectionChange, menuOpened, setMenuOpened, currentSection, windowWidth } = props;
 
   return (
     <>
       <img
         src={logo}
         className={`fixed z-20 bottom-12 right-12 ${menuOpened ? "scale-[1.2]" : "scale-[0.7]"} transition-all`}
+        onClick={() => onSectionChange(0)}
       />
 
       <button
@@ -34,14 +35,14 @@ export const Menu = (props) => {
         className={`z-10 fixed justify-center top-0 right-0 bottom-0 transition-all overflow-hidden flex flex-col  ease-in-out duration-700
         ${menuOpened ? "w-screen" : "w-0"}`}
       >
-        <div className="z-30 flex justify-between m-4 ">
+        <div className={`z-30 flex justify-between m-4 ${windowWidth < 765 ? "flex-col" : "flex-row"}`}>
           <MenuButton label="HOME" onClick={() => onSectionChange(0)} isActive={currentSection === 0} />
           <MenuButton label="ABOUT" onClick={() => onSectionChange(1)} isActive={currentSection === 1 || currentSection === 2} />
           <MenuButton label="HIGHLIGHTS" onClick={() => onSectionChange(3)} isActive={currentSection >= 3 && currentSection <= 7} />
           <MenuButton label="ARCHIVE" onClick={() => onSectionChange(9)} isActive={currentSection >= 8 && currentSection <= 9} />
         </div>
 
-        <div className="absolute SF-Compact-Semibold bottom-12 left-12">
+        <div className={`absolute SF-Compact-Semibold bottom-12 left-12 ${windowWidth < 765 ? "text-xs" : "text-base"}`}>
           <a href="https://www.instagram.com/mchaodesign/" target="_blank" className="hover:text-rose-700 transition-colors">INSTAGRAM</a><br />
           <a href="https://www.linkedin.com/in/mfchao" target="_blank" className="hover:text-rose-700 transition-colors">LINKEDIN</a>
           <p className="hover:text-rose-700 transition-colors">617-417-9866</p>
@@ -94,3 +95,5 @@ const Line = (props) => {
     </button>
   );
 };
+
+
