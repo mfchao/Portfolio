@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useMotion } from "../../assets/motion";
 
 export const Cuttlefish = (props) => {
-    const { archiveProjectId, setProjectOpened, setArchiveProjectId } = props;
+    const { archiveProjectId, setProjectOpened, setArchiveProjectId, windowWidth } = props;
     const motionProps = useMotion();
 
     const handleClick = () => {
@@ -24,6 +24,7 @@ export const Cuttlefish = (props) => {
                         course="Harvard GSD 6338 Introduction to Computational Design Group Project"
                         role="Role: Computational Designer"
                         description="My new Rhino Grasshopper plug-in, Cuttlefish."
+                        windowWidth={windowWidth}
                     />
                 </div>
 

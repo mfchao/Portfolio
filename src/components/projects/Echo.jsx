@@ -4,7 +4,7 @@ import { useMotion } from "../../assets/motion";
 import { useEffect } from "react";
 
 export const Echo = (props) => {
-    const { setProjectOpened, setArchiveProjectId, openProject, setOpenProject } = props;
+    const { setProjectOpened, setArchiveProjectId, openProject, setOpenProject, windowWidth } = props;
     const motionProps = useMotion();
 
     const handleClick = () => {
@@ -26,9 +26,9 @@ export const Echo = (props) => {
                         course="UCL Design and Creative Practice Individual Project"
                         role="Role: Augmented Reality Prototyper"
                         description="Creating Echo, the augmented reality app designed as your personal memory palace.
-                    Living in a consumer society, we tend to ground ourselves through our belongings; thus we associate memories with objects and locations. 
                     This project focuses on the fluidity and instability of our visual perception and memory in relation to the physical presence, and how spatial relationships can be disrupted and are open to interpretation. Inspired by the notion of human memory being imperfect and dynamic, I built an interactive augmented reality app, Echo, that explores the relationship between object, memory, and space through emotion.
                      "
+                        windowWidth={windowWidth}
                     />
                 </div>
 

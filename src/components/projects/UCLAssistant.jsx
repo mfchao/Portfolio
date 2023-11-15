@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useMotion } from "../../assets/motion";
 
 export const UCLAssistant = (props) => {
-    const { archiveProjectId, setProjectOpened, setArchiveProjectId } = props;
+    const { archiveProjectId, setProjectOpened, setArchiveProjectId, windowWidth } = props;
     const motionProps = useMotion();
 
     const handleClick = () => {
@@ -24,6 +24,7 @@ export const UCLAssistant = (props) => {
                         course="University College London"
                         role="Role: App developer"
                         description="UCL Assistant is an app that aims to organize and optimize a student's life in one app. It uses timetable and room booking features to act as 'one app to manage your life at University College London (UCL)'. This was a project done on behalf of my role as the Program Representative for my program at UCL in year 2."
+                        windowWidth={windowWidth}
                     />
                 </div>
 

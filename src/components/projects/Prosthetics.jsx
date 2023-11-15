@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useMotion } from "../../assets/motion";
 
 export const Prosthetics = (props) => {
-    const { archiveProjectId, setProjectOpened, setArchiveProjectId } = props;
+    const { archiveProjectId, setProjectOpened, setArchiveProjectId, windowWidth } = props;
     const motionProps = useMotion();
 
     const handleClick = () => {
@@ -24,6 +24,7 @@ export const Prosthetics = (props) => {
                         course="UCL Bartlett Design and Creative Practice Individual Project"
                         role="Role: Designer"
                         description="This project is focuses on designing for individuals of varying ability, since in Dr. Jos Boy’s words, ‘we are all disabled in some way.” Tackling design in this way starts to break down the barriers of our preconceptions of what design for disability should be and who can benefit from it, and ultimately can allow us to make possibly better solutions for more people. Thus, this project explores how to use found materials to create prosthetics for different users."
+                        windowWidth={windowWidth}
                     />
                 </div>
 

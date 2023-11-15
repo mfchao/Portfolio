@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useMotion } from "../../assets/motion";
 
 export const GreeningCities = (props) => {
-    const { archiveProjectId, setProjectOpened, setArchiveProjectId } = props;
+    const { archiveProjectId, setProjectOpened, setArchiveProjectId, windowWidth } = props;
     const motionProps = useMotion();
 
     const handleClick = () => {
@@ -25,6 +25,7 @@ export const GreeningCities = (props) => {
                         role="Individual Research Project | Winner of Architectural Research Prize 2021"
                         description="This project was an architectural ideation project and academic report that aims to utilize case studies, interviews, and literature review to analyze, evaluate, and propose green infrastructure solutions to
                         the Bangkok Art and Culture Center (BACC)."
+                        windowWidth={windowWidth}
                     />
                 </div>
 

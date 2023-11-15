@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useMotion } from "../../assets/motion";
 
 export const SpotLite = (props) => {
-    const { archiveProjectId, setProjectOpened, setArchiveProjectId } = props;
+    const { archiveProjectId, setProjectOpened, setArchiveProjectId, windowWidth } = props;
     const motionProps = useMotion();
 
     const handleClick = () => {
@@ -24,6 +24,7 @@ export const SpotLite = (props) => {
                         course="MIT 6.1040 Software Design Individual Project"
                         role="Role: Full Stack Developer"
                         description="A social media app where the feed consists of content from a random select amount of people that refresh and swap out every week."
+                        windowWidth={windowWidth}
                     />
                 </div>
 

@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useMotion } from "../../assets/motion";
 
 export const Droop = (props) => {
-    const { archiveProjectId, setProjectOpened, setArchiveProjectId } = props;
+    const { archiveProjectId, setProjectOpened, setArchiveProjectId, windowWidth } = props;
     const motionProps = useMotion();
 
     const handleClick = () => {
@@ -24,6 +24,7 @@ export const Droop = (props) => {
                         course="Harvard GSD 6338 Introduction to Computational Design Group Project"
                         role="Role: Computational Designer"
                         description="Experimenting with alternative ways of 3D printing by altering and creating custom G-code algorithms."
+                        windowWidth={windowWidth}
                     />
                 </div>
 

@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useMotion } from "../../assets/motion";
 
 export const FooBot = (props) => {
-    const { archiveProjectId, setProjectOpened, setArchiveProjectId } = props;
+    const { archiveProjectId, setProjectOpened, setArchiveProjectId, windowWidth } = props;
     const motionProps = useMotion();
 
     const handleClick = () => {
@@ -24,6 +24,7 @@ export const FooBot = (props) => {
                         course="Harvard GSD 6365 Enactive Design Group Project"
                         role="Role: Web Developer"
                         description="Creating a digital game to explore the silent creation of things as a means to understanding design as a practice"
+                        windowWidth={windowWidth}
                     />
                 </div>
 

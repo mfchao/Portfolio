@@ -15,7 +15,7 @@ export const Menu = (props) => {
 
       <button
         onClick={() => setMenuOpened(!menuOpened)}
-        className="z-20 fixed top-12 right-12 p-3 w-11 h-11 rounded-md"
+        className={`z-20 fixed top-12 right-12 p-3 w-11 h-11 rounded-md ${windowWidth < 765 ? "drop-shadow-2xl" : "drop-shadow-none"}`}
       >
         <div
           className={`bg-black h-0.5 rounded-md w-full transition-all ${menuOpened ? "rotate-45 translate-y-0.5" : ""
@@ -52,7 +52,7 @@ export const Menu = (props) => {
 
       {/* progress lines */}
       <div className={`transition-all fixed bottom-0 left-0 flex flex-row m-12 items-end 
-        ${menuOpened || windowWidth < 765 && projectOpened ? "hidden" : ""}`}>
+        ${menuOpened || windowWidth < 765 && projectOpened ? "hidden" : ""} `}>
         <Line onClick={() => onSectionChange(0)} isLong={currentSection === 0} />
         <Line onClick={() => onSectionChange(1)} isLong={currentSection === 1} />
         <Line onClick={() => onSectionChange(2)} isLong={currentSection === 2} />

@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useMotion } from "../../assets/motion";
 
 export const EMotion = (props) => {
-    const { archiveProjectId, setProjectOpened, setArchiveProjectId } = props;
+    const { archiveProjectId, setProjectOpened, setArchiveProjectId, windowWidth } = props;
     const motionProps = useMotion();
 
     const handleClick = () => {
@@ -24,6 +24,7 @@ export const EMotion = (props) => {
                         course="Harvard GSD Responsive Environments Group Project"
                         role="Role: Physical Computing Designer/Engineer"
                         description="Mood-Tracking Headband: Brain Interfacing with Sharing Soccer Player's Feelings with Fans via Stadium Lights                        "
+                        windowWidth={windowWidth}
                     />
                 </div>
 

@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useMotion } from "../../assets/motion";
 
 export const TangibleIdeas = (props) => {
-    const { setProjectOpened, setArchiveProjectId, openProject, setOpenProject } = props;
+    const { setProjectOpened, setArchiveProjectId, openProject, setOpenProject, windowWidth } = props;
     const motionProps = useMotion();
 
     const handleClick = () => {
@@ -23,6 +23,7 @@ export const TangibleIdeas = (props) => {
                         course="MIT Media Lab Tangible Interfaces Group Project"
                         role="Role: Software Developer"
                         description="Tangible Ideas: Creating AI-Enhanced Mind Maps with Robotic Swarms as Conversational Agents. "
+                        windowWidth={windowWidth}
                     />
                 </div>
 

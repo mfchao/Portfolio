@@ -4,7 +4,7 @@ import { ProjectHeader } from "../ProjectHero";
 import { motion } from "framer-motion";
 import { useMotion } from "../../assets/motion";
 
-export const Always = ({ archiveProjectId, setProjectOpened, setArchiveProjectId }) => {
+export const Always = ({ archiveProjectId, setProjectOpened, setArchiveProjectId, windowWidth }) => {
     const motionProps = useMotion();
 
     const handleClick = () => {
@@ -24,6 +24,7 @@ export const Always = ({ archiveProjectId, setProjectOpened, setArchiveProjectId
                     course="MIT 6.1040 Software Design Group Project"
                     role="Role: Full Stack Developer"
                     description="An app to aid mental health through the facilitation of communication between palliative care patients and their family members or related people in their network."
+                    windowWidth={windowWidth}
                 />
             </div>
 

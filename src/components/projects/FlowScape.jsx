@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useMotion } from "../../assets/motion";
 
 export const FlowScape = (props) => {
-    const { archiveProjectId, setProjectOpened, setArchiveProjectId } = props;
+    const { archiveProjectId, setProjectOpened, setArchiveProjectId, windowWidth } = props;
     const motionProps = useMotion();
 
     const handleClick = () => {
@@ -24,6 +24,7 @@ export const FlowScape = (props) => {
                         course="Harvard GSD 6438 Procedural Fields: Functional Design of Discrete Hyperdimensional Spaces Group Project"
                         role="Role: Computer Graphics Engineer"
                         description="A Personal Space Project: How does crowding in urban landscapes affect the way we interact with others?"
+                        windowWidth={windowWidth}
                     />
                 </div>
 

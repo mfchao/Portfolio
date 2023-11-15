@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useMotion } from "../../assets/motion";
 
 export const DeepFacade = (props) => {
-    const { setProjectOpened, setArchiveProjectId, openProject, setOpenProject } = props;
+    const { setProjectOpened, setArchiveProjectId, openProject, setOpenProject, windowWidth } = props;
     const motionProps = useMotion();
 
     const handleClick = () => {
@@ -23,6 +23,7 @@ export const DeepFacade = (props) => {
                         course="MIT 4.453 Creative Machine Learning Group Project"
                         role="Role: ML Engineer + Web Developer"
                         description="A text-to-3D facade AI tool that deploys a novel relief depth map technology developed using CycleGANs. "
+                        windowWidth={windowWidth}
                     />
                 </div>
 

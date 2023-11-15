@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useMotion } from "../../assets/motion";
 
 export const Temples = (props) => {
-    const { setProjectOpened, setArchiveProjectId, openProject, setOpenProject } = props;
+    const { setProjectOpened, setArchiveProjectId, openProject, setOpenProject, windowWidth } = props;
     const motionProps = useMotion();
 
     const handleClick = () => {
@@ -23,6 +23,7 @@ export const Temples = (props) => {
                         course="Harvard GSD Mediums Proseminar Group Project"
                         role="Role: Augmented Reality Prototyper + Full Stack App Developer"
                         description="An augmented reality app that gamifies shopping rewards through satirical references to Buddhist merit making and consumerism in Bangkok, Thailand.  "
+                        windowWidth={windowWidth}
                     />
                 </div>
 

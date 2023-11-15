@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useMotion } from "../../assets/motion";
 
 export const NeuralSynesthesia = (props) => {
-    const { archiveProjectId, setProjectOpened, setArchiveProjectId } = props;
+    const { archiveProjectId, setProjectOpened, setArchiveProjectId, windowWidth } = props;
     const motionProps = useMotion();
 
     const handleClick = () => {
@@ -24,6 +24,7 @@ export const NeuralSynesthesia = (props) => {
                         course="Harvard GSD 6487 Machine Aesthetics Group Project"
                         role="Role: Machine Learning Engineer"
                         description="Exploring ambience sound to image associations and generating art with machine learning."
+                        windowWidth={windowWidth}
                     />
                 </div>
 

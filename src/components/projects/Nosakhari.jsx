@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useMotion } from "../../assets/motion";
 
 export const Nosakhari = (props) => {
-    const { setProjectOpened, setArchiveProjectId, openProject, setOpenProject } = props;
+    const { setProjectOpened, setArchiveProjectId, openProject, setOpenProject, windowWidth } = props;
     const motionProps = useMotion();
 
     const handleClick = () => {
@@ -23,6 +23,7 @@ export const Nosakhari = (props) => {
                         course="User Experience Internship"
                         role="Role: UX Designer and Researcher"
                         description="During my UX internship at Nosakhari LTD in London, I was tasked with improving the user experience of the Nosakhari brand website through expressive design. "
+                        windowWidth={windowWidth}
                     />
                 </div>
 

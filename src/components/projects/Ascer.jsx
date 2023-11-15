@@ -4,7 +4,7 @@ import { ProjectHeader } from "../ProjectHero";
 import { motion } from "framer-motion";
 import { useMotion } from "../../assets/motion";
 
-export const Ascer = ({ archiveProjectId, setProjectOpened, setArchiveProjectId }) => {
+export const Ascer = ({ archiveProjectId, setProjectOpened, setArchiveProjectId, windowWidth }) => {
     const motionProps = useMotion();
 
     const handleClick = () => {
@@ -24,6 +24,7 @@ export const Ascer = ({ archiveProjectId, setProjectOpened, setArchiveProjectId 
                     course="Harvard MAP+S Lab Research"
                     role="Role: Machine Learning Research \assistant - Technical Lead"
                     description="Developing a machine learning model to predict ‘trendiness’ in tile designs."
+                    windowWidth={windowWidth}
                 />
             </div>
 

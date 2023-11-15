@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 
 export const ProjectHeader = (props) => {
-    const { title, date, location, course, role, description } = props;
+    const { title, date, location, course, role, description, windowWidth } = props;
 
     const myElementRef = useRef(null);
     const [positionTop, setPositionTop] = useState(0);
@@ -61,8 +61,8 @@ export const ProjectHeader = (props) => {
 
 
 
-            <div className="absolute top-56 left-[28%] " >
-                <motion.div className=" text-7xl SF-Compact-Bold mb-8 "
+            <div className={`absolute ${windowWidth < 765 ? "left-[10%] mr-6" : "left-[28%]"} top-56  `}>
+                <motion.div className={` ${windowWidth < 765 ? "text-3xl" : "text-7xl mb-8"}  SF-Compact-Bold  `}
                     initial={{ opacity: 0, y: 25 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, delay: 0 }}>
