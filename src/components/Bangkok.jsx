@@ -10,7 +10,7 @@ export function Bangkok(props) {
   const { nodes, materials } = useGLTF('models/bangkok.gltf')
   return (
     <group {...props} dispose={null}>
-      <mesh geometry={nodes.Cube005.geometry} material={materials['Material.002']} position={[-0.541, 1.389, -1.874]} rotation={[0, -Math.PI / 4, 0]} scale={1.206} castShadow receiveShadow/>
+      <mesh geometry={nodes.Cube005.geometry} material={materials['Material.002']} position={[-0.541, 1.389, -1.874]} rotation={[0, -Math.PI / 4, 0]} scale={1.206} castShadow receiveShadow />
     </group>
   )
 }
