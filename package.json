@@ -19,6 +19,7 @@
     "@theatre/r3f": "0.6.2",
     "@theatre/studio": "0.6.2",
     "@use-gesture/react": "^10.3.0",
+    "@vercel/blob": "^0.15.1",
     "add": "^2.0.6",
     "events": "^3.3.0",
     "framer-motion": "^10.15.1",

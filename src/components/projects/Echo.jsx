@@ -68,7 +68,7 @@ export const Echo = (props) => {
                                 </div>
                                 <motion.div className="image-full"
                                     {...motionProps}>
-                                    <img src="src/images/Echo/heroimage-1.jpeg" />
+                                    <img src="/images/Echo/heroimage-1.jpeg" />
                                 </motion.div>
                                 <div className="text-container normal-text">
                                     <motion.p
