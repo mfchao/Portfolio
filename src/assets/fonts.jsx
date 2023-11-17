@@ -1,7 +1,7 @@
 export default {
-    SFCompactMedium: "./src/fonts/SFCompact/SF-Compact-Text-Medium.ttf",
-    SFCompactThin: "./src/fonts/SFCompact/SF-Compact-Text-Thin.ttf",
-    SFCompactSemibold: "./src/fonts/SFCompact/SF-Compact-Text-Semibold.ttf",
-    SFCompactBold: "./src/fonts/SFCompact/SF-Compact-Text-Bold.ttf",
+  SFCompactMedium: "/fonts/SFCompact/SF-Compact-Text-Medium.ttf",
+  SFCompactThin: "/fonts/SFCompact/SF-Compact-Text-Thin.ttf",
+  SFCompactSemibold: "/fonts/SFCompact/SF-Compact-Text-Semibold.ttf",
+  SFCompactBold: "/fonts/SFCompact/SF-Compact-Text-Bold.ttf",
 
-  };
+};

@@ -1,5 +1,5 @@
 import { useScroll } from "@react-three/drei";
-import logo from "../../images/icons/logo.svg";
+import logo from "/images/icons/logo.svg";
 import { useEffect, useState } from "react";
 
 export const Menu = (props) => {
