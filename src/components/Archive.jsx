@@ -57,8 +57,9 @@ export const Archive = (props) => {
     const bind = useDrag(({ offset: [x] }) => {
         setX(x);
     },
-        { enabled: currentSection >= 9 ? true : false }
+        { enabled: currentSection >= 9 ? true : false, eventOptions: { pointer: true } }
     );
+
 
     const optimizedUrls = useMemo(() => urls.map((url, i) => ({
         url,
@@ -82,6 +83,7 @@ export const Archive = (props) => {
                         setArchiveProjectId={setArchiveProjectId}
                         archiveProjectId={archiveProjectId}
                         setProjectOpened={setProjectOpened}
+
                     />
                 ))}
             </group>
@@ -129,6 +131,26 @@ function Item({ currentSection, index, position, scale, c = new THREE.Color(), t
 
     }, [currentSection, archiveProjectId]);
 
+    useEffect(() => {
+        const preventDefault = (e) => e.preventDefault();
+
+        if (visible) {
+            setTimeout(() => {
+                document.addEventListener('touchmove', preventDefault, { passive: false });
+
+
+            }, 2000);
+        } else {
+            ref.current.removeEventListener('touchmove', preventDefault);
+        }
+
+        return () => {
+            if (visible) {
+                document.removeEventListener('touchmove', preventDefault);
+            }
+        }
+
+    }, [visible]);
 
 
     useFrame((state, delta) => {
@@ -150,7 +172,9 @@ function Item({ currentSection, index, position, scale, c = new THREE.Color(), t
                 onPointerDown={() => setDragging(false)}
                 onPointerMove={() => setDragging(true)}
                 onPointerUp={() => handleClick()}
-                transparent />
+                transparent
+                style={{ touchAction: 'none' }}
+            />
             {hovered === index && <TitleText title={titles[index]} position={[position[0], position[1] - ref.current.scale.y + 2, position[2]]} />}
 
         </>

@@ -147,6 +147,11 @@ h3 {
   font-family: "SF-Compact-Medium";
 }
 
+.canvasStyle {
+  touch-action: none;
+}
+
+
 
 /* project page */
 .mainContainer {

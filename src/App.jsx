@@ -11,7 +11,7 @@ import { Colorado } from './components/Colorado';
 import { Bangkok } from './components/Bangkok';
 import { Boston } from './components/Boston';
 import { London } from './components/London';
-import flyThroughState from './fly4arounded.json';
+import flyThroughState from './fly4a.json';
 import flyThroughState2 from './fly4b.json'
 import { TextElements } from './components/TextElements';
 import { Selector } from './components/Selector';
@@ -117,7 +117,7 @@ function App() {
 
   return (
     <>
-      <Canvas shadows gl={{ preserveDrawingBuffer: true }}>
+      <Canvas shadows gl={{ preserveDrawingBuffer: true }} className="canvasStyle">
         <CameraController projectOpened={projectOpened} windowWidth={windowWidth} />
         <ScrollControls pages={9} damping={0.8} maxSpeed={1} enabled={projectOpened ? false : true}>
           <ScrollManager section={section} onSectionChange={setSection} />
