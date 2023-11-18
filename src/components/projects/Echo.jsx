@@ -26,7 +26,7 @@ export const Echo = (props) => {
                         course="UCL Design and Creative Practice Individual Project"
                         role="Role: Augmented Reality Prototyper"
                         description="Creating Echo, the augmented reality app designed as your personal memory palace.
-                    This project focuses on the fluidity and instability of our visual perception and memory in relation to the physical presence, and how spatial relationships can be disrupted and are open to interpretation. Inspired by the notion of human memory being imperfect and dynamic, I built an interactive augmented reality app, Echo, that explores the relationship between object, memory, and space through emotion.
+                    
                      "
                         windowWidth={windowWidth}
                     />
@@ -43,7 +43,7 @@ export const Echo = (props) => {
                                 <div className="text-container normal-text">
                                     <motion.p
                                         {...motionProps}
-                                    >The context of this app is centered around 2020. With protests, lockdown, Covid-19, political movements, and rights activists, this app serves as a new social media platform that encompasses these many usages. Whether it’s a photo of an angry protest or a sunny beach somewhere, Echo allows people to start conversations, build on, and re-live a multitude of memories across the world.
+                                    >This project focuses on the fluidity and instability of our visual perception and memory in relation to the physical presence, and how spatial relationships can be disrupted and are open to interpretation. Inspired by the notion of human memory being imperfect and dynamic, I built an interactive augmented reality app, Echo, that explores the relationship between object, memory, and space through emotion. The context of this app is centered around 2020. With protests, lockdown, Covid-19, political movements, and rights activists, this app serves as a new social media platform that encompasses these many usages. Whether it’s a photo of an angry protest or a sunny beach somewhere, Echo allows people to start conversations, build on, and re-live a multitude of memories across the world.
                                     </motion.p>
                                 </div>
                                 <motion.div className="image-medium"
