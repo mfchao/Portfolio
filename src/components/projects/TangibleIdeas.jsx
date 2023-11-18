@@ -63,7 +63,7 @@ export const TangibleIdeas = (props) => {
                                 </div>
                                 <motion.div className="image-full"
                                     {...motionProps}>
-                                    <video controls id="myVideo" src="/images/TangibleIdeas/tangiblevideo.mov" type="video/mov">
+                                    <video controls id="myVideo" src="/images/TangibleIdeas/tangiblevideo.mp4" type="video/mp4">
                                         Your browser does not support this video.
                                     </video>
                                     <p className="caption-text">Demo Video: With group members Alex, Jin Gao, and Keyi.</p>

@@ -109,7 +109,7 @@ export const FlowScape = (props) => {
                                 </div>
                                 <motion.div className="image-full"
                                     {...motionProps}>
-                                    <video muted autoPlay loop id="myVideo" src="/images/FlowScape/flow.mov" type="video/mov">
+                                    <video muted autoPlay loop id="myVideo" src="/images/FlowScape/flow.mp4" type="video/mp4">
                                         Your browser does not support this video.
                                     </video>
                                     <p className="caption-text">Web Simulation demo. All visuals and graphics are created using signed distance fields and shaders.</p>

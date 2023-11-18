@@ -137,8 +137,6 @@ function Item({ currentSection, index, position, scale, c = new THREE.Color(), t
         if (visible) {
             setTimeout(() => {
                 document.addEventListener('touchmove', preventDefault, { passive: false });
-
-
             }, 2000);
         } else {
             ref.current.removeEventListener('touchmove', preventDefault);
