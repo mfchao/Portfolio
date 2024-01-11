@@ -62,7 +62,7 @@ export const ProjectHeader = (props) => {
 
 
             <div className={`absolute ${windowWidth < 765 ? "left-[10%] mr-6" : "left-[28%]"} top-56  `}>
-                <motion.div className={` ${windowWidth < 765 ? "text-3xl" : "text-7xl mb-8"}  SF-Compact-Bold  `}
+                <motion.div className={` ${windowWidth < 765 ? "text-3xl" : "text-7xl mb-8"}  SF-Compact-Bold `}
                     initial={{ opacity: 0, y: 25 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, delay: 0 }}>
