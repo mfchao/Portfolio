@@ -17,7 +17,7 @@ import { SpotLite } from "./projects/SpotLite";
 import { Prosthetics } from "./projects/Prosthetics";
 import { EMotion } from "./projects/EMotion";
 import { MappingMinds } from "./projects/MappingMinds";
-import { TangibleNotes } from "./projects/TangibleNotes";
+import { SpatialNotes } from "./projects/SpatialNotes";
 
 
 
@@ -61,7 +61,7 @@ export const ProjectManager = (props) => {
                     <Prosthetics archiveProjectId={archiveProjectId} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} windowWidth={windowWidth} />
                     <EMotion archiveProjectId={archiveProjectId} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} windowWidth={windowWidth} />
                     <MappingMinds archiveProjectId={archiveProjectId} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} windowWidth={windowWidth} />
-                    <TangibleNotes archiveProjectId={archiveProjectId} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} windowWidth={windowWidth} />
+                    <SpatialNotes archiveProjectId={archiveProjectId} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} windowWidth={windowWidth} />
                 </div>
 
 
