@@ -14,9 +14,9 @@ export function Boston(props) {
   const { hovered, projectHovered } = useContext(TextElementContext);
   const { nodes, materials } = useGLTF('models/boston.gltf');
 
-  const textureDeepFacade = useTexture("/images/DeepFacade/webapp.jpg");
-  const textureTemples = useTexture("/images/Temples/frames.jpg");
-  const textureTangible = useTexture("/images/TangibleIdeas/nodes.jpg");
+  const textureAlways = useTexture("/images/Always/PalHero.jpg");
+  const textureMindMap = useTexture("/images/MappingMinds/image1.jpg");
+  const textureAscer = useTexture("/images/Ascer/tiles.jpg");
 
   const materialRef = useRef();
   const [opacity, setOpacity] = useState(0);
@@ -33,18 +33,18 @@ export function Boston(props) {
   let texture = null;
   let rotation = [null];
   let scale = [null];
-  if (projectHovered === "deepfacade") {
-    texture = textureDeepFacade;
+  if (projectHovered === "always") {
+    texture = textureAlways;
     rotation = [0, 2.5, 0];
-    scale = [3.5, 3, 3];
-  } else if (projectHovered === "temples") {
-    texture = textureTemples;
+    scale = [2.5, 1.5, 2.8];
+  } else if (projectHovered === "mappingminds") {
+    texture = textureMindMap;
     rotation = [0, 0, 0];
-    scale = [3, 2, 2];
-  } else if (projectHovered === "tangibleIdeas") {
-    texture = textureTangible;
+    scale = [2.5, 1.5, 2];
+  } else if (projectHovered === "ascer") {
+    texture = textureAscer;
     rotation = [0, -2, 0];
-    scale = [3, 3, 2.5];
+    scale = [2, 1.5, 2.5];
   }
 
   return (
@@ -54,9 +54,10 @@ export function Boston(props) {
           <>
             <meshBasicMaterial transparent opacity={0} />
             <Decal
-              position={[0, 0, 0.2]}
+              position={[0, -0.2, 0.2]}
               rotation={rotation}
               scale={scale}
+
             >
               {/* <MeshWobbleMaterial factor={1} speed={2} map={texture} polygonOffset polygonOffsetFactor={-1} /> */}
               <MeshDistortMaterial distort={0.3} speed={2} map={texture} polygonOffset polygonOffsetFactor={-1} ref={materialRef} />

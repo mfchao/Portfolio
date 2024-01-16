@@ -39,7 +39,7 @@ export const Menu = (props) => {
           <MenuButton label="HOME" onClick={() => onSectionChange(0)} isActive={currentSection === 0} />
           <MenuButton label="ABOUT" onClick={() => onSectionChange(1)} isActive={currentSection === 1 || currentSection === 2} />
           <MenuButton label="HIGHLIGHTS" onClick={() => onSectionChange(3)} isActive={currentSection >= 3 && currentSection <= 7} />
-          <MenuButton label="ARCHIVE" onClick={() => onSectionChange(9)} isActive={currentSection >= 8 && currentSection <= 9} />
+          <MenuButton label="FEATURED" onClick={() => onSectionChange(9)} isActive={currentSection >= 8 && currentSection <= 9} />
         </div>
 
         <div className={`absolute SF-Compact-Semibold bottom-12 left-12 ${windowWidth < 765 ? "text-xs" : "text-base"}`}>

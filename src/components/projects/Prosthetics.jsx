@@ -12,7 +12,7 @@ export const Prosthetics = (props) => {
     };
 
 
-    if (archiveProjectId === 10) {
+    if (archiveProjectId === 11) {
         return (
             <>
 

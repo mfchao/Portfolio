@@ -93,7 +93,7 @@ export const TextElements = ({ setHovered, setProjectOpened, projectOpened, curr
         },
         {
             key: "P0Text4",
-            text: "Scroll to explore my world",
+            text: "Scroll to explore each block of my life so far...",
             fillOpacityState: useState(null),
             visible: useState(false),
             ref: useRef(),
@@ -126,7 +126,7 @@ export const TextElements = ({ setHovered, setProjectOpened, projectOpened, curr
         },
         {
             key: "P1Text3",
-            text: " WHERE I GREW UP FASCINATED WITH DESIGN.",
+            text: "WHERE I GREW UP FASCINATED WITH DESIGN.",
             fillOpacityState: useState(null),
             visible: useState(false),
             ref: useRef(),
@@ -137,7 +137,7 @@ export const TextElements = ({ setHovered, setProjectOpened, projectOpened, curr
         },
         {
             key: "P1Text4",
-            text: "Ever since a young age, I've been passionate about innovation.",
+            text: "Ever since a young age, I've been passionate about innovation",
             fillOpacityState: useState(null),
             visible: useState(false),
             ref: useRef(),
@@ -147,41 +147,8 @@ export const TextElements = ({ setHovered, setProjectOpened, projectOpened, curr
             clickable: useState(false)
         },
         {
-            key: "P2Text1",
-            text: "I MOVED TO",
-            fillOpacityState: useState(null),
-            visible: useState(false),
-            ref: useRef(),
-            color: "black",
-            toggleProject: false,
-            props: title,
-            clickable: useState(false)
-        },
-        {
-            key: "P2Text2",
-            text: "BANGKOK, THAILAND",
-            fillOpacityState: useState(null),
-            visible: useState(false),
-            ref: useRef(),
-            color: "black",
-            toggleProject: false,
-            props: bold,
-            clickable: useState(false)
-        },
-        {
-            key: "P2Text3",
-            text: "WHEN I WAS 16.",
-            fillOpacityState: useState(null),
-            visible: useState(false),
-            ref: useRef(),
-            color: "black",
-            toggleProject: false,
-            props: title,
-            clickable: useState(false)
-        },
-        {
-            key: "P2Text4",
-            text: "Since then, I've picked up",
+            key: "P1Text5",
+            text: "and have picked up",
             fillOpacityState: useState(null),
             visible: useState(false),
             ref: useRef(),
@@ -191,7 +158,7 @@ export const TextElements = ({ setHovered, setProjectOpened, projectOpened, curr
             clickable: useState(false)
         },
         {
-            key: "P2Text5",
+            key: "P1Text6",
             text: "these skills",
             fillOpacityState: useState(null),
             visible: useState(false),
@@ -203,8 +170,8 @@ export const TextElements = ({ setHovered, setProjectOpened, projectOpened, curr
             project: "skills"
         },
         {
-            key: "P2Text6",
-            text: "in design, computation, and fabrication.",
+            key: "P1Text7",
+            text: "over the years.",
             fillOpacityState: useState(null),
             visible: useState(false),
             ref: useRef(),
@@ -214,7 +181,7 @@ export const TextElements = ({ setHovered, setProjectOpened, projectOpened, curr
             clickable: useState(false)
         },
         {
-            key: "P3Text1",
+            key: "P2Text1",
             text: "01.",
             fillOpacityState: useState(null),
             visible: useState(false),
@@ -225,8 +192,88 @@ export const TextElements = ({ setHovered, setProjectOpened, projectOpened, curr
             clickable: useState(false)
         },
         {
+            key: "P2Text2",
+            text: "WHEN I WAS 16 I MOVED TO",
+            fillOpacityState: useState(null),
+            visible: useState(false),
+            ref: useRef(),
+            color: "black",
+            toggleProject: false,
+            props: title,
+            clickable: useState(false)
+        },
+        {
+            key: "P2Text3",
+            text: "BANGKOK,",
+            fillOpacityState: useState(null),
+            visible: useState(false),
+            ref: useRef(),
+            color: "black",
+            toggleProject: false,
+            props: bold,
+            clickable: useState(false)
+        },
+        {
+            key: "P2Text4",
+            text: "WHICH LATER INSPIRED A PROJECT",
+            fillOpacityState: useState(null),
+            visible: useState(false),
+            ref: useRef(),
+            color: "black",
+            toggleProject: false,
+            props: title,
+            clickable: useState(false)
+        },
+        {
+            key: "P2Text5",
+            text: "ABOUT GAMIFYING SHOPPING IN THAILAND, CALLED",
+            fillOpacityState: useState(null),
+            visible: useState(false),
+            ref: useRef(),
+            color: "black",
+            toggleProject: false,
+            props: title,
+            clickable: useState(false)
+        },
+        {
+            key: "P2Text6",
+            text: "TEMPLES OF CONSUMERISM.",
+            fillOpacityState: useState(null),
+            visible: useState(false),
+            ref: useRef(),
+            color: hovered ? "rgb(255, 255, 255)" : "rgb(213, 39, 1)",
+            outlineWidth: hovered ? 0.008 : 0,
+            outlineOpacity: hovered ? 1 : 0,
+            toggleProject: true,
+            props: title,
+            clickable: useState(true),
+            project: "temples"
+        },
+        {
+            key: "P2Text7",
+            text: "Click the red project titles to see details!",
+            fillOpacityState: useState(null),
+            visible: useState(false),
+            ref: useRef(),
+            color: "black",
+            toggleProject: false,
+            props: subtitle,
+            clickable: useState(false)
+        },
+        {
+            key: "P3Text1",
+            text: "02.",
+            fillOpacityState: useState(null),
+            visible: useState(false),
+            ref: useRef(),
+            color: "black",
+            toggleProject: true,
+            props: number,
+            clickable: useState(false)
+        },
+        {
             key: "P3Text2",
-            text: "WHILE STUDYING ARCHITECTURE IN",
+            text: "FOR UNDERGRAD I MOVED TO",
             fillOpacityState: useState(null),
             visible: useState(false),
             ref: useRef(),
@@ -248,7 +295,7 @@ export const TextElements = ({ setHovered, setProjectOpened, projectOpened, curr
         },
         {
             key: "P3Text4",
-            text: "AT UCL, I CREATED AN AUGMENTED REALITY",
+            text: "TO STUDY ARCHITECTURE, WHERE I CREATED",
             fillOpacityState: useState(null),
             visible: useState(false),
             ref: useRef(),
@@ -259,7 +306,7 @@ export const TextElements = ({ setHovered, setProjectOpened, projectOpened, curr
         },
         {
             key: "P3Text5",
-            text: "MEMORY PALACE CALLED",
+            text: "AN AUGMENTED REALITY MEMORY PALACE CALLED",
             fillOpacityState: useState(null),
             visible: useState(false),
             ref: useRef(),
@@ -284,7 +331,7 @@ export const TextElements = ({ setHovered, setProjectOpened, projectOpened, curr
         },
         {
             key: "P4Text1",
-            text: "02.",
+            text: "03.",
             fillOpacityState: useState(null),
             visible: useState(false),
             ref: useRef(),
@@ -295,7 +342,7 @@ export const TextElements = ({ setHovered, setProjectOpened, projectOpened, curr
         },
         {
             key: "P4Text2",
-            text: "IN LONDON, I CREATED EXPRESSIVE UX/UI DESIGNS FOR",
+            text: "ARCHITECTURE CONTINUED TO INSPIRE MY WORK AFTER UCL,",
             fillOpacityState: useState(null),
             visible: useState(false),
             ref: useRef(),
@@ -306,7 +353,18 @@ export const TextElements = ({ setHovered, setProjectOpened, projectOpened, curr
         },
         {
             key: "P4Text3",
-            text: "NOSAKHARI",
+            text: "INCLUDING MY TEXT-TO-FACADE AI MODEL CALLED",
+            fillOpacityState: useState(null),
+            visible: useState(false),
+            ref: useRef(),
+            color: "black",
+            toggleProject: true,
+            props: title,
+            clickable: useState(false)
+        },
+        {
+            key: "P4Text4",
+            text: "DEEPFACADE.",
             fillOpacityState: useState(null),
             visible: useState(false),
             ref: useRef(),
@@ -316,11 +374,11 @@ export const TextElements = ({ setHovered, setProjectOpened, projectOpened, curr
             toggleProject: true,
             props: title,
             clickable: useState(true),
-            project: "nosakhari"
+            project: "deepfacade"
         },
         {
             key: "P5Text1",
-            text: "03.",
+            text: "04.",
             fillOpacityState: useState(null),
             visible: useState(false),
             ref: useRef(),
@@ -342,7 +400,7 @@ export const TextElements = ({ setHovered, setProjectOpened, projectOpened, curr
         },
         {
             key: "P5Text3",
-            text: "BOSTON, ",
+            text: "BOSTON,",
             fillOpacityState: useState(null),
             visible: useState(false),
             ref: useRef(),
@@ -353,7 +411,7 @@ export const TextElements = ({ setHovered, setProjectOpened, projectOpened, curr
         },
         {
             key: "P5Text4",
-            text: "I CREATED A TEXT TO FACADE AI MODEL CALLED",
+            text: "I BUILT A PATIENT-CENTRIC HEALTHCARE APP CALLED",
             fillOpacityState: useState(null),
             visible: useState(false),
             ref: useRef(),
@@ -364,7 +422,7 @@ export const TextElements = ({ setHovered, setProjectOpened, projectOpened, curr
         },
         {
             key: "P5Text5",
-            text: "DEEPFACADE",
+            text: "ALWAYS",
             fillOpacityState: useState(null),
             visible: useState(false),
             ref: useRef(),
@@ -374,11 +432,11 @@ export const TextElements = ({ setHovered, setProjectOpened, projectOpened, curr
             toggleProject: true,
             props: title,
             clickable: useState(true),
-            project: "deepfacade"
+            project: "always"
         },
         {
             key: "P5Text6",
-            text: "FOR A PROJECT AT",
+            text: "FOR A FULL STACK PROJECT AT",
             fillOpacityState: useState(null),
             visible: useState(false),
             ref: useRef(),
@@ -422,7 +480,7 @@ export const TextElements = ({ setHovered, setProjectOpened, projectOpened, curr
         },
         {
             key: "P6Text3",
-            text: "HARVARD GSD, ",
+            text: "HARVARD GSD,",
             fillOpacityState: useState(null),
             visible: useState(false),
             ref: useRef(),
@@ -433,7 +491,7 @@ export const TextElements = ({ setHovered, setProjectOpened, projectOpened, curr
         },
         {
             key: "P6Text4",
-            text: "I GAMIFIED SHOPPING REWARDS WITH AR IN THE APP",
+            text: "I CREATED AN INTERACTIVE BRAINSTORMING TOOL CALLED",
             fillOpacityState: useState(null),
             visible: useState(false),
             ref: useRef(),
@@ -444,7 +502,7 @@ export const TextElements = ({ setHovered, setProjectOpened, projectOpened, curr
         },
         {
             key: "P6Text5",
-            text: "TEMPLES OF CONSUMERISM.",
+            text: "MAPPING MINDS.",
             fillOpacityState: useState(null),
             visible: useState(false),
             ref: useRef(),
@@ -454,11 +512,11 @@ export const TextElements = ({ setHovered, setProjectOpened, projectOpened, curr
             toggleProject: true,
             props: title,
             clickable: useState(true),
-            project: "temples"
+            project: "mappingminds"
         },
         {
             key: "P7Text1",
-            text: "05.",
+            text: "06.",
             fillOpacityState: useState(null),
             visible: useState(false),
             ref: useRef(),
@@ -469,7 +527,7 @@ export const TextElements = ({ setHovered, setProjectOpened, projectOpened, curr
         },
         {
             key: "P7Text2",
-            text: "WHILE TAKING CLASSES AT THE",
+            text: "AS A MACHINE LEARNING RESEARCHER AT THE",
             fillOpacityState: useState(null),
             visible: useState(false),
             ref: useRef(),
@@ -480,7 +538,7 @@ export const TextElements = ({ setHovered, setProjectOpened, projectOpened, curr
         },
         {
             key: "P7Text3",
-            text: "MEDIA LAB, ",
+            text: "HARVARD MAP+S LAB,",
             fillOpacityState: useState(null),
             visible: useState(false),
             ref: useRef(),
@@ -491,7 +549,7 @@ export const TextElements = ({ setHovered, setProjectOpened, projectOpened, curr
         },
         {
             key: "P7Text4",
-            text: "I BUILT AN INTERACTIVE BRAINSTORMING TOOL CALLED",
+            text: "I AM BUILDING A DESIGN METRIC AI PREDICTOR FOR",
             fillOpacityState: useState(null),
             visible: useState(false),
             ref: useRef(),
@@ -502,7 +560,7 @@ export const TextElements = ({ setHovered, setProjectOpened, projectOpened, curr
         },
         {
             key: "P7Text5",
-            text: "MAKING IDEAS TANGIBLE.",
+            text: "ASCER TILE RESEARCH.",
             fillOpacityState: useState(null),
             visible: useState(false),
             ref: useRef(),
@@ -512,7 +570,7 @@ export const TextElements = ({ setHovered, setProjectOpened, projectOpened, curr
             toggleProject: true,
             props: title,
             clickable: useState(true),
-            project: "tangibleIdeas"
+            project: "ascer"
         },
         {
             key: "P8Text1",
@@ -579,7 +637,10 @@ export const TextElements = ({ setHovered, setProjectOpened, projectOpened, curr
             const [visible, setVisibleState] = element.visible;
             const [clickable, setClickableState] = element.clickable;
 
-            if (element.color != "black") {
+            if (element.key == "P0Text2") {
+                setClickableState(false);
+            }
+            else if (element.color != "black") {
                 setClickableState(true);
             } else {
                 setClickableState(false);

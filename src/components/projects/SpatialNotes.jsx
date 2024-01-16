@@ -12,7 +12,7 @@ export const SpatialNotes = ({ archiveProjectId, setProjectOpened, setArchivePro
         setArchiveProjectId(null);
     };
 
-    if (archiveProjectId !== 13) return null;
+    if (archiveProjectId !== 3) return null;
 
     return (
         <>

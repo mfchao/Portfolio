@@ -43,24 +43,24 @@ export const ProjectManager = (props) => {
                 <div className={`absolute top-0 left-0 w-screen h-screen overflow-y-scroll transition-all ease-in-out duration-700 `}>
                     <Skills openProject={openProject} windowWidth={windowWidth} />
                     <Echo setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} openProject={openProject} setOpenProject={setOpenProject} windowWidth={windowWidth} />
-                    <Nosakhari setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} openProject={openProject} setOpenProject={setOpenProject} windowWidth={windowWidth} />
                     <DeepFacade setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} openProject={openProject} setOpenProject={setOpenProject} windowWidth={windowWidth} />
                     <Temples setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} openProject={openProject} setOpenProject={setOpenProject} windowWidth={windowWidth} />
-                    <TangibleIdeas setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} openProject={openProject} setOpenProject={setOpenProject} windowWidth={windowWidth} />
+                    <Always setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} openProject={openProject} setOpenProject={setOpenProject} windowWidth={windowWidth} />
+                    <MappingMinds setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} openProject={openProject} setOpenProject={setOpenProject} windowWidth={windowWidth} />
+                    <Ascer setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} openProject={openProject} setOpenProject={setOpenProject} windowWidth={windowWidth} />
 
-                    <Ascer archiveProjectId={archiveProjectId} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} windowWidth={windowWidth} />
+                    <TangibleIdeas archiveProjectId={archiveProjectId} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} windowWidth={windowWidth} />
+                    <Nosakhari archiveProjectId={archiveProjectId} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} windowWidth={windowWidth} />
                     <Cuttlefish archiveProjectId={archiveProjectId} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} windowWidth={windowWidth} />
                     <Droop archiveProjectId={archiveProjectId} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} windowWidth={windowWidth} />
                     <UCLAssistant archiveProjectId={archiveProjectId} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} windowWidth={windowWidth} />
                     <GreeningCities archiveProjectId={archiveProjectId} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} windowWidth={windowWidth} />
                     <NeuralSynesthesia archiveProjectId={archiveProjectId} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} windowWidth={windowWidth} />
                     <FlowScape archiveProjectId={archiveProjectId} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} windowWidth={windowWidth} />
-                    <Always archiveProjectId={archiveProjectId} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} windowWidth={windowWidth} />
                     <FooBot archiveProjectId={archiveProjectId} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} windowWidth={windowWidth} />
                     <SpotLite archiveProjectId={archiveProjectId} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} windowWidth={windowWidth} />
                     <Prosthetics archiveProjectId={archiveProjectId} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} windowWidth={windowWidth} />
                     <EMotion archiveProjectId={archiveProjectId} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} windowWidth={windowWidth} />
-                    <MappingMinds archiveProjectId={archiveProjectId} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} windowWidth={windowWidth} />
                     <SpatialNotes archiveProjectId={archiveProjectId} setProjectOpened={setProjectOpened} setArchiveProjectId={setArchiveProjectId} windowWidth={windowWidth} />
                 </div>
 

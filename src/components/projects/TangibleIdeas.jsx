@@ -3,16 +3,16 @@ import { motion } from "framer-motion";
 import { useMotion } from "../../assets/motion";
 
 export const TangibleIdeas = (props) => {
-    const { setProjectOpened, setArchiveProjectId, openProject, setOpenProject, windowWidth } = props;
+    const { archiveProjectId, setProjectOpened, setArchiveProjectId, windowWidth } = props;
     const motionProps = useMotion();
 
     const handleClick = () => {
         setProjectOpened(false)
         setArchiveProjectId(null);
-        setOpenProject(null);
     };
 
-    if (openProject === 'tangibleIdeas') {
+
+    if (archiveProjectId === 5) {
         return (
             <>
                 <div className="fixed w-screen z-0">

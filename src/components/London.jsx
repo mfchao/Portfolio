@@ -12,13 +12,21 @@ export function London() {
   const { nodes, materials } = useGLTF('models/london.gltf');
 
   const textureEcho = useTexture("/images/Echo/heroimage-1.jpeg");
-  const textureNosakhari = useTexture("/images/Nosakhari/manypages.jpg");
+  const textureDeepFacade = useTexture("/images/DeepFacade/webapp.jpg");
+
 
   let texture = null;
+  let rotation = [null];
+  let scale = [null];
   if (projectHovered === "echo") {
     texture = textureEcho;
-  } else if (projectHovered === "nosakhari") {
-    texture = textureNosakhari;
+    rotation = [0, 2.3, 0];
+    scale = [3.5, 3.5, 3.5];
+  }
+  else if (projectHovered === "deepfacade") {
+    texture = textureDeepFacade;
+    rotation = [0, 3.55, 0];
+    scale = [4, 4, 4];
   }
 
   return (
@@ -30,8 +38,8 @@ export function London() {
             <meshBasicMaterial transparent opacity={0} />
             <Decal
               position={[0, 0, 0]}
-              rotation={[0, 2.3, 0]}
-              scale={[3.5, 3.5, 3.5]}
+              rotation={rotation}
+              scale={scale}
             >
               {/* <MeshWobbleMaterial factor={1} speed={2} map={texture} polygonOffset polygonOffsetFactor={-1} /> */}
               <MeshDistortMaterial distort={0.3} speed={2} map={texture} polygonOffset polygonOffsetFactor={-1} />

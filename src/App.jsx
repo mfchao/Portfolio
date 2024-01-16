@@ -12,7 +12,7 @@ import { Bangkok } from './components/Bangkok';
 import { Boston } from './components/Boston';
 import { London } from './components/London';
 import flyThroughState from './fly4a.json';
-import flyThroughState2 from './fly4b.json'
+import flyThroughState2 from './fly4b.json';
 import { TextElements } from './components/TextElements';
 import { Selector } from './components/Selector';
 import { HtmlWrapper } from './components/HtmlWrapper';
@@ -112,7 +112,12 @@ function App() {
 
   const dataStyles = {
     fontSize: '12px',
-    font: fonts.SFCompactSemibold
+    font: fonts.SFCompactSemibold,
+    color: 'black'
+  };
+
+  const container = {
+    backgroundColor: 'white',
   };
 
   return (
@@ -156,9 +161,11 @@ function App() {
           <Noise opacity={0.2} />
         </EffectComposer>
       </Canvas>
+
       <Loader
         dataInterpolation={(p) => `${p.toFixed(0)}`}
         dataStyles={dataStyles}
+        containerStyles={container}
       />
 
       <Menu
