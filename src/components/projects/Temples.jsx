@@ -35,17 +35,22 @@ export const Temples = (props) => {
                                     {...motionProps}>
                                     <img src="/images/Temples/frames.jpg"></img>
                                 </motion.div>
+                                {renderSectionTitle('PROJECT OVERVIEW')}
+
                                 <div className="text-container normal-text">
                                     <motion.p
                                         {...motionProps}
                                     >In extension to @snobs._ ‘s thesis on the political structure of Bangkok’s shopping malls, I created an augmented reality app that brings the idea of Buddhist merit making into the realm of shopping through a satirical criticism of consumerism in Thailand.
                                     </motion.p>
                                 </div>
+
                                 <div className="text-container large-text">
                                     <motion.p
                                         {...motionProps}
                                     >Merit making is a process by which the more money individuals give temples, the higher their spiritual level. This app combines merit making with the idea of conventional shopping rewards where the points, or score, of an individual increases based on how much money and time they spend in the store.</motion.p>
                                 </div>
+                                {renderSectionTitle('HOW IT WORKS')}
+
                                 <div className="text-container normal-text">
                                     <motion.p
                                         {...motionProps}
@@ -57,6 +62,7 @@ export const Temples = (props) => {
                                     <video autoPlay muted loop id="myVideo" src="/images/Temples/welcometutorial.mp4" type="video/mp4">
                                         Your browser does not support this video.
                                     </video>
+                                    <p className="caption-text">App Startup Tutorial Demo</p>
                                 </motion.div>
                                 <div className="text-container large-text">
                                     <motion.p
@@ -99,10 +105,16 @@ export const Temples = (props) => {
                                     >A leaderboard page is displayed to show the ranking of all players and their corresponding spiritual levels. Similarly, the 'My Score' page shows a breakdown of the player's score and tips on how to increase the score.
                                     </motion.p>
                                 </div>
+                                <div className="text-container large-text">
+                                    <motion.p
+                                        {...motionProps}
+                                    >Incentivising spending money to raise one’s spiritual status satirically represents and critiques the merit making and consumerist culture in Bangkok, through augmented reality gamification.</motion.p>
+                                </div>
+                                {renderSectionTitle('PERSONAL TAKEAWAYS')}
                                 <div className="text-container normal-text">
                                     <motion.p
                                         {...motionProps}
-                                    >Throughout this project, I developed many additional skills using AR Foundation in Unity, including raytracing and image tracking. However, in this project I am most proud to say that this was the first time I fully developed a full stack app; from thinking through the experience design in AR, to how to make the functionality work using Firebase Realtime Database paired with User Authentication, and developing the back end of the app in XCode. Given this excellent experience, I learned an immense amount about how to redesign conventional apps (like shopping rewards apps) to be more interactive in using augmented reality, and I gained the skills to bring these ideas to life as the developer in addition to the designer.
+                                    >This project opened my eyes to how new technologies like AR can be applied in creative and novel use cases, even in things as conventional as shopping rewards. Throughout this project, I developed many additional skills using AR Foundation in Unity, including raytracing and image tracking. However, in this project I am most proud to say that this was the first time I fully developed a full stack app; from thinking through the experience design in AR, to how to make the functionality work using Firebase Realtime Database paired with User Authentication, and developing the back end of the app in XCode. Given this excellent experience, I learned an immense amount about how to redesign conventional apps (like shopping rewards apps) to be more interactive in using augmented reality, and I gained the skills to bring these ideas to life as the developer in addition to the designer.
                                     </motion.p>
                                 </div>
 
@@ -125,3 +137,16 @@ export const Temples = (props) => {
         return null;
     }
 };
+
+
+const renderSectionTitle = (title) => (
+    <div className="section-title">
+        <motion.p {...useMotion()}>{title}</motion.p>
+    </div>
+);
+
+const renderTextContainer = (className, text) => (
+    <div className={`text-container ${className}`}>
+        <motion.p {...useMotion()}>{text}</motion.p>
+    </div>
+);

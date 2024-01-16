@@ -251,7 +251,7 @@ export const TextElements = ({ setHovered, setProjectOpened, projectOpened, curr
         },
         {
             key: "P2Text7",
-            text: "Click the red project titles to see details!",
+            text: " ",
             fillOpacityState: useState(null),
             visible: useState(false),
             ref: useRef(),
