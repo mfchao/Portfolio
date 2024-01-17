@@ -33,8 +33,13 @@ export const Always = ({ setProjectOpened, setArchiveProjectId, openProject, set
                     <div className="absolute h-20 bg-gradient-to-t from-white ... w-screen bottom-0">
                         <div className="bg-white w-screen mt-20">
                             <div className="mainContainer">
-                                <motion.div className="image-medium mt-20" {...motionProps}>
-                                    <img src="/images/Always/timeCap.png" alt="Always"></img>
+
+                                <motion.div className="image-full"
+                                    {...motionProps}>
+                                    <video controls id="myVideo" src="/images/Always/ALWAYS.mp4" type="video/mp4">
+                                        Your browser does not support this video.
+                                    </video>
+                                    <p className="caption-text">Demo Video: Created with Yinghou Wang.</p>
                                 </motion.div>
                                 {renderSectionTitle('PROBLEM AREA')}
                                 {renderTextContainer('normal-text', 'Palliative care improves the quality of life of patients and that of their families who are facing challenges associated with life-threatening illness, whether physical, psychological, social, or spiritual. The quality of life of caregivers improves as well. According to the World Health Organization (WHO), palliative care is often not included in national health policies and systems, and training on palliative care for health professionals is often limited or non-existent. Particular problems within this domain might be: How to enable broader access to patients and caregivers, how to better facilitate conversation and communication during this critical time for different stakeholders, and how to give various types of palliative care on demand.')}
@@ -59,12 +64,8 @@ export const Always = ({ setProjectOpened, setArchiveProjectId, openProject, set
                                 </motion.div>
                                 {renderSectionTitle('BETA LAUNCH')}
                                 {renderTextContainer('normal-text', 'For our final launch, we revised various issues identified in the user testing, and conducted various reports on both patient and family versions of the app. ')}
-                                <motion.div className="image-full"
-                                    {...motionProps}>
-                                    <video controls id="myVideo" src="/images/Always/ALWAYS.mp4" type="video/mp4">
-                                        Your browser does not support this video.
-                                    </video>
-                                    <p className="caption-text">Demo Video: Created with Yinghou Wang.</p>
+                                <motion.div className="image-medium" {...motionProps}>
+                                    <img src="/images/Always/timeCap.png" alt="Always"></img>
                                 </motion.div>
 
                                 {renderTextContainer('normal-text', 'We believe this is important and impactful because addressing the taboo of death is crucial as it contributes to mental health struggles and communication breakdowns in palliative contexts. Our app offers a dual benefit: a "listening ear" and a therapeutic space for patients, as well as a supportive tool for families to cope with the impending loss and transition. ')}
