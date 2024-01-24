@@ -6,6 +6,14 @@ import { useEffect, useState } from "react";
 export const Menu = (props) => {
   const { onSectionChange, menuOpened, setMenuOpened, currentSection, windowWidth, projectOpened } = props;
 
+  const [menuOpacity, setMenuOpacity] = useState(0);
+
+  // Use useEffect to update opacity based on menuOpened state
+  useEffect(() => {
+    // Set opacity to 1 when menu is opened, 0 otherwise
+    setMenuOpacity(menuOpened ? 1 : 0);
+  }, [menuOpened]);
+
   return (
     <>
       <QuestionMark projectOpened={projectOpened} windowWidth={windowWidth} />
@@ -35,8 +43,8 @@ export const Menu = (props) => {
       </button>
 
       <div
-        className={`z-10 fixed justify-center top-0 right-0 bottom-0 transition-all overflow-hidden flex flex-col  ease-in-out duration-700
-        ${menuOpened ? "w-screen" : "w-0"}`}
+        className={`z-10 fixed justify-center top-0 right-0 bottom-0 overflow-hidden flex flex-col ease-in-out 
+        ${menuOpened ? "w-screen opacity-100 [transition:opacity_3s,width_0.4s]" : "w-0 opacity-0 [transition:opacity_0.5s,width_0.4s]"}`}
       >
         <div className={`z-30 flex justify-between m-4 ${windowWidth < 765 ? "flex-col" : "flex-row"}`}>
           <MenuButton label="HOME" onClick={() => onSectionChange(0)} isActive={currentSection === 0} />
@@ -68,7 +76,7 @@ export const Menu = (props) => {
         <Line onClick={() => onSectionChange(9)} isLong={currentSection > 8} />
       </div>
 
-      {/* <div className={`svgHero max-w-2xl fixed bottom-5 left-1/2 mb-12`}>
+      {/* <div className={`svgHero max-w-2xl fixed bottom-5 left-1/2 mb-12 `}>
         <svg width="24" height="54" viewBox="0 0 24 54" fill="none" xmlns="http://www.w3.org/2000/svg" role="img">
           <rect x="1" y="1" width="22" height="34" rx="11" stroke="black" strokeWidth="2" />
           <line x1="12.3" y1="10.3" x2="12.3" y2="17.7" stroke="black" strokeWidth="2.6" strokeLinecap="round" />
