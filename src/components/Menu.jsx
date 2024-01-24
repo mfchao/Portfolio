@@ -40,9 +40,9 @@ export const Menu = (props) => {
       >
         <div className={`z-30 flex justify-between m-4 ${windowWidth < 765 ? "flex-col" : "flex-row"}`}>
           <MenuButton label="HOME" onClick={() => onSectionChange(0)} isActive={currentSection === 0} />
-          <MenuButton label="ABOUT" onClick={() => onSectionChange(1)} isActive={currentSection === 1 || currentSection === 2} />
-          <MenuButton label="HIGHLIGHTS" onClick={() => onSectionChange(3)} isActive={currentSection >= 3 && currentSection <= 7} />
-          <MenuButton label="FEATURED" onClick={() => onSectionChange(9)} isActive={currentSection >= 8 && currentSection <= 9} />
+          <MenuButton label="ABOUT" onClick={() => onSectionChange(1)} isActive={currentSection === 1} />
+          <MenuButton label="HIGHLIGHTS" onClick={() => onSectionChange(2)} isActive={currentSection >= 2 && currentSection <= 7} />
+          <MenuButton label="FEATURED" onClick={() => onSectionChange(9)} isActive={currentSection >= 8} />
         </div>
 
         <div className={`absolute SF-Compact-Semibold bottom-12 left-12 ${windowWidth < 765 ? "text-xs" : "text-base"}`}>
@@ -65,7 +65,7 @@ export const Menu = (props) => {
         <Line onClick={() => onSectionChange(6)} isLong={currentSection === 6} />
         <Line onClick={() => onSectionChange(7)} isLong={currentSection === 7} />
         <Line onClick={() => onSectionChange(8)} isLong={currentSection === 8} />
-        <Line onClick={() => onSectionChange(9)} isLong={currentSection === 9} />
+        <Line onClick={() => onSectionChange(9)} isLong={currentSection > 8} />
       </div>
 
       {/* <div className={`svgHero max-w-2xl fixed bottom-5 left-1/2 mb-12`}>
@@ -130,7 +130,7 @@ const QuestionMark = (props) => {
         </svg>
 
       </div>
-      <p className={` question-text ${isHovered ? 'visible' : ''}  ${projectOpened ? "hidden" : ""} ${windowWidth < 765 ? "w-36" : ""}`}>Click the red titles to explore the projects, and keep scrolling to continue the journey! </p>
+      <p className={` question-text ${isHovered ? 'visible' : ''}  ${projectOpened ? "hidden" : ""} ${windowWidth < 765 ? "w-36" : ""}`}>Click the red titles to explore the projects, and <strong>keep scrolling</strong> to continue the journey! </p>
     </>
   );
 };
