@@ -11,9 +11,10 @@ const damp = THREE.MathUtils.damp;
 
 const state = proxy({
     hovered: null,
+    colored: null,
     urls: Array.from({ length: 13 }, (_, i) => `/images/Heros/${i}.jpg`),
-    titles: ['FlowScape', 'Neural Synesthesia', 'Nosakhari Internship', 'Spatial Notes', 'SpotLite', 'Tangible Ideas', 'Silent Game BuildBot', 'Cuttlefish Grasshopper Plugin', 'UCL Assistant', '3D Droop', 'E-Motion', 'Accessible Prosthetics', 'Greening Cities']
-
+    titles: ['FlowScape', 'Neural Synesthesia', 'Nosakhari Internship', 'Spatial Notes', 'SpotLite', 'Tangible Ideas', 'Silent Game BuildBot', 'Cuttlefish Grasshopper Plugin', 'UCL Assistant', '3D Droop', 'E-Motion', 'Accessible Prosthetics', 'Greening Cities'],
+    // categories: ['UX', 'Computation', 'UX', 'Computation', 'UX', 'Computation', 'UX', 'Computation', 'UX', 'Fabrication', 'Computation', 'Fabrication', 'Fabrication']
 })
 
 const w = 0.7;
@@ -69,6 +70,7 @@ export const Archive = (props) => {
     })), [urls, xW]);
 
 
+
     return (
         <>
             <group ref={ref} {...bind()} position-x={x * factor}>
@@ -97,6 +99,9 @@ export const Archive = (props) => {
 function Item({ currentSection, index, position, scale, c = new THREE.Color(), titles, archiveProjectId, setArchiveProjectId, setProjectOpened, ...props }) {
     const ref = useRef()
 
+    // const [selectedCategory, setSelectedCategory] = useState(null);
+
+
     const { hovered, urls } = useSnapshot(state)
     const hover = () => {
         if (visible) {
@@ -104,6 +109,16 @@ function Item({ currentSection, index, position, scale, c = new THREE.Color(), t
         }
     }
     const out = () => state.hovered = null;
+
+    // const { colored } = useSnapshot(state)
+    // const color = () => {
+    //     if (visible) {
+    //         state.colored = state.categories[index] === selectedCategory ? null : index;
+
+    //     }
+    // }
+    // const uncolor = () => state.colored = null;
+
 
     const [visible, setVisible] = useState(false);
     const [startOpacityAnimation, setStartOpacityAnimation] = useState(false);
@@ -152,13 +167,22 @@ function Item({ currentSection, index, position, scale, c = new THREE.Color(), t
     }, [visible]);
 
 
+
     useFrame((state, delta) => {
+
         ref.current.material.scale[1] = ref.current.scale.y = damp(ref.current.scale.y, hovered === index ? 5 : 4, 8, delta)
         ref.current.material.scale[0] = ref.current.scale.x = damp(ref.current.scale.x, hovered === index ? 4.7 : scale[0], 6, delta)
         if (hovered !== null && index < hovered) ref.current.position.x = damp(ref.current.position.x, position[0] - 2, 6, delta)
         if (hovered !== null && index > hovered) ref.current.position.x = damp(ref.current.position.x, position[0] + 2, 6, delta)
         if (hovered === null || hovered === index) ref.current.position.x = damp(ref.current.position.x, position[0], 6, delta)
         ref.current.material.grayscale = damp(ref.current.material.grayscale, hovered === index ? 0 : Math.max(0, 1), 6, delta)
+        // ref.current.material.grayscale = damp(
+        //     ref.current.material.grayscale,
+        //     (hovered === index || colored === index) ? 0 : Math.max(0, 1),
+        //     6,
+        //     delta
+        // );
+
         ref.current.material.color.lerp(c.set(hovered === index ? 'white' : '#aaa'), hovered ? 0.3 : 0.1)
 
         ref.current.material.opacity = damp(ref.current.material.opacity, startOpacityAnimation && visible === true ? 1 : 0, 6, delta)
@@ -166,6 +190,43 @@ function Item({ currentSection, index, position, scale, c = new THREE.Color(), t
     })
     return (
         <>
+            {/* <Text position={[-5, 0, 0]}
+                fontSize={0.2}
+                color="black"
+                anchorX="center"
+                anchorY="bottom-baseline"
+            >
+                Filter:
+            </Text>
+            <Text position={[-5, -0.5, 0]}
+                fontSize={0.2}
+                color="black"
+                anchorX="center"
+                anchorY="bottom-baseline"
+                onClick={() => setSelectedCategory('UX')}
+                onPointerOver={color} onPointerOut={uncolor}
+            >
+                UX
+            </Text>
+            <Text position={[-5, -0.8, 0]}
+                fontSize={0.2}
+                color="black"
+                anchorX="center"
+                anchorY="bottom-baseline"
+                onClick={() => setSelectedCategory('Computation')}
+            >
+                Computation
+            </Text> 
+            <Text position={[-5, -1.1, 0]}
+                fontSize={0.2}
+                color="black"
+                anchorX="center"
+                anchorY="bottom-baseline"
+                onClick={() => setSelectedCategory('Fabrication')}
+            >
+                Fabrication
+            </Text>*/}
+
 
             <Image ref={ref} {...props} position={position} scale={scale} onPointerOver={hover} onPointerOut={out}
                 onPointerDown={() => setDragging(false)}

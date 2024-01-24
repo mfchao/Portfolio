@@ -16,7 +16,7 @@ export const Menu = (props) => {
 
   return (
     <>
-      <QuestionMark projectOpened={projectOpened} windowWidth={windowWidth} />
+      <QuestionMark projectOpened={projectOpened} windowWidth={windowWidth} currentSection={currentSection} />
 
       <img
         src={logo}
@@ -117,12 +117,16 @@ const Line = (props) => {
 };
 
 const QuestionMark = (props) => {
-  const { projectOpened, windowWidth } = props;
+  const { projectOpened, windowWidth, currentSection } = props;
 
   const [isHovered, setHovered] = useState(false);
   const handleClick = () => {
     setHovered(!isHovered);
   };
+
+  const questionText = currentSection >= 8
+    ? "Click and drag the images left and right to see more projects!"
+    : "Click the red titles to explore the projects, and <strong>keep scrolling</strong> to continue the journey! ";
 
   return (
     <>
@@ -138,7 +142,7 @@ const QuestionMark = (props) => {
         </svg>
 
       </div>
-      <p className={` question-text ${isHovered ? 'visible' : ''}  ${projectOpened ? "hidden" : ""} ${windowWidth < 765 ? "w-36" : ""}`}>Click the red titles to explore the projects, and <strong>keep scrolling</strong> to continue the journey! </p>
+      <p className={` question-text ${isHovered ? 'visible' : ''}  ${projectOpened ? "hidden" : ""} ${windowWidth < 765 ? "w-36" : ""}`} dangerouslySetInnerHTML={{ __html: questionText }}></p>
     </>
   );
 };
