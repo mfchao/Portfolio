@@ -211,7 +211,7 @@ function Scene({ setProjectOpened, projectOpened, currentSection, openProject, s
 
   useFrame(() => {
     const sequenceLength = val(sheet.sequence.pointer.length);
-    sheet.sequence.position = scroll.offset * sequenceLength;
+    sheet.sequence.position = Math.abs(scroll.offset * sequenceLength);
   });
 
 
