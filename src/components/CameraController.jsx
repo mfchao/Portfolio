@@ -23,8 +23,8 @@ export const CameraController = (props) => {
         }
 
         const { x, y } = mousePosition;
-        const rotationX = (y / window.innerHeight - 0.5) * Math.PI * 0.03;
-        const rotationY = (x / window.innerWidth - 0.5) * Math.PI * 0.03;
+        const rotationX = (y / window.innerHeight - 0.5) * Math.PI * 0.02;
+        const rotationY = (x / window.innerWidth - 0.5) * Math.PI * 0.02;
         camera.rotation.set(rotationX, rotationY, 0);
     });
 

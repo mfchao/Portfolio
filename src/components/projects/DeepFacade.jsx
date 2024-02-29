@@ -77,7 +77,7 @@ export const DeepFacade = (props) => {
                                 <motion.div className="image-medium"
                                     {...motionProps}>
                                     <img src="/images/DeepFacade/studentexample.jpg"></img>
-                                    <p className="caption-text">Studio example facade design (right) based on an AI inpiration image (left) by Bingyu Guo and Maria Sofia</p>
+                                    <p className="caption-text">Studio example facade design (right) based on an AI inpsiration image (left) by Bingyu Guo and Maria Sofia</p>
                                 </motion.div>
                                 <div className="text-container normal-text">
                                     <motion.p

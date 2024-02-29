@@ -7,29 +7,30 @@ import * as THREE from "three";
 
 
 const bgColors = [
-  { colorA: "#92bed4", colorB: "#aaba8a", duration: 0.5 },
-  { colorA: "#e3d18f", colorB: "#dba29e", duration: 1 },
-  { colorA: "#d5bae8", colorB: "#a9b8db", duration: 1 },
-  { colorA: "#de99a3", colorB: "#8bccca", duration: 1 },
-  { colorA: "#f1dcf7", colorB: "#f2f2f2", duration: 1 },
+  { colorA: "#7cbfcc", colorB: "#aaba8a", colorC: "#e8f2d8", duration: 0.5 },
+  { colorA: "#FEB17E", colorB: "#5971E1", colorC: "#CFE0FF", duration: 1 },
+  { colorA: "#DBB4CC", colorB: "#B66EB7", colorC: "#e3f8fa", duration: 1 },
+  { colorA: "#e3817f", colorB: "#249da6", colorC: "#7decf5", duration: 1 },
+  { colorA: "#f1dcf7", colorB: "#83A5FF", colorC: "#FFFFFF", duration: 1 },
 ];
 
 export const Experience = (props) => {
-  const {setCurrentSection, menuOpened } = props;
+  const { setCurrentSection, menuOpened } = props;
 
   //Scroll
   const scroll = useScroll();
   const lastScroll = useRef(0);
   const tl = useRef();
   const backgroundColors = useRef({
-    colorA: "#f1dcf7",
-    colorB: "#f2f2f2",
+    colorA: "#E2CACD",
+    colorB: "#83A5FF",
+    colorC: "#EFE8EF",
   });
 
 
-  useFrame((_state, delta) => { 
-    
-    const scrollOffset = Math.max(0, scroll.offset);    
+  useFrame((_state, delta) => {
+
+    const scrollOffset = Math.max(0, scroll.offset);
 
     //set scroll position for menu
     setCurrentSection(Math.floor(scrollOffset * 10));
@@ -42,7 +43,7 @@ export const Experience = (props) => {
     );
 
     lastScroll.current = lerpedScrollOffset;
-    
+
     //get scroll position for background colors
     tl.current.seek(lerpedScrollOffset * tl.current.duration());
 
@@ -66,8 +67,8 @@ export const Experience = (props) => {
 
   return useMemo(
     () => (
-    <>
-      <Background backgroundColors={backgroundColors}/>
+      <>
+        <Background backgroundColors={backgroundColors} />
       </>
     ),
     []

@@ -235,7 +235,7 @@ function Item({ currentSection, index, position, scale, c = new THREE.Color(), t
                 transparent
                 style={{ touchAction: 'none' }}
             />
-            {hovered === index && <TitleText title={titles[index]} position={[position[0], position[1] - ref.current.scale.y + 2, position[2]]} />}
+            {hovered === index && <TitleText title={titles[index]} position={[position[0], position[1] - ref.current.scale.y + 2, position[2] + 0.1]} />}
 
         </>
     )

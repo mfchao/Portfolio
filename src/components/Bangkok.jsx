@@ -4,7 +4,7 @@ Command: npx gltfjsx@6.2.7 public/models/bangkok.gltf
 */
 
 import React, { useContext, useRef, useState } from 'react'
-import { Decal, MeshDistortMaterial, MeshWobbleMaterial, useGLTF, useTexture } from '@react-three/drei'
+import { Decal, MeshDistortMaterial, MeshReflectorMaterial, MeshTransmissionMaterial, MeshWobbleMaterial, useGLTF, useTexture } from '@react-three/drei'
 import { TextElementContext } from '../assets/TextElementContext';
 import { useFrame } from '@react-three/fiber';
 import { easing } from 'maath';
@@ -46,6 +46,8 @@ export function Bangkok(props) {
           </>
         )}
         {!texture && <meshBasicMaterial attach="material" {...materials['Material.002']} />}
+
+
       </mesh>
     </group>
   )
