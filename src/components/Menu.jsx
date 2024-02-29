@@ -1,4 +1,3 @@
-import { useScroll } from "@react-three/drei";
 import logo from "/images/icons/logo.svg";
 import { useEffect, useState } from "react";
 
@@ -7,12 +6,41 @@ export const Menu = (props) => {
   const { onSectionChange, menuOpened, setMenuOpened, currentSection, windowWidth, projectOpened } = props;
 
   const [menuOpacity, setMenuOpacity] = useState(0);
+  const [verticalLineLength, setVerticalLineLength] = useState(null);
+
+
 
   // Use useEffect to update opacity based on menuOpened state
   useEffect(() => {
     // Set opacity to 1 when menu is opened, 0 otherwise
     setMenuOpacity(menuOpened ? 1 : 0);
   }, [menuOpened]);
+
+  useEffect(() => {
+    if (currentSection === 0) {
+      setVerticalLineLength("h-[0.5rem]");
+    } else if (currentSection === 1) {
+      setVerticalLineLength("h-[2.1rem]");
+    } else if (currentSection === 2) {
+      setVerticalLineLength("h-[4rem]");
+    } else if (currentSection === 3) {
+      setVerticalLineLength("h-[5.5rem]");
+    } else if (currentSection === 4) {
+      setVerticalLineLength("h-[6.5rem]");
+    } else if (currentSection === 5) {
+      setVerticalLineLength("h-[7rem]");
+    } else if (currentSection === 6) {
+      setVerticalLineLength("h-[7.5rem]");
+    } else if (currentSection === 7) {
+      setVerticalLineLength("h-[8.3rem]");
+    } else if (currentSection === 8) {
+      setVerticalLineLength("h-[9rem]");
+    } else if (currentSection >= 9) {
+      setVerticalLineLength("h-[9.5rem]");
+    } else {
+      setVerticalLineLength("h-[1rem]");
+    }
+  }, [currentSection]);
 
   return (
     <>
@@ -62,7 +90,7 @@ export const Menu = (props) => {
       </div>
 
       {/* progress lines */}
-      <div className={`transition-all fixed bottom-0 left-0 flex flex-row m-12 items-end 
+      <div className={`transition-all fixed bottom-0 left-0 flex flex-row m-12 items-end ${windowWidth > 765 ? "hidden" : ""}
         ${menuOpened || windowWidth < 765 && projectOpened ? "hidden" : ""} `}>
         <Line onClick={() => onSectionChange(0)} isLong={currentSection === 0} />
         <Line onClick={() => onSectionChange(1)} isLong={currentSection === 1} />
@@ -76,14 +104,24 @@ export const Menu = (props) => {
         <Line onClick={() => onSectionChange(9)} isLong={currentSection > 8} />
       </div>
 
-      {/* <div className={`svgHero max-w-2xl fixed bottom-5 left-1/2 mb-12 `}>
-        <svg width="24" height="54" viewBox="0 0 24 54" fill="none" xmlns="http://www.w3.org/2000/svg" role="img">
-          <rect x="1" y="1" width="22" height="34" rx="11" stroke="black" strokeWidth="2" />
-          <line x1="12.3" y1="10.3" x2="12.3" y2="17.7" stroke="black" strokeWidth="2.6" strokeLinecap="round" />
-          <path d="M8 42L12.6467 46.3333L17.1481 42" stroke="black" strokeWidth="2" strokeLinecap="round" />
-          <path d="M8 48.2592L12.6467 52.5926L17.1481 48.2592" stroke="black" strokeWidth="2" strokeLinecap="round" />
-        </svg>
-      </div> */}
+
+      <div className={`transition-all fixed top-[40%] left-12 flex items-start ${windowWidth > 765 ? "" : "hidden"}`}>
+        <div className="relative">
+          <div className={`rounded-xl w-0.5 transition-all m-1.5 ease-in-out duration-1000 bg-black ${verticalLineLength} opacity-60`}></div>
+          <div className="absolute m-1.5 top-0 w-0.5 h-[9.5rem] bg-black bg-opacity-50 opacity-10"></div>
+        </div>
+        <div className={`flex flex-col SF-Compact-Semibold text-xs tracking-wider ml-3 mb-4 mt-1 opacity-60`}>
+          <p className={`cursor-pointer mb-3 ease-in-out duration-1000 ${currentSection === 0 ? "opacity-100" : "opacity-10"}`} onClick={() => onSectionChange(0)} >START JOURNEY</p>
+          <p className={`cursor-pointer mb-3 ease-in-out duration-1000 ${currentSection === 1 ? "opacity-100" : "opacity-10"}`} onClick={() => onSectionChange(1)}>COLORADO</p>
+          <p className={`cursor-pointer mb-3 ease-in-out duration-1000 ${currentSection === 2 ? "opacity-100" : "opacity-10"}`} onClick={() => onSectionChange(2)}> BANGKOK</p>
+          <p className={`cursor-pointer mb-3 ease-in-out duration-1000 ${currentSection === 3 || currentSection === 4 || currentSection === 5 ? "opacity-100" : "opacity-10"}`} onClick={() => onSectionChange(3)}>LONDON</p>
+          <p className={`cursor-pointer mb-3 ease-in-out duration-1000 ${currentSection === 6 || currentSection === 7 ? "opacity-100" : "opacity-10"}`} onClick={() => onSectionChange(5)}>BOSTON</p>
+          <p className={`cursor-pointer mb-3 ease-in-out duration-1000 ${currentSection >= 8 ? "opacity-100" : "opacity-10"}`} onClick={() => onSectionChange(8)}>EXPLORE MORE</p>
+        </div>
+      </div >
+
+
+
     </>);
 }
 

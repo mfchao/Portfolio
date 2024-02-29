@@ -99,8 +99,8 @@ export const Background = ({ backgroundColors }) => {
       </Sphere> */}
 
       {/* <spotLight ref={lightColorB} position={[2, 5, 8]} intensity={0.2} /> */}
-      <ambientLight ref={lightColorA} intensity={0.7} />
-      <pointLight ref={lightColorB} position={[0, 3, 4]} intensity={0.7} />
+      <ambientLight ref={lightColorA} intensity={0.87} />
+      <pointLight ref={lightColorB} position={[0, 3, 4]} intensity={0.75} />
       <pointLight position={[0, 0, 4]} intensity={0.3} ref={lightColorC} />
       <pointLight position={[3, 4, 4]} intensity={0.6} color={"white"} />
 
