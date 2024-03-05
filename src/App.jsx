@@ -20,7 +20,9 @@ import { Archive } from './components/Archive';
 import { TextElementContext } from './assets/TextElementContext';
 import { CameraController } from './components/CameraController';
 import fonts from "./assets/fonts";
-import { OrbitControls } from '@react-three/drei'
+import { OrbitControls } from '@react-three/drei';
+
+
 
 
 function App() {
@@ -126,7 +128,7 @@ function App() {
       <Canvas shadows gl={{ preserveDrawingBuffer: true }} className="canvasStyle" camera={{ position: [0, 0, 5], fov: 60 }}>
         {/* <OrbitControls /> */}
         <CameraController projectOpened={projectOpened} windowWidth={windowWidth} />
-        <ScrollControls pages={9} damping={0.8} maxSpeed={0.8} enabled={projectOpened ? false : true}>
+        <ScrollControls pages={9} damping={0.4} maxSpeed={0.8} enabled={projectOpened ? false : true}>
           <ScrollManager section={section} onSectionChange={setSection} />
 
           <HtmlWrapper
