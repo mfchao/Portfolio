@@ -120,6 +120,10 @@ export const Menu = (props) => {
         </div>
       </div >
 
+      <div className={`text-xs SF-Compact-Light text-gray-800 transition-all absolute bottom-10 left-12 ${currentSection >= 8 ? "opacity-100" : "opacity-0"} ${windowWidth > 765 ? "" : "hidden"} ${projectOpened || menuOpened ? "hidden" : ""}`}>
+        <p>Website designed and built by Maggie Chao © 2024</p>
+      </div>
+
 
 
     </>);
