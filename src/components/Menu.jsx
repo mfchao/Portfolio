@@ -105,7 +105,7 @@ export const Menu = (props) => {
       </div>
 
 
-      <div className={`transition-all fixed top-[40%] left-12 flex items-start ${windowWidth > 765 ? "" : "hidden"}`}>
+      <div className={`transition-all fixed top-[40%] left-12 flex items-start ${windowWidth > 765 ? "" : "hidden"} ${projectOpened || menuOpened ? "hidden" : ""}`}>
         <div className="relative">
           <div className={`rounded-xl w-0.5 transition-all m-1.5 ease-in-out duration-1000 bg-black ${verticalLineLength} opacity-60`}></div>
           <div className="absolute m-1.5 top-0 w-0.5 h-[9.5rem] bg-black bg-opacity-50 opacity-10"></div>
@@ -120,7 +120,7 @@ export const Menu = (props) => {
         </div>
       </div >
 
-      <div className={`text-xs SF-Compact-Light text-gray-800 transition-all absolute bottom-10 left-12 ${currentSection >= 8 ? "opacity-100" : "opacity-0"} ${windowWidth > 765 ? "" : "hidden"} ${projectOpened || menuOpened ? "hidden" : ""}`}>
+      <div className={`text-xs SF-Compact-Light text-gray-700 transition-all duration-1000 absolute bottom-10 left-12 ${currentSection >= 9.1 ? "opacity-30" : "opacity-0"} ${windowWidth > 765 ? "" : "hidden"} ${projectOpened || menuOpened ? "hidden" : ""}`}>
         <p>Website designed and built by Maggie Chao © 2024</p>
       </div>
 
